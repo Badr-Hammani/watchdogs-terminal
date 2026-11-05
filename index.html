@@ -1229,9 +1229,11 @@
       const host = window.location.hostname;
       if (host === 'localhost' || host === '127.0.0.1' || host.endsWith('.trycloudflare.com') || host.endsWith('.loca.lt')) {
         backendOrigin = '';
+        console.log('Using direct local/origin backend.');
         return;
       }
       try {
+        console.log('Resolving live backend from GitHub tunnel registry...');
         const rawRes = await fetch('https://raw.githubusercontent.com/Badr-Hammani/watchdogs-terminal/main/tunnel.json?t=' + Date.now());
         if (rawRes.ok) {
           const td = await rawRes.json();
@@ -1241,8 +1243,11 @@
         }
       } catch (e) {
         console.warn('Backend resolution fallback:', e);
-        if (!backendOrigin) backendOrigin = 'https://modifications-toolkit-thousand-dynamic.trycloudflare.com';
       }
+      if (!backendOrigin) {
+        backendOrigin = 'https://modifications-toolkit-thousand-dynamic.trycloudflare.com';
+      }
+      console.log('Backend successfully resolved to:', backendOrigin);
     }
 
     function switchAccount(accKey) {
@@ -1754,9 +1759,13 @@
       }
     }
 
-    // Initial load + 2s poll
-    pollDashboard();
-    setInterval(pollDashboard, 2000);
+    // Proper async startup sequence
+    async function startApplication() {
+      await initBackendResolver();
+      await pollDashboard();
+      setInterval(pollDashboard, 2000);
+    }
+    startApplication();
   </script>
 </body>
 </html>
