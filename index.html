@@ -1388,23 +1388,45 @@
       pollDashboard();
     }
 
+    let consecutivePollFailures = 0;
+
     async function pollDashboard() {
       try {
+        let data = null;
         const targetUrl = (backendOrigin ? `${backendOrigin}/api/status?account=${currentAccount}` : `/api/status?account=${currentAccount}`);
-        let res;
         try {
-          res = await fetch(targetUrl, { mode: 'cors' });
-        } catch (fetchErr) {
-          if (backupUrl && backendOrigin !== backupUrl) {
-            console.warn('Primary tunnel failed, switching to backup:', backupUrl);
-            backendOrigin = backupUrl;
-            res = await fetch(`${backendOrigin}/api/status?account=${currentAccount}`, { mode: 'cors' });
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3500);
+          const res = await fetch(targetUrl, { mode: 'cors', signal: controller.signal });
+          clearTimeout(timeoutId);
+          if (res.ok) {
+            data = await res.json();
+            consecutivePollFailures = 0;
+            if (backendOrigin) updatePortalBadge('PORTAL: LIVE (CF)', true);
           } else {
-            throw fetchErr;
+            throw new Error(`HTTP ${res.status}`);
+          }
+        } catch (fetchErr) {
+          consecutivePollFailures++;
+          if (consecutivePollFailures % 2 === 1) {
+            await initBackendResolver();
+          }
+          try {
+            const snapRes = await fetch('https://raw.githubusercontent.com/Badr-Hammani/watchdogs-terminal/main/live_snapshot.json?t=' + Date.now());
+            if (snapRes.ok) {
+              const snap = await snapRes.json();
+              if (snap.primary_url && snap.primary_url !== backendOrigin) {
+                backendOrigin = snap.primary_url;
+              }
+              if (snap.accounts && snap.accounts[currentAccount]) {
+                data = snap.accounts[currentAccount];
+                updatePortalBadge('PORTAL: LIVE (GH-SYNC)', true);
+              }
+            }
+          } catch (snapErr) {
+            console.warn('Snapshot fallback error:', snapErr);
           }
         }
-        if (!res.ok) return;
-        const data = await res.json();
 
         if (!data || data.status === 'ERROR') {
           const statusEl = document.getElementById('bot-status-text');
