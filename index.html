@@ -2171,9 +2171,24 @@
             }
           }
 
-          if (!chartInitialized) {
-            chart.timeScale().fitContent();
-            chartInitialized = true;
+          if (validCandles.length > 0) {
+            const totalBars = validCandles.length;
+            if (!chartInitialized) {
+              chart.timeScale().setVisibleLogicalRange({
+                from: Math.max(0, totalBars - 45),
+                to: totalBars + 4
+              });
+              chartInitialized = true;
+            } else {
+              // Keep view locked to active live candles
+              const curRange = chart.timeScale().getVisibleLogicalRange();
+              if (curRange && (curRange.to - curRange.from < 10 || curRange.from < 0)) {
+                chart.timeScale().setVisibleLogicalRange({
+                  from: Math.max(0, totalBars - 45),
+                  to: totalBars + 4
+                });
+              }
+            }
           }
         }
 
