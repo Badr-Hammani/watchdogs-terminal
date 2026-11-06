@@ -430,6 +430,124 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
+    
+    /* Calendar & Journal Styles */
+    .cal-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cal-header-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 600px) {
+      .cal-header-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .cal-grid-5col {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+    @media (max-width: 500px) {
+      .cal-grid-5col {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+      }
+    }
+    .cal-day-cell {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 8px 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 72px;
+    }
+    .cal-day-cell:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+      transform: translateY(-1px);
+    }
+    .cal-day-cell.selected {
+      border-color: var(--cyan);
+      background: rgba(0, 240, 255, 0.08);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+    }
+    .cal-day-cell.today {
+      border: 1px solid var(--amber);
+      background: rgba(255, 179, 0, 0.08);
+    }
+    .cal-day-cell.milestone {
+      border: 1px solid var(--green);
+      background: rgba(0, 230, 118, 0.08);
+    }
+    .cal-day-cell.target-pass {
+      border: 1px solid #FFD700;
+      background: rgba(255, 215, 0, 0.12);
+    }
+    .cal-badge {
+      display: inline-block;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 4px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .cal-badge-audit { background: rgba(255, 179, 0, 0.2); color: var(--amber); }
+    .cal-badge-pass { background: rgba(0, 230, 118, 0.2); color: var(--green); }
+    .cal-badge-today { background: rgba(0, 240, 255, 0.2); color: var(--cyan); }
+    .cal-badge-proj { background: rgba(255, 255, 255, 0.08); color: var(--text-dim); }
+    .cal-badge-target { background: rgba(255, 215, 0, 0.25); color: #FFD700; font-weight: 800; }
+
+    .day-inspector-card {
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid var(--surface-border);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .inspector-subtabs {
+      display: flex;
+      gap: 6px;
+      border-bottom: 1px solid var(--surface-border);
+      padding-bottom: 8px;
+    }
+    .inspector-subtab-btn {
+      background: transparent;
+      border: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .inspector-subtab-btn.active {
+      background: var(--surface-elevated);
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+    .opp-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
     /* Panel Cards */
     .panel-card {
       background: var(--surface);
@@ -891,6 +1009,7 @@
         <button class="tab-btn active" onclick="switchMobileTab('zones')">🎯 ZONES</button>
         <button class="tab-btn" onclick="switchMobileTab('dom')">📖 DOM</button>
         <button class="tab-btn" onclick="switchMobileTab('rules')">🛡️ RULES</button>
+        <button class="tab-btn" onclick="switchMobileTab('calendar')">📅 CALENDAR</button>
         <button class="tab-btn" onclick="switchMobileTab('positions')">💼 TRADES</button>
         <button class="tab-btn" onclick="switchMobileTab('logs')">🤖 LOGS</button>
         <button class="tab-btn" onclick="switchMobileTab('stats')">📊 STATS</button>
@@ -1033,6 +1152,80 @@
 
   <!-- Bottom Layout: Open Positions + Audit Console -->
   <section class="bottom-layout">
+      
+      <!-- Panel: Trading Calendar & Opportunity Journal -->
+      <div class="panel-card tab-content" id="tab-calendar" style="display: none;">
+        <div class="panel-header">
+          <span>📅 VALIDATION CALENDAR & OPPORTUNITY JOURNAL</span>
+          <span class="badge" style="background: rgba(255, 215, 0, 0.15); color: #FFD700;">TARGET: $5,400.00</span>
+        </div>
+
+        <div class="cal-container">
+          <!-- Top Trajectory Summary -->
+          <div class="cal-header-summary mono">
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px; border-left: 3px solid var(--amber);">
+              <div style="font-size: 9px; color: var(--text-muted);">CURRENT EQUITY</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--amber);" id="cal-current-equity">$4,852.19</div>
+              <div style="font-size: 9px; color: var(--red);">-$147.81 (-2.95%)</div>
+            </div>
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px; border-left: 3px solid var(--cyan);">
+              <div style="font-size: 9px; color: var(--text-muted);">DISTANCE TO PASS</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--cyan);" id="cal-distance">$547.81</div>
+              <div style="font-size: 9px; color: var(--text-dim);">+11.29% to $5,400</div>
+            </div>
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px; border-left: 3px solid var(--green);">
+              <div style="font-size: 9px; color: var(--text-muted);">SAFETY BUFFER</div>
+              <div style="font-size: 15px; font-weight: 800; color: var(--green);">$352.19</div>
+              <div style="font-size: 9px; color: var(--text-dim);">Floor: $4,500.00</div>
+            </div>
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px; border-left: 3px solid #FFD700;">
+              <div style="font-size: 9px; color: var(--text-muted);">EST. VALIDATION</div>
+              <div style="font-size: 15px; font-weight: 800; color: #FFD700;">NOV 28 - DEC 2</div>
+              <div style="font-size: 9px; color: var(--text-dim);">~18-22 Trading Days</div>
+            </div>
+          </div>
+
+          <!-- Weekday Labels -->
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center; font-size: 10px; font-weight: 700; color: var(--text-muted);" class="mono">
+            <div>MON</div>
+            <div>TUE</div>
+            <div>WED</div>
+            <div>THU</div>
+            <div>FRI</div>
+          </div>
+
+          <!-- Interactive Calendar Grid -->
+          <div class="cal-grid-5col mono" id="calendar-grid-days">
+            <!-- Injected dynamically by renderCalendar() -->
+          </div>
+
+          <!-- Selected Day Inspector -->
+          <div class="day-inspector-card" id="day-inspector">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <span style="font-size: 13px; font-weight: 800; color: #FFF;" id="insp-date-title">🗓️ THURSDAY, NOV 5, 2026</span>
+                <span class="badge" id="insp-status-badge" style="margin-left: 8px; background: rgba(255, 179, 0, 0.15); color: var(--amber);">AUDITED (3 EVENTS)</span>
+              </div>
+              <div class="mono" style="font-size: 11px; color: var(--cyan);" id="insp-equity-target">
+                ACTUAL EQUITY: $4,852.19
+              </div>
+            </div>
+
+            <!-- Subtabs -->
+            <div class="inspector-subtabs">
+              <button class="inspector-subtab-btn" id="btn-sub-exec" onclick="switchInspectorTab('exec')">🎯 EXECUTED TRADES (<span id="insp-exec-count">0</span>)</button>
+              <button class="inspector-subtab-btn active" id="btn-sub-opp" onclick="switchInspectorTab('opp')">⚡ MISSED & FILTERED OPPORTUNITIES (<span id="insp-opp-count">3</span>)</button>
+              <button class="inspector-subtab-btn" id="btn-sub-plan" onclick="switchInspectorTab('plan')">📈 TRAJECTORY & RISK PLAN</button>
+            </div>
+
+            <!-- Content Area -->
+            <div id="inspector-content">
+              <!-- Injected by renderDayDetails() -->
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Panel: Strategy Quant Statistical Scorecard -->
       <div class="panel-card tab-content" id="tab-stats" style="display: none;">
         <div class="panel-header">
@@ -1268,7 +1461,7 @@
     // Mobile Segmented Tab Switcher
     function switchMobileTab(tabKey) {
       if (window.innerWidth > 960) return; // Desktop shows all
-      const tabs = ['zones', 'dom', 'rules', 'positions', 'logs', 'stats'];
+      const tabs = ['zones', 'dom', 'rules', 'calendar', 'positions', 'logs', 'stats'];
       tabs.forEach(t => {
         const el = document.getElementById(`tab-${t}`);
         if (el) el.style.display = (t === tabKey) ? 'block' : 'none';
@@ -1896,5 +2089,285 @@
     }
     startApplication();
   </script>
+
+  <!-- Watch Dogs Trading Calendar & Opportunity Journal Engine -->
+  <script>
+    const CALENDAR_DATA = {
+      selectedDay: '2026-11-05',
+      currentSubTab: 'opp',
+      days: [
+        // Week 1 (Nov 3 - Nov 7)
+        { date: '2026-11-03', label: 'Nov 3', name: 'Monday, Nov 3', status: 'past', badge: 'audited', badgeText: 'Audited', equity: 4852.19, projEquity: 4852.19, setups: 0,
+          execTrades: [],
+          missedOpps: [
+            { time: '13:30 UTC', symbol: 'XAUUSD', setup: 'US ISM Manufacturing PMI News Volatility', result: 'Spread widened to 3.2 pts', pnl: 'NEWS FILTER ARMED', verdict: 'SKIPPED (News Guard)', verdict_type: 'saved', audit: 'Engine blocked trading 15m before and after high-impact USD economic releases to prevent slippage.' }
+          ],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Preserve capital ahead of US election week.' }
+        },
+        { date: '2026-11-04', label: 'Nov 4', name: 'Tuesday, Nov 4', status: 'past', badge: 'audited', badgeText: 'Audited', equity: 4852.19, projEquity: 4852.19, setups: 0,
+          execTrades: [],
+          missedOpps: [
+            { time: '09:15 UTC', symbol: 'XAUUSD', setup: 'London Value Area Compression', result: 'Price held between $4,042 and $4,055', pnl: 'PRESERVED IN CASH', verdict: 'CAPITAL PROTECTED', verdict_type: 'saved', audit: 'Price remained inside the Value Area. No breakout occurred.' }
+          ],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Avoid fakeout moves during pre-market consolidation.' }
+        },
+        { date: '2026-11-05', label: 'Nov 5', name: 'Thursday, Nov 5', status: 'past', badge: 'audited', badgeText: '3 Audits', equity: 4852.19, projEquity: 4852.19, setups: 1,
+          execTrades: [],
+          missedOpps: [
+            { time: '00:15 UTC', symbol: 'XAUUSD', setup: 'Asian Breakout above VAH $4,080.41', candle: 'Close: $4,080.41 | Wick: 12% | 20-bar High broken', result: 'Rallied to $4,146.90 (+66.49 pts / +6.6 R)', pnl: '+$132.98 (Phase 1) / +$3,000 (Comp)', verdict: 'MISSED PROFIT (Pre-Asia Release)', verdict_type: 'missed', audit: 'The engine was restricted to London/NY hours. Our 2-year backtest proved +46.0 R in Asia with strict wick filter (<=20%). Filter is now deployed in production.' },
+            { time: '08:30 UTC', symbol: 'XAUUSD', setup: 'London Session Long Attempt at $4,118.20', candle: 'High: $4,118.20 | Close: $4,106.10 | Upper Wick: 54%', result: 'Rejected off resistance, crashed -$18.40', pnl: 'SAVED -$35.00 STOP-OUT LOSS', verdict: 'CAPITAL PROTECTED (Wick Filter)', verdict_type: 'saved', audit: 'Rule 4 strictly blocks entries with >20% wick rejection into key levels. Saved Phase 1 from false breakout loss.' },
+            { time: '14:15 UTC', symbol: 'XAUUSD', setup: 'NY Session Long inside Value Area at $4,102.50', candle: 'Inside Value Area ($4,078 - $4,129) | Chop consolidation', result: 'Chopped in $5 band with wide spread', pnl: 'SAVED -$35.00 STOP-OUT LOSS', verdict: 'CAPITAL PROTECTED (Value Area Rule)', verdict_type: 'saved', audit: 'Auction Market Theory blocks trading inside 70% Value Area noise where win rates drop to 21%.' }
+          ],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Audit completed. Asian filter approved and deployed.' }
+        },
+        { date: '2026-11-06', label: 'Nov 6', name: 'Friday, Nov 6 (TODAY)', status: 'today', badge: 'today', badgeText: 'ACTIVE', equity: 4852.19, projEquity: 4852.19, setups: 1.2,
+          execTrades: [],
+          missedOpps: [
+            { time: '01:30 UTC', symbol: 'XAUUSD', setup: 'Asian Session Active Scan at $4,066.90', candle: 'Inside Value Area ($3,996 - $4,115) | Bid: 4066.9 | Spread: 0.4', result: 'Consolidating above 200 EMA ($4,073.24)', pnl: 'ARMED & MONITORING', verdict: 'STRICT FILTER ACTIVE', verdict_type: 'monitoring', audit: 'Strict Asian breakout filter running on AWS EC2. Waiting for clean candle close outside VAH ($4,115.88) or VAL ($3,996.12) with <=20% wick.' }
+          ],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00 (1:2.0 R:R)', focus: 'First live Asian session with strict breakout filter. Max 2 trades / 1 loss hard stop.' }
+        },
+        { date: '2026-11-07', label: 'Nov 7', name: 'Monday, Nov 7', status: 'projected', badge: 'proj', badgeText: 'Proj $4,880', equity: 4880.00, projEquity: 4880.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Maintain capital preservation. Target recovery towards $4,900 level.' }
+        },
+
+        // Week 2 (Nov 10 - Nov 14)
+        { date: '2026-11-10', label: 'Nov 10', name: 'Monday, Nov 10', status: 'projected', badge: 'proj', badgeText: 'Proj $4,910', equity: 4910.00, projEquity: 4910.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'London session volume expansion. Asian range high/low breakouts.' }
+        },
+        { date: '2026-11-11', label: 'Nov 11', name: 'Tuesday, Nov 11', status: 'projected', badge: 'proj', badgeText: 'Proj $4,940', equity: 4940.00, projEquity: 4940.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Mid-week liquidity sweeps. Watch for NY continuation.' }
+        },
+        { date: '2026-11-12', label: 'Nov 12', name: 'Wednesday, Nov 12', status: 'projected', badge: 'proj', badgeText: 'Proj $4,965', equity: 4965.00, projEquity: 4965.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Recovery phase nearing completion. Buffer restored to $465.' }
+        },
+        { date: '2026-11-13', label: 'Nov 13', name: 'Thursday, Nov 13', status: 'projected', badge: 'proj', badgeText: 'Proj $4,985', equity: 4985.00, projEquity: 4985.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Pre-breakeven approach. Zero tilt, max 2 trades.' }
+        },
+        { date: '2026-11-14', label: 'Nov 14', name: 'Friday, Nov 14', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,000 BREAKEVEN', equity: 5000.00, projEquity: 5000.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'MILESTONE 1: Initial capital fully restored! Safety buffer reaches $500.00.' }
+        },
+
+        // Week 3 (Nov 17 - Nov 21) - Stage 2: House Money Unlocked!
+        { date: '2026-11-17', label: 'Nov 17', name: 'Monday, Nov 17', status: 'projected', badge: 'proj', badgeText: '🚀 House Money', equity: 5045.00, projEquity: 5045.00, setups: 1.5,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00 (1.2%)', target: '+$120.00 (1:2.0 R:R)', focus: 'Account back in profit. Sizing automatically steps up to 0.04 lots to accelerate to $5,400 target.' }
+        },
+        { date: '2026-11-18', label: 'Nov 18', name: 'Tuesday, Nov 18', status: 'projected', badge: 'proj', badgeText: 'Proj $5,095', equity: 5095.00, projEquity: 5095.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Execute clean breakouts outside daily VAH/VAL.' }
+        },
+        { date: '2026-11-19', label: 'Nov 19', name: 'Wednesday, Nov 19', status: 'projected', badge: 'proj', badgeText: 'Proj $5,140', equity: 5140.00, projEquity: 5140.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Compounding acceleration. Buffer now $640 above floor.' }
+        },
+        { date: '2026-11-20', label: 'Nov 20', name: 'Thursday, Nov 20', status: 'projected', badge: 'proj', badgeText: 'Proj $5,190', equity: 5190.00, projEquity: 5190.00, setups: 1.5,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Approaching halfway mark of Phase 1.' }
+        },
+        { date: '2026-11-21', label: 'Nov 21', name: 'Friday, Nov 21', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,225 HALFWAY', equity: 5225.00, projEquity: 5225.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'MILESTONE 2: Phase 1 is 56% complete! Only $175 left to pass.' }
+        },
+
+        // Week 4 (Nov 24 - Nov 28) - Validation Target Sprint
+        { date: '2026-11-24', label: 'Nov 24', name: 'Monday, Nov 24', status: 'projected', badge: 'proj', badgeText: 'Proj $5,270', equity: 5270.00, projEquity: 5270.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Final stretch. Keep execution disciplined.' }
+        },
+        { date: '2026-11-25', label: 'Nov 25', name: 'Tuesday, Nov 25', status: 'projected', badge: 'proj', badgeText: 'Proj $5,315', equity: 5315.00, projEquity: 5315.00, setups: 1.5,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Distance to target narrows to $85.' }
+        },
+        { date: '2026-11-26', label: 'Nov 26', name: 'Wednesday, Nov 26', status: 'projected', badge: 'proj', badgeText: 'Proj $5,355', equity: 5355.00, projEquity: 5355.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'One winning trade away from Phase 1 verification.' }
+        },
+        { date: '2026-11-27', label: 'Nov 27', name: 'Thursday, Nov 27', status: 'projected', badge: 'proj', badgeText: 'Proj $5,385', equity: 5385.00, projEquity: 5385.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: '0.02 Lots (Micro Target Close)', risk: '$30.00', target: '+$60.00', focus: 'Downshift lot size to lock in target without risking drawdown.' }
+        },
+        { date: '2026-11-28', label: 'Nov 28', name: 'Friday, Nov 28', status: 'target-pass', badge: 'target', badgeText: '🏆 $5,400 PASS', equity: 5400.00, projEquity: 5400.00, setups: 1,
+          execTrades: [], missedOpps: [],
+          plan: { mode: 'FLAT / TARGET HIT', risk: '$0.00', target: 'PASS VERIFIED', focus: '🏆 MILESTONE 3: Phase 1 8% target ($5,400.00) fully achieved! Ready for Phase 2.' }
+        }
+      ]
+    };
+
+    function renderCalendar() {
+      const grid = document.getElementById('calendar-grid-days');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      CALENDAR_DATA.days.forEach(day => {
+        const cell = document.createElement('div');
+        cell.className = `cal-day-cell ${day.status} ${day.date === CALENDAR_DATA.selectedDay ? 'selected' : ''}`;
+        cell.onclick = () => selectCalendarDay(day.date);
+
+        const badgeClass = `cal-badge-${day.badge}`;
+        cell.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <span style="font-size: 11px; font-weight: 800; color: ${day.status === 'today' ? 'var(--cyan)' : '#FFF'};">${day.label}</span>
+            <span class="cal-badge ${badgeClass}">${day.badgeText}</span>
+          </div>
+          <div style="margin-top: 4px;">
+            <div style="font-size: 11px; font-weight: 700; color: ${day.status === 'target-pass' ? '#FFD700' : (day.equity >= 5000 ? 'var(--green)' : 'var(--amber)')};">
+              $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}
+            </div>
+            <div style="font-size: 8px; color: var(--text-dim);">${day.status === 'past' ? 'Audited' : (day.status === 'today' ? 'Live' : 'Target')}</div>
+          </div>
+        `;
+        grid.appendChild(cell);
+      });
+
+      renderDayDetails();
+    }
+
+    function selectCalendarDay(dateStr) {
+      CALENDAR_DATA.selectedDay = dateStr;
+      document.querySelectorAll('.cal-day-cell').forEach(c => c.classList.remove('selected'));
+      renderCalendar();
+    }
+
+    function switchInspectorTab(tabKey) {
+      CALENDAR_DATA.currentSubTab = tabKey;
+      ['exec', 'opp', 'plan'].forEach(t => {
+        const btn = document.getElementById(`btn-sub-${t}`);
+        if (btn) btn.classList.toggle('active', t === tabKey);
+      });
+      renderDayDetails();
+    }
+
+    function renderDayDetails() {
+      const day = CALENDAR_DATA.days.find(d => d.date === CALENDAR_DATA.selectedDay) || CALENDAR_DATA.days[2]; // Default Nov 5
+      const titleEl = document.getElementById('insp-date-title');
+      const badgeEl = document.getElementById('insp-status-badge');
+      const eqEl = document.getElementById('insp-equity-target');
+      const execCount = document.getElementById('insp-exec-count');
+      const oppCount = document.getElementById('insp-opp-count');
+      const contentEl = document.getElementById('inspector-content');
+
+      if (!contentEl) return;
+
+      if (titleEl) titleEl.innerText = `🗓️ ${day.name.toUpperCase()}`;
+      if (badgeEl) {
+        badgeEl.innerText = day.badgeText.toUpperCase();
+        badgeEl.className = `badge cal-badge-${day.badge}`;
+      }
+      if (eqEl) {
+        eqEl.innerText = day.status === 'past' || day.status === 'today' 
+          ? `ACTUAL EQUITY: $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 2})}`
+          : `PROJECTED TARGET: $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+      }
+      if (execCount) execCount.innerText = day.execTrades.length;
+      if (oppCount) oppCount.innerText = day.missedOpps.length;
+
+      if (CALENDAR_DATA.currentSubTab === 'exec') {
+        if (day.execTrades.length === 0) {
+          contentEl.innerHTML = `
+            <div style="padding: 24px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">
+              🛡️ ZERO EXECUTED TRADES ON THIS DATE · CAPITAL 100% PRESERVED IN CASH · ZERO CHOP RISK
+            </div>
+          `;
+        } else {
+          let html = '';
+          day.execTrades.forEach(tr => {
+            html += `
+              <div class="opp-card mono">
+                <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                  <span style="color: var(--cyan); font-weight: 700;">${tr.time} · ${tr.symbol} · ${tr.type} ${tr.volume} Lots</span>
+                  <span style="color: ${tr.pnl >= 0 ? 'var(--green)' : 'var(--red)'}; font-weight: 800;">${tr.pnl >= 0 ? '+' : ''}$${tr.pnl}</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted);">Entry: ${tr.entry} | SL: ${tr.sl} | TP: ${tr.tp}</div>
+              </div>
+            `;
+          });
+          contentEl.innerHTML = html;
+        }
+      } else if (CALENDAR_DATA.currentSubTab === 'opp') {
+        if (day.missedOpps.length === 0) {
+          contentEl.innerHTML = `
+            <div style="padding: 24px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">
+              ⚡ NO MISSED OR FILTERED CANDLE ANOMALIES DETECTED FOR THIS SESSION.
+            </div>
+          `;
+        } else {
+          let html = '';
+          day.missedOpps.forEach(opp => {
+            const isMissed = opp.verdict_type === 'missed';
+            const isSaved = opp.verdict_type === 'saved';
+            const borderColor = isMissed ? 'var(--amber)' : (isSaved ? 'var(--green)' : 'var(--cyan)');
+            const badgeBg = isMissed ? 'rgba(255, 179, 0, 0.2)' : (isSaved ? 'rgba(0, 230, 118, 0.2)' : 'rgba(0, 240, 255, 0.2)');
+            const badgeColor = isMissed ? 'var(--amber)' : (isSaved ? 'var(--green)' : 'var(--cyan)');
+
+            html += `
+              <div class="opp-card mono" style="border-left: 3px solid ${borderColor};">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                  <span style="font-size: 11px; font-weight: 800; color: #FFF;">${opp.time} · ${opp.setup}</span>
+                  <span style="font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: ${badgeBg}; color: ${badgeColor};">
+                    ${opp.verdict}
+                  </span>
+                </div>
+                ${opp.candle ? `<div style="font-size: 10px; color: var(--cyan);">${opp.candle}</div>` : ''}
+                <div style="font-size: 10px; color: var(--text-muted); line-height: 1.4;">Outcome: <span style="color: #FFF;">${opp.result}</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; margin-top: 2px;">
+                  <span style="color: var(--text-dim);">Impact:</span>
+                  <span style="font-weight: 800; color: ${isMissed ? 'var(--amber)' : (isSaved ? 'var(--green)' : 'var(--cyan)')};">${opp.pnl}</span>
+                </div>
+                <div style="font-size: 9px; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; border: 1px dashed var(--surface-border); margin-top: 4px; line-height: 1.3;">
+                  🧠 <b>Quant Engine Audit:</b> ${opp.audit}
+                </div>
+              </div>
+            `;
+          });
+          contentEl.innerHTML = html;
+        }
+      } else { // plan
+        const p = day.plan;
+        contentEl.innerHTML = `
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;" class="mono">
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
+              <div style="font-size: 9px; color: var(--text-muted);">SIZING PROFILE</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--cyan);">${p.mode}</div>
+            </div>
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
+              <div style="font-size: 9px; color: var(--text-muted);">MAX RISK / LOSS CAP</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--amber);">${p.risk}</div>
+            </div>
+            ${p.target ? `
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
+              <div style="font-size: 9px; color: var(--text-muted);">WIN REWARD (1:2.0 RR)</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--green);">${p.target}</div>
+            </div>
+            ` : ''}
+            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
+              <div style="font-size: 9px; color: var(--text-muted);">EXPECTED SETUPS</div>
+              <div style="font-size: 12px; font-weight: 700; color: #FFF;">~${day.setups} per day</div>
+            </div>
+          </div>
+          <div style="background: var(--surface-elevated); padding: 10px; border-radius: 6px; border-left: 3px solid var(--purple); margin-top: 6px;" class="mono">
+            <div style="font-size: 9px; color: var(--text-muted);">EXECUTION FOCUS & RISK MANDATE</div>
+            <div style="font-size: 11px; color: #FFF; margin-top: 4px; line-height: 1.4;">${p.focus}</div>
+          </div>
+        `;
+      }
+    }
+
+    // Initialize Calendar on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCalendar();
+    });
+    // In case DOM is already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      renderCalendar();
+    }
+  </script>
+
 </body>
 </html>
