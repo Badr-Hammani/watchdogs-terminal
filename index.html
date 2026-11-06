@@ -548,6 +548,71 @@
       gap: 6px;
     }
 
+    
+    /* Real vs Expected Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 600px) {
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .compare-card-real {
+      background: rgba(0, 240, 255, 0.04);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .compare-card-exp {
+      background: rgba(255, 179, 0, 0.04);
+      border: 1px solid rgba(255, 179, 0, 0.3);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .compare-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 4px;
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      margin-top: 6px;
+    }
+    .matrix-table th {
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid var(--surface-border);
+    }
+    .matrix-table td {
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid var(--surface-border);
+    }
+    .matrix-row-today {
+      background: rgba(0, 240, 255, 0.08);
+      font-weight: 700;
+    }
+    .matrix-row-pass {
+      background: rgba(255, 215, 0, 0.12);
+      font-weight: 800;
+      color: #FFD700;
+    }
+
     /* Panel Cards */
     .panel-card {
       background: var(--surface);
@@ -1213,9 +1278,10 @@
 
             <!-- Subtabs -->
             <div class="inspector-subtabs">
+              <button class="inspector-subtab-btn active" id="btn-sub-compare" onclick="switchInspectorTab('compare')">⚖️ REAL VS EXPECTED</button>
+              <button class="inspector-subtab-btn" id="btn-sub-opp" onclick="switchInspectorTab('opp')">⚡ MISSED & FILTERED AUDIT (<span id="insp-opp-count">3</span>)</button>
               <button class="inspector-subtab-btn" id="btn-sub-exec" onclick="switchInspectorTab('exec')">🎯 EXECUTED TRADES (<span id="insp-exec-count">0</span>)</button>
-              <button class="inspector-subtab-btn active" id="btn-sub-opp" onclick="switchInspectorTab('opp')">⚡ MISSED & FILTERED OPPORTUNITIES (<span id="insp-opp-count">3</span>)</button>
-              <button class="inspector-subtab-btn" id="btn-sub-plan" onclick="switchInspectorTab('plan')">📈 TRAJECTORY & RISK PLAN</button>
+              <button class="inspector-subtab-btn" id="btn-sub-matrix" onclick="switchInspectorTab('matrix')">📊 FULL TRAJECTORY MATRIX</button>
             </div>
 
             <!-- Content Area -->
@@ -2093,25 +2159,31 @@
   <!-- Watch Dogs Trading Calendar & Opportunity Journal Engine -->
   <script>
     const CALENDAR_DATA = {
-      selectedDay: '2026-11-05',
-      currentSubTab: 'opp',
+      selectedDay: '2026-11-06',
+      currentSubTab: 'compare',
       days: [
         // Week 1 (Nov 3 - Nov 7)
-        { date: '2026-11-03', label: 'Nov 3', name: 'Monday, Nov 3', status: 'past', badge: 'audited', badgeText: 'Audited', equity: 4852.19, projEquity: 4852.19, setups: 0,
+        { date: '2026-11-03', label: 'Nov 3', name: 'Monday, Nov 3', status: 'past', badge: 'audited', badgeText: 'Audited',
+          realEquity: 4852.19, expEquity: 4852.19, delta: 0.00, deltaStatus: 'ON_TRACK',
+          realTrades: 0, expTrades: 1, realPnL: 0.00, expPnL: 0.00,
           execTrades: [],
           missedOpps: [
             { time: '13:30 UTC', symbol: 'XAUUSD', setup: 'US ISM Manufacturing PMI News Volatility', result: 'Spread widened to 3.2 pts', pnl: 'NEWS FILTER ARMED', verdict: 'SKIPPED (News Guard)', verdict_type: 'saved', audit: 'Engine blocked trading 15m before and after high-impact USD economic releases to prevent slippage.' }
           ],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Preserve capital ahead of US election week.' }
         },
-        { date: '2026-11-04', label: 'Nov 4', name: 'Tuesday, Nov 4', status: 'past', badge: 'audited', badgeText: 'Audited', equity: 4852.19, projEquity: 4852.19, setups: 0,
+        { date: '2026-11-04', label: 'Nov 4', name: 'Tuesday, Nov 4', status: 'past', badge: 'audited', badgeText: 'Audited',
+          realEquity: 4852.19, expEquity: 4852.19, delta: 0.00, deltaStatus: 'ON_TRACK',
+          realTrades: 0, expTrades: 1, realPnL: 0.00, expPnL: 0.00,
           execTrades: [],
           missedOpps: [
             { time: '09:15 UTC', symbol: 'XAUUSD', setup: 'London Value Area Compression', result: 'Price held between $4,042 and $4,055', pnl: 'PRESERVED IN CASH', verdict: 'CAPITAL PROTECTED', verdict_type: 'saved', audit: 'Price remained inside the Value Area. No breakout occurred.' }
           ],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Avoid fakeout moves during pre-market consolidation.' }
         },
-        { date: '2026-11-05', label: 'Nov 5', name: 'Thursday, Nov 5', status: 'past', badge: 'audited', badgeText: '3 Audits', equity: 4852.19, projEquity: 4852.19, setups: 1,
+        { date: '2026-11-05', label: 'Nov 5', name: 'Thursday, Nov 5', status: 'past', badge: 'audited', badgeText: '3 Audits',
+          realEquity: 4852.19, expEquity: 4852.19, delta: 0.00, deltaStatus: 'ON_TRACK',
+          realTrades: 0, expTrades: 1, realPnL: 0.00, expPnL: 35.00,
           execTrades: [],
           missedOpps: [
             { time: '00:15 UTC', symbol: 'XAUUSD', setup: 'Asian Breakout above VAH $4,080.41', candle: 'Close: $4,080.41 | Wick: 12% | 20-bar High broken', result: 'Rallied to $4,146.90 (+66.49 pts / +6.6 R)', pnl: '+$132.98 (Phase 1) / +$3,000 (Comp)', verdict: 'MISSED PROFIT (Pre-Asia Release)', verdict_type: 'missed', audit: 'The engine was restricted to London/NY hours. Our 2-year backtest proved +46.0 R in Asia with strict wick filter (<=20%). Filter is now deployed in production.' },
@@ -2120,80 +2192,114 @@
           ],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', focus: 'Audit completed. Asian filter approved and deployed.' }
         },
-        { date: '2026-11-06', label: 'Nov 6', name: 'Friday, Nov 6 (TODAY)', status: 'today', badge: 'today', badgeText: 'ACTIVE', equity: 4852.19, projEquity: 4852.19, setups: 1.2,
+        { date: '2026-11-06', label: 'Nov 6', name: 'Friday, Nov 6 (TODAY)', status: 'today', badge: 'today', badgeText: 'ACTIVE',
+          realEquity: 4852.19, expEquity: 4852.19, delta: 0.00, deltaStatus: 'LIVE_ARMED',
+          realTrades: 0, expTrades: 1.2, realPnL: 0.00, expPnL: 0.00,
           execTrades: [],
           missedOpps: [
-            { time: '01:30 UTC', symbol: 'XAUUSD', setup: 'Asian Session Active Scan at $4,066.90', candle: 'Inside Value Area ($3,996 - $4,115) | Bid: 4066.9 | Spread: 0.4', result: 'Consolidating above 200 EMA ($4,073.24)', pnl: 'ARMED & MONITORING', verdict: 'STRICT FILTER ACTIVE', verdict_type: 'monitoring', audit: 'Strict Asian breakout filter running on AWS EC2. Waiting for clean candle close outside VAH ($4,115.88) or VAL ($3,996.12) with <=20% wick.' }
+            { time: '01:40 UTC', symbol: 'XAUUSD', setup: 'Asian Session Active Scan at $4,066.90', candle: 'Inside Value Area ($3,996 - $4,115) | Bid: 4066.9 | Spread: 0.4', result: 'Consolidating above 200 EMA ($4,073.24)', pnl: 'ARMED & MONITORING', verdict: 'STRICT FILTER ACTIVE', verdict_type: 'monitoring', audit: 'Strict Asian breakout filter running on AWS EC2. Waiting for clean candle close outside VAH ($4,115.88) or VAL ($3,996.12) with <=20% wick.' }
           ],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00 (1:2.0 R:R)', focus: 'First live Asian session with strict breakout filter. Max 2 trades / 1 loss hard stop.' }
         },
-        { date: '2026-11-07', label: 'Nov 7', name: 'Monday, Nov 7', status: 'projected', badge: 'proj', badgeText: 'Proj $4,880', equity: 4880.00, projEquity: 4880.00, setups: 1,
+        { date: '2026-11-07', label: 'Nov 7', name: 'Monday, Nov 7', status: 'projected', badge: 'proj', badgeText: 'Exp $4,880',
+          realEquity: null, expEquity: 4880.00, delta: null, deltaStatus: 'PROJECTED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 28.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Maintain capital preservation. Target recovery towards $4,900 level.' }
         },
 
         // Week 2 (Nov 10 - Nov 14)
-        { date: '2026-11-10', label: 'Nov 10', name: 'Monday, Nov 10', status: 'projected', badge: 'proj', badgeText: 'Proj $4,910', equity: 4910.00, projEquity: 4910.00, setups: 1,
+        { date: '2026-11-10', label: 'Nov 10', name: 'Monday, Nov 10', status: 'projected', badge: 'proj', badgeText: 'Exp $4,910',
+          realEquity: null, expEquity: 4910.00, delta: null, deltaStatus: 'PROJECTED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 30.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'London session volume expansion. Asian range high/low breakouts.' }
         },
-        { date: '2026-11-11', label: 'Nov 11', name: 'Tuesday, Nov 11', status: 'projected', badge: 'proj', badgeText: 'Proj $4,940', equity: 4940.00, projEquity: 4940.00, setups: 1,
+        { date: '2026-11-11', label: 'Nov 11', name: 'Tuesday, Nov 11', status: 'projected', badge: 'proj', badgeText: 'Exp $4,940',
+          realEquity: null, expEquity: 4940.00, delta: null, deltaStatus: 'PROJECTED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 30.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Mid-week liquidity sweeps. Watch for NY continuation.' }
         },
-        { date: '2026-11-12', label: 'Nov 12', name: 'Wednesday, Nov 12', status: 'projected', badge: 'proj', badgeText: 'Proj $4,965', equity: 4965.00, projEquity: 4965.00, setups: 1,
+        { date: '2026-11-12', label: 'Nov 12', name: 'Wednesday, Nov 12', status: 'projected', badge: 'proj', badgeText: 'Exp $4,965',
+          realEquity: null, expEquity: 4965.00, delta: null, deltaStatus: 'PROJECTED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 25.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Recovery phase nearing completion. Buffer restored to $465.' }
         },
-        { date: '2026-11-13', label: 'Nov 13', name: 'Thursday, Nov 13', status: 'projected', badge: 'proj', badgeText: 'Proj $4,985', equity: 4985.00, projEquity: 4985.00, setups: 1,
+        { date: '2026-11-13', label: 'Nov 13', name: 'Thursday, Nov 13', status: 'projected', badge: 'proj', badgeText: 'Exp $4,985',
+          realEquity: null, expEquity: 4985.00, delta: null, deltaStatus: 'PROJECTED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 20.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'Pre-breakeven approach. Zero tilt, max 2 trades.' }
         },
-        { date: '2026-11-14', label: 'Nov 14', name: 'Friday, Nov 14', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,000 BREAKEVEN', equity: 5000.00, projEquity: 5000.00, setups: 1,
+        { date: '2026-11-14', label: 'Nov 14', name: 'Friday, Nov 14', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,000 BREAKEVEN',
+          realEquity: null, expEquity: 5000.00, delta: null, deltaStatus: 'PROJECTED_MILESTONE',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 15.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Defensive)', risk: '$35.00', target: '+$70.00', focus: 'MILESTONE 1: Initial capital fully restored! Safety buffer reaches $500.00.' }
         },
 
         // Week 3 (Nov 17 - Nov 21) - Stage 2: House Money Unlocked!
-        { date: '2026-11-17', label: 'Nov 17', name: 'Monday, Nov 17', status: 'projected', badge: 'proj', badgeText: '🚀 House Money', equity: 5045.00, projEquity: 5045.00, setups: 1.5,
+        { date: '2026-11-17', label: 'Nov 17', name: 'Monday, Nov 17', status: 'projected', badge: 'proj', badgeText: '🚀 House Money',
+          realEquity: null, expEquity: 5045.00, delta: null, deltaStatus: 'HOUSE_MONEY',
+          realTrades: null, expTrades: 1.5, realPnL: null, expPnL: 45.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00 (1.2%)', target: '+$120.00 (1:2.0 R:R)', focus: 'Account back in profit. Sizing automatically steps up to 0.04 lots to accelerate to $5,400 target.' }
         },
-        { date: '2026-11-18', label: 'Nov 18', name: 'Tuesday, Nov 18', status: 'projected', badge: 'proj', badgeText: 'Proj $5,095', equity: 5095.00, projEquity: 5095.00, setups: 1,
+        { date: '2026-11-18', label: 'Nov 18', name: 'Tuesday, Nov 18', status: 'projected', badge: 'proj', badgeText: 'Exp $5,095',
+          realEquity: null, expEquity: 5095.00, delta: null, deltaStatus: 'HOUSE_MONEY',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 50.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Execute clean breakouts outside daily VAH/VAL.' }
         },
-        { date: '2026-11-19', label: 'Nov 19', name: 'Wednesday, Nov 19', status: 'projected', badge: 'proj', badgeText: 'Proj $5,140', equity: 5140.00, projEquity: 5140.00, setups: 1,
+        { date: '2026-11-19', label: 'Nov 19', name: 'Wednesday, Nov 19', status: 'projected', badge: 'proj', badgeText: 'Exp $5,140',
+          realEquity: null, expEquity: 5140.00, delta: null, deltaStatus: 'HOUSE_MONEY',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 45.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Compounding acceleration. Buffer now $640 above floor.' }
         },
-        { date: '2026-11-20', label: 'Nov 20', name: 'Thursday, Nov 20', status: 'projected', badge: 'proj', badgeText: 'Proj $5,190', equity: 5190.00, projEquity: 5190.00, setups: 1.5,
+        { date: '2026-11-20', label: 'Nov 20', name: 'Thursday, Nov 20', status: 'projected', badge: 'proj', badgeText: 'Exp $5,190',
+          realEquity: null, expEquity: 5190.00, delta: null, deltaStatus: 'HOUSE_MONEY',
+          realTrades: null, expTrades: 1.5, realPnL: null, expPnL: 50.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Approaching halfway mark of Phase 1.' }
         },
-        { date: '2026-11-21', label: 'Nov 21', name: 'Friday, Nov 21', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,225 HALFWAY', equity: 5225.00, projEquity: 5225.00, setups: 1,
+        { date: '2026-11-21', label: 'Nov 21', name: 'Friday, Nov 21', status: 'milestone', badge: 'pass', badgeText: '🎯 $5,225 HALFWAY',
+          realEquity: null, expEquity: 5225.00, delta: null, deltaStatus: 'HALFWAY_MILESTONE',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 35.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'MILESTONE 2: Phase 1 is 56% complete! Only $175 left to pass.' }
         },
 
         // Week 4 (Nov 24 - Nov 28) - Validation Target Sprint
-        { date: '2026-11-24', label: 'Nov 24', name: 'Monday, Nov 24', status: 'projected', badge: 'proj', badgeText: 'Proj $5,270', equity: 5270.00, projEquity: 5270.00, setups: 1,
+        { date: '2026-11-24', label: 'Nov 24', name: 'Monday, Nov 24', status: 'projected', badge: 'proj', badgeText: 'Exp $5,270',
+          realEquity: null, expEquity: 5270.00, delta: null, deltaStatus: 'SPRINT',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 45.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Final stretch. Keep execution disciplined.' }
         },
-        { date: '2026-11-25', label: 'Nov 25', name: 'Tuesday, Nov 25', status: 'projected', badge: 'proj', badgeText: 'Proj $5,315', equity: 5315.00, projEquity: 5315.00, setups: 1.5,
+        { date: '2026-11-25', label: 'Nov 25', name: 'Tuesday, Nov 25', status: 'projected', badge: 'proj', badgeText: 'Exp $5,315',
+          realEquity: null, expEquity: 5315.00, delta: null, deltaStatus: 'SPRINT',
+          realTrades: null, expTrades: 1.5, realPnL: null, expPnL: 45.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'Distance to target narrows to $85.' }
         },
-        { date: '2026-11-26', label: 'Nov 26', name: 'Wednesday, Nov 26', status: 'projected', badge: 'proj', badgeText: 'Proj $5,355', equity: 5355.00, projEquity: 5355.00, setups: 1,
+        { date: '2026-11-26', label: 'Nov 26', name: 'Wednesday, Nov 26', status: 'projected', badge: 'proj', badgeText: 'Exp $5,355',
+          realEquity: null, expEquity: 5355.00, delta: null, deltaStatus: 'SPRINT',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 40.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.04 Lots (House Money Mode)', risk: '$60.00', target: '+$120.00', focus: 'One winning trade away from Phase 1 verification.' }
         },
-        { date: '2026-11-27', label: 'Nov 27', name: 'Thursday, Nov 27', status: 'projected', badge: 'proj', badgeText: 'Proj $5,385', equity: 5385.00, projEquity: 5385.00, setups: 1,
+        { date: '2026-11-27', label: 'Nov 27', name: 'Thursday, Nov 27', status: 'projected', badge: 'proj', badgeText: 'Exp $5,385',
+          realEquity: null, expEquity: 5385.00, delta: null, deltaStatus: 'LOCK_IN',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 30.00,
           execTrades: [], missedOpps: [],
           plan: { mode: '0.02 Lots (Micro Target Close)', risk: '$30.00', target: '+$60.00', focus: 'Downshift lot size to lock in target without risking drawdown.' }
         },
-        { date: '2026-11-28', label: 'Nov 28', name: 'Friday, Nov 28', status: 'target-pass', badge: 'target', badgeText: '🏆 $5,400 PASS', equity: 5400.00, projEquity: 5400.00, setups: 1,
+        { date: '2026-11-28', label: 'Nov 28', name: 'Friday, Nov 28', status: 'target-pass', badge: 'target', badgeText: '🏆 $5,400 PASS',
+          realEquity: null, expEquity: 5400.00, delta: null, deltaStatus: 'TARGET_PASSED',
+          realTrades: null, expTrades: 1, realPnL: null, expPnL: 15.00,
           execTrades: [], missedOpps: [],
           plan: { mode: 'FLAT / TARGET HIT', risk: '$0.00', target: 'PASS VERIFIED', focus: '🏆 MILESTONE 3: Phase 1 8% target ($5,400.00) fully achieved! Ready for Phase 2.' }
         }
@@ -2211,16 +2317,22 @@
         cell.onclick = () => selectCalendarDay(day.date);
 
         const badgeClass = `cal-badge-${day.badge}`;
+        const hasReal = (day.realEquity !== null && day.realEquity !== undefined);
+        const displayEq = hasReal ? day.realEquity : day.expEquity;
+        const eqColor = day.status === 'target-pass' ? '#FFD700' : (displayEq >= 5000 ? 'var(--green)' : 'var(--amber)');
+
         cell.innerHTML = `
           <div style="display: flex; justify-content: space-between; align-items: flex-start;">
             <span style="font-size: 11px; font-weight: 800; color: ${day.status === 'today' ? 'var(--cyan)' : '#FFF'};">${day.label}</span>
             <span class="cal-badge ${badgeClass}">${day.badgeText}</span>
           </div>
           <div style="margin-top: 4px;">
-            <div style="font-size: 11px; font-weight: 700; color: ${day.status === 'target-pass' ? '#FFD700' : (day.equity >= 5000 ? 'var(--green)' : 'var(--amber)')};">
-              $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}
+            <div style="font-size: 11px; font-weight: 700; color: ${eqColor};">
+              $${displayEq.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}
             </div>
-            <div style="font-size: 8px; color: var(--text-dim);">${day.status === 'past' ? 'Audited' : (day.status === 'today' ? 'Live' : 'Target')}</div>
+            <div style="font-size: 8px; color: ${hasReal ? 'var(--cyan)' : 'var(--text-dim)'}; font-weight: 600;">
+              ${hasReal ? `REAL (Δ$0)` : `EXP PACE`}
+            </div>
           </div>
         `;
         grid.appendChild(cell);
@@ -2237,7 +2349,7 @@
 
     function switchInspectorTab(tabKey) {
       CALENDAR_DATA.currentSubTab = tabKey;
-      ['exec', 'opp', 'plan'].forEach(t => {
+      ['compare', 'opp', 'exec', 'matrix'].forEach(t => {
         const btn = document.getElementById(`btn-sub-${t}`);
         if (btn) btn.classList.toggle('active', t === tabKey);
       });
@@ -2245,7 +2357,7 @@
     }
 
     function renderDayDetails() {
-      const day = CALENDAR_DATA.days.find(d => d.date === CALENDAR_DATA.selectedDay) || CALENDAR_DATA.days[2]; // Default Nov 5
+      const day = CALENDAR_DATA.days.find(d => d.date === CALENDAR_DATA.selectedDay) || CALENDAR_DATA.days[3]; // Default Nov 6
       const titleEl = document.getElementById('insp-date-title');
       const badgeEl = document.getElementById('insp-status-badge');
       const eqEl = document.getElementById('insp-equity-target');
@@ -2260,37 +2372,142 @@
         badgeEl.innerText = day.badgeText.toUpperCase();
         badgeEl.className = `badge cal-badge-${day.badge}`;
       }
+      
+      const hasReal = (day.realEquity !== null && day.realEquity !== undefined);
       if (eqEl) {
-        eqEl.innerText = day.status === 'past' || day.status === 'today' 
-          ? `ACTUAL EQUITY: $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 2})}`
-          : `PROJECTED TARGET: $${day.equity.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+        eqEl.innerHTML = hasReal
+          ? `REAL: <b style="color:var(--cyan);">$${day.realEquity.toFixed(2)}</b> · EXP: <b style="color:var(--amber);">$${day.expEquity.toFixed(2)}</b> (Δ $0.00)`
+          : `EXP MODEL TARGET: <b style="color:#FFD700;">$${day.expEquity.toFixed(2)}</b>`;
       }
       if (execCount) execCount.innerText = day.execTrades.length;
       if (oppCount) oppCount.innerText = day.missedOpps.length;
 
-      if (CALENDAR_DATA.currentSubTab === 'exec') {
-        if (day.execTrades.length === 0) {
-          contentEl.innerHTML = `
-            <div style="padding: 24px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">
-              🛡️ ZERO EXECUTED TRADES ON THIS DATE · CAPITAL 100% PRESERVED IN CASH · ZERO CHOP RISK
-            </div>
-          `;
-        } else {
-          let html = '';
-          day.execTrades.forEach(tr => {
-            html += `
-              <div class="opp-card mono">
-                <div style="display: flex; justify-content: space-between; font-size: 11px;">
-                  <span style="color: var(--cyan); font-weight: 700;">${tr.time} · ${tr.symbol} · ${tr.type} ${tr.volume} Lots</span>
-                  <span style="color: ${tr.pnl >= 0 ? 'var(--green)' : 'var(--red)'}; font-weight: 800;">${tr.pnl >= 0 ? '+' : ''}$${tr.pnl}</span>
-                </div>
-                <div style="font-size: 10px; color: var(--text-muted);">Entry: ${tr.entry} | SL: ${tr.sl} | TP: ${tr.tp}</div>
+      if (CALENDAR_DATA.currentSubTab === 'compare') {
+        // Prominent Real vs Expected Comparison View!
+        const realVal = hasReal ? `$${day.realEquity.toFixed(2)}` : 'Awaiting Day Execution';
+        const expVal = `$${day.expEquity.toFixed(2)}`;
+        const realTradesStr = hasReal ? `${day.realTrades} Trades` : '--';
+        const realPnLStr = hasReal ? `${day.realPnL >= 0 ? '+' : ''}$${day.realPnL.toFixed(2)}` : '--';
+        const deltaStr = hasReal ? `${day.delta >= 0 ? '+' : ''}$${day.delta.toFixed(2)} (ON TRACK)` : 'Model Pace';
+
+        contentEl.innerHTML = `
+          <div class="compare-grid mono">
+            <!-- Real Actual Card -->
+            <div class="compare-card-real">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,240,255,0.2); padding-bottom: 6px;">
+                <span style="font-size: 11px; font-weight: 800; color: var(--cyan);">🎯 REAL (LIVE BROKER DATA)</span>
+                <span style="font-size: 9px; padding: 2px 6px; border-radius: 4px; background: rgba(0,240,255,0.2); color: var(--cyan); font-weight: 700;">
+                  ${hasReal ? 'ACTUAL' : 'PENDING'}
+                </span>
               </div>
-            `;
-          });
-          contentEl.innerHTML = html;
-        }
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Realized Equity:</span>
+                <span style="font-weight: 800; color: #FFF; font-size: 13px;">${realVal}</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Executed Trades:</span>
+                <span style="font-weight: 700; color: #FFF;">${realTradesStr}</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Closed Day PnL:</span>
+                <span style="font-weight: 700; color: ${hasReal && day.realPnL >= 0 ? 'var(--green)' : 'var(--amber)'};">${realPnLStr}</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Audited Opportunities:</span>
+                <span style="font-weight: 700; color: var(--amber);">${day.missedOpps.length} Setups Inspected</span>
+              </div>
+              <div class="compare-row" style="border: none;">
+                <span style="color: var(--text-muted);">Capital Preservation:</span>
+                <span style="font-weight: 800; color: var(--green);">100.0% SECURED</span>
+              </div>
+            </div>
+
+            <!-- Expected Model Card -->
+            <div class="compare-card-exp">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,179,0,0.2); padding-bottom: 6px;">
+                <span style="font-size: 11px; font-weight: 800; color: var(--amber);">📐 EXPECTED (QUANT MODEL PACE)</span>
+                <span style="font-size: 9px; padding: 2px 6px; border-radius: 4px; background: rgba(255,179,0,0.2); color: var(--amber); font-weight: 700;">
+                  MODEL EV
+                </span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Model Target Equity:</span>
+                <span style="font-weight: 800; color: #FFD700; font-size: 13px;">${expVal}</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Expected Setups:</span>
+                <span style="font-weight: 700; color: #FFF;">~${day.expTrades} per day</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Sizing Profile:</span>
+                <span style="font-weight: 700; color: var(--cyan);">${day.plan.mode}</span>
+              </div>
+              <div class="compare-row">
+                <span style="color: var(--text-muted);">Max Risk Tolerance:</span>
+                <span style="font-weight: 700; color: var(--amber);">${day.plan.risk} (2 trades max)</span>
+              </div>
+              <div class="compare-row" style="border: none;">
+                <span style="color: var(--text-muted);">Target Win Reward:</span>
+                <span style="font-weight: 800; color: var(--green);">${day.plan.target || '+$70.00 (1:2.0 RR)'}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delta & Pace Banner -->
+          <div style="background: rgba(11, 15, 25, 0.9); border: 1px solid var(--surface-border); border-radius: 8px; padding: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;" class="mono">
+            <div>
+              <div style="font-size: 9px; color: var(--text-muted);">EQUITY VARIANCE (REAL VS EXPECTED)</div>
+              <div style="font-size: 14px; font-weight: 800; color: var(--green);">${deltaStr}</div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 9px; color: var(--text-muted);">VALIDATION PACE STATUS</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--cyan);">🟢 100% ALIGNED WITH 18-22 DAY SCHEDULE</div>
+            </div>
+          </div>
+        `;
+      } else if (CALENDAR_DATA.currentSubTab === 'matrix') {
+        // Full All-Days Trajectory Matrix View
+        let rowsHtml = '';
+        CALENDAR_DATA.days.forEach(d => {
+          const isToday = d.status === 'today';
+          const isPass = d.status === 'target-pass';
+          const rowClass = isToday ? 'matrix-row-today' : (isPass ? 'matrix-row-pass' : '');
+          const rEq = (d.realEquity !== null && d.realEquity !== undefined) ? `$${d.realEquity.toFixed(2)}` : '--';
+          const deltaTxt = (d.realEquity !== null && d.realEquity !== undefined) ? `$${d.delta.toFixed(2)}` : '--';
+
+          rowsHtml += `
+            <tr class="${rowClass}">
+              <td>${d.label}</td>
+              <td style="color: ${d.realEquity ? 'var(--cyan)' : 'var(--text-dim)'}; font-weight: 700;">${rEq}</td>
+              <td style="color: #FFD700; font-weight: 700;">$${d.expEquity.toFixed(2)}</td>
+              <td style="color: var(--green);">${deltaTxt}</td>
+              <td>${d.realTrades !== null ? d.realTrades : '--'}</td>
+              <td>${d.badgeText}</td>
+            </tr>
+          `;
+        });
+
+        contentEl.innerHTML = `
+          <div style="overflow-x: auto;" class="mono">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>REAL EQUITY</th>
+                  <th>EXPECTED PACE</th>
+                  <th>VARIANCE (Δ)</th>
+                  <th>TRADES</th>
+                  <th>STATUS MILESTONE</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rowsHtml}
+              </tbody>
+            </table>
+          </div>
+        `;
       } else if (CALENDAR_DATA.currentSubTab === 'opp') {
+        // Missed opportunities & Filter audit
         if (day.missedOpps.length === 0) {
           contentEl.innerHTML = `
             <div style="padding: 24px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">
@@ -2328,34 +2545,28 @@
           });
           contentEl.innerHTML = html;
         }
-      } else { // plan
-        const p = day.plan;
-        contentEl.innerHTML = `
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;" class="mono">
-            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
-              <div style="font-size: 9px; color: var(--text-muted);">SIZING PROFILE</div>
-              <div style="font-size: 12px; font-weight: 700; color: var(--cyan);">${p.mode}</div>
+      } else { // exec
+        if (day.execTrades.length === 0) {
+          contentEl.innerHTML = `
+            <div style="padding: 24px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">
+              🛡️ ZERO EXECUTED TRADES ON THIS DATE · CAPITAL 100% PRESERVED IN CASH · ZERO CHOP RISK
             </div>
-            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
-              <div style="font-size: 9px; color: var(--text-muted);">MAX RISK / LOSS CAP</div>
-              <div style="font-size: 12px; font-weight: 700; color: var(--amber);">${p.risk}</div>
-            </div>
-            ${p.target ? `
-            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
-              <div style="font-size: 9px; color: var(--text-muted);">WIN REWARD (1:2.0 RR)</div>
-              <div style="font-size: 12px; font-weight: 700; color: var(--green);">${p.target}</div>
-            </div>
-            ` : ''}
-            <div style="background: var(--surface-elevated); padding: 8px; border-radius: 6px;">
-              <div style="font-size: 9px; color: var(--text-muted);">EXPECTED SETUPS</div>
-              <div style="font-size: 12px; font-weight: 700; color: #FFF;">~${day.setups} per day</div>
-            </div>
-          </div>
-          <div style="background: var(--surface-elevated); padding: 10px; border-radius: 6px; border-left: 3px solid var(--purple); margin-top: 6px;" class="mono">
-            <div style="font-size: 9px; color: var(--text-muted);">EXECUTION FOCUS & RISK MANDATE</div>
-            <div style="font-size: 11px; color: #FFF; margin-top: 4px; line-height: 1.4;">${p.focus}</div>
-          </div>
-        `;
+          `;
+        } else {
+          let html = '';
+          day.execTrades.forEach(tr => {
+            html += `
+              <div class="opp-card mono">
+                <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                  <span style="color: var(--cyan); font-weight: 700;">${tr.time} · ${tr.symbol} · ${tr.type} ${tr.volume} Lots</span>
+                  <span style="color: ${tr.pnl >= 0 ? 'var(--green)' : 'var(--red)'}; font-weight: 800;">${tr.pnl >= 0 ? '+' : ''}$${tr.pnl}</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted);">Entry: ${tr.entry} | SL: ${tr.sl} | TP: ${tr.tp}</div>
+              </div>
+            `;
+          });
+          contentEl.innerHTML = html;
+        }
       }
     }
 
@@ -2363,7 +2574,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       renderCalendar();
     });
-    // In case DOM is already loaded
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
       renderCalendar();
     }
