@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-12 05:45:36 UTC",
+  "updated_at": "2026-11-12 05:46:18 UTC",
   "primary_url": "https://ambassador-topics-trading-scsi.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "05:45:18 UTC",
-      "generated_epoch": 1794462318.4830804,
+      "timestamp": "05:46:18 UTC",
+      "generated_epoch": 1794462378.544033,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -6297s / 180s elapsed",
+          "detail": "LOCKED: -6237s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -21,7 +21,7 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $-3.60 (Limit: -$100.00)"
+          "detail": "Floating PnL: $-10.00 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
@@ -31,7 +31,7 @@
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $4,811.37 (Safety Cushion: $311.37)"
+          "detail": "Equity: $4,804.97 (Safety Cushion: $304.97)"
         },
         "anti_martingale": {
           "passed": true,
@@ -54,50 +54,50 @@
         "server": "AtlasFunded-Server",
         "ping": "36 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-12 07:15: SELL"
+        "last_signal_eval": "bar 11-12 07:30: no signal: no 20-bar low break | close=3971.74 VAH=4049.92 VAL=3999.35 hh20=4000.22 ll20=3969.74 ema50=3990.01 ema200=4031.73"
       },
       "account": {
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 4814.97,
-        "equity": 4811.37,
+        "equity": 4804.97,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 338.63,
+        "distance_to_target": 345.03,
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 311.37,
+        "safety_buffer": 304.97,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
-        "daily_drawdown_risk": "0.79% per trade"
+        "daily_drawdown_risk": "0.80% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3972.2,
-        "ask": 3972.67,
+        "bid": 3973.8,
+        "ask": 3974.27,
         "spread": 0.47,
-        "atr14": 6.32,
+        "atr14": 6.38,
         "vah": 4049.92,
         "val": 3999.35,
         "poc": 4024.64,
-        "dist_to_vah": 77.72,
-        "dist_to_val": -27.15,
-        "ema50": 3989.31,
-        "ema200": 4031.14,
+        "dist_to_vah": 76.12,
+        "dist_to_val": -25.55,
+        "ema50": 3989.37,
+        "ema200": 4031.16,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 05:45",
+        "status_label": "UTC 05:46",
         "current_hour_utc": 5,
-        "current_min_utc": 45
+        "current_min_utc": 46
       },
       "execution": {
         "armed_lot_size": "0.04 Lots",
-        "armed_risk_dollars": "$37.93 (0.79% Equity)",
+        "armed_risk_dollars": "$38.31 (0.80% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -106,15 +106,15 @@
             "type": "SELL",
             "volume": 0.04,
             "open_price": 3971.77,
-            "current_price": 3972.67,
+            "current_price": 3974.27,
             "sl": 3981.09,
             "tp": 3953.14,
-            "profit": -3.6,
+            "profit": -10.0,
             "time": 1794468616
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": -3.6,
+        "floating_pnl": -10.0,
         "live_logs": []
       },
       "candles": [
@@ -674,9 +674,9 @@
         {
           "time": 1794469500,
           "open": 3971.82,
-          "high": 3973.05,
+          "high": 3973.92,
           "low": 3971.82,
-          "close": 3972.2
+          "close": 3973.8
         }
       ],
       "ema50_series": [
@@ -998,7 +998,7 @@
         },
         {
           "time": 1794469500,
-          "value": 3989.31
+          "value": 3989.37
         }
       ],
       "ema200_series": [
@@ -1320,14 +1320,14 @@
         },
         {
           "time": 1794469500,
-          "value": 4031.14
+          "value": 4031.16
         }
       ],
-      "state_age_sec": 18,
+      "state_age_sec": 0,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-12T05:45:18.498843+00:00",
-        "heartbeat_epoch": 1794462318.4988434,
+        "heartbeat_utc": "2026-11-12T05:46:18.560147+00:00",
+        "heartbeat_epoch": 1794462378.5601478,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1335,13 +1335,13 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 4811.37,
+        "equity": 4804.97,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-12 07:30: no signal: no 20-bar low break | close=3971.74 VAH=4049.92 VAL=3999.35 hh20=4000.22 ll20=3969.74 ema50=3990.01 ema200=4031.73",
         "last_order": "2026-11-12T05:30:17.534065+00:00 SELL 0.04L XAUUSD @ 3971.77 SL 3981.09 TP 3953.14 ticket 20269237 risk $37.26 (0.77%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
@@ -1368,14 +1368,14 @@
       ]
     },
     "competition": {
-      "timestamp": "05:45:18 UTC",
-      "generated_epoch": 1794462318.6399934,
+      "timestamp": "05:45:58 UTC",
+      "generated_epoch": 1794462358.684278,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -6297s / 180s elapsed",
+          "detail": "LOCKED: -6257s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -1386,7 +1386,7 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $-143.78 (Limit: -$2000.00)"
+          "detail": "Floating PnL: $-246.48 (Limit: -$2000.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
@@ -1396,7 +1396,7 @@
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($90,000.00)",
-          "detail": "Equity: $98,165.68 (Safety Cushion: $8,165.68)"
+          "detail": "Equity: $98,062.98 (Safety Cushion: $8,062.98)"
         },
         "anti_martingale": {
           "passed": true,
@@ -1419,21 +1419,21 @@
         "server": "AtlasFunded-Server",
         "ping": "36 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-12 07:15: SELL"
+        "last_signal_eval": "bar 11-12 07:30: no signal: no 20-bar low break | close=3971.74 VAH=4049.92 VAL=3999.35 hh20=4000.22 ll20=3969.74 ema50=3990.01 ema200=4031.73"
       },
       "account": {
         "login": 212176749,
         "name": "Badr Hammani",
         "balance": 98309.46,
-        "equity": 98165.68,
+        "equity": 98062.98,
         "currency": "USD",
         "phase": "Nov Competition",
         "initial_balance": 100000.0,
         "target_amount": 125000.0,
-        "distance_to_target": 26834.32,
+        "distance_to_target": 26937.02,
         "progress_pct": 0,
         "max_loss_floor": 90000.0,
-        "safety_buffer": 8165.68,
+        "safety_buffer": 8062.98,
         "daily_trades_used": 1,
         "max_daily_trades": 10,
         "daily_losses_used": 1,
@@ -1441,17 +1441,17 @@
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3972.21,
-        "ask": 3972.68,
+        "bid": 3972.86,
+        "ask": 3973.33,
         "spread": 0.47,
-        "atr14": 6.32,
+        "atr14": 6.36,
         "vah": 4049.92,
         "val": 3999.35,
         "poc": 4024.64,
-        "dist_to_vah": 77.71,
-        "dist_to_val": -27.14,
-        "ema50": 3989.31,
-        "ema200": 4031.14,
+        "dist_to_vah": 77.06,
+        "dist_to_val": -26.49,
+        "ema50": 3989.34,
+        "ema200": 4031.15,
         "regime": "STRONG BEARISH"
       },
       "session": {
@@ -1461,8 +1461,8 @@
         "current_min_utc": 45
       },
       "execution": {
-        "armed_lot_size": "1.55 Lots",
-        "armed_risk_dollars": "$1,469.90 (1.50% Equity)",
+        "armed_lot_size": "1.54 Lots",
+        "armed_risk_dollars": "$1,469.66 (1.50% Equity)",
         "armed_target_profit": "1:3.0 R:R",
         "open_positions": [
           {
@@ -1471,15 +1471,15 @@
             "type": "SELL",
             "volume": 1.58,
             "open_price": 3971.77,
-            "current_price": 3972.68,
+            "current_price": 3973.33,
             "sl": 3981.06,
             "tp": 3943.79,
-            "profit": -143.78,
+            "profit": -246.48,
             "time": 1794468616
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": -143.78,
+        "floating_pnl": -246.48,
         "live_logs": []
       },
       "candles": [
@@ -2039,9 +2039,9 @@
         {
           "time": 1794469500,
           "open": 3971.82,
-          "high": 3973.05,
+          "high": 3973.61,
           "low": 3971.82,
-          "close": 3972.21
+          "close": 3972.86
         }
       ],
       "ema50_series": [
@@ -2363,7 +2363,7 @@
         },
         {
           "time": 1794469500,
-          "value": 3989.31
+          "value": 3989.34
         }
       ],
       "ema200_series": [
@@ -2685,14 +2685,14 @@
         },
         {
           "time": 1794469500,
-          "value": 4031.14
+          "value": 4031.15
         }
       ],
-      "state_age_sec": 18,
+      "state_age_sec": 19,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-12T05:45:18.655751+00:00",
-        "heartbeat_epoch": 1794462318.6557515,
+        "heartbeat_utc": "2026-11-12T05:45:58.684278+00:00",
+        "heartbeat_epoch": 1794462358.684278,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -2700,13 +2700,13 @@
         "account_trade_allowed": true,
         "login": 212176749,
         "server": "AtlasFunded-Server",
-        "equity": 98165.68,
+        "equity": 98062.98,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-12 07:30: no signal: no 20-bar low break | close=3971.74 VAH=4049.92 VAL=3999.35 hh20=4000.22 ll20=3969.74 ema50=3990.01 ema200=4031.73",
         "last_order": "2026-11-12T05:30:17.470376+00:00 SELL 1.58L XAUUSD @ 3971.77 SL 3981.06 TP 3943.79 ticket 20269236 risk $1471.94 (1.50%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
@@ -2733,8 +2733,8 @@
       ]
     },
     "exness": {
-      "timestamp": "05:45:18 UTC",
-      "generated_epoch": 1794462318.3105934,
+      "timestamp": "05:46:18 UTC",
+      "generated_epoch": 1794462378.3739376,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
@@ -2784,7 +2784,7 @@
         "server": "Exness-MT5Trial16",
         "ping": "133 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-12 05:15: no signal: lower wick too big | close=3971.25 VAH=4049.23 VAL=3995.81 hh20=4000.59 ll20=3971.96 ema50=3990.87 ema200=4031.50"
+        "last_signal_eval": "bar 11-12 05:30: no signal: no 20-bar low break | close=3971.71 VAH=4049.23 VAL=3995.81 hh20=4000.59 ll20=3969.90 ema50=3990.12 ema200=4031.84"
       },
       "account": {
         "login": 473002209,
@@ -2802,32 +2802,32 @@
         "daily_trades_used": 0,
         "max_daily_trades": 5,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "9.85% per trade"
+        "daily_drawdown_risk": "9.94% per trade"
       },
       "market": {
         "symbol": "XAUUSDm",
-        "bid": 3972.53,
-        "ask": 3972.77,
+        "bid": 3973.91,
+        "ask": 3974.16,
         "spread": 0.24,
-        "atr14": 6.57,
+        "atr14": 6.62,
         "vah": 4049.23,
         "val": 3995.81,
         "poc": 4022.52,
-        "dist_to_vah": 76.7,
-        "dist_to_val": -23.28,
-        "ema50": 3989.43,
-        "ema200": 4031.25,
+        "dist_to_vah": 75.31,
+        "dist_to_val": -21.89,
+        "ema50": 3989.49,
+        "ema200": 4031.27,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 05:45",
+        "status_label": "UTC 05:46",
         "current_hour_utc": 5,
-        "current_min_utc": 45
+        "current_min_utc": 46
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
-        "armed_risk_dollars": "$9.85 (9.85% Equity) - ABOVE CAP, WILL NOT TRADE",
+        "armed_risk_dollars": "$9.94 (9.94% Equity) - ABOVE CAP, WILL NOT TRADE",
         "armed_target_profit": "1:2.5 R:R",
         "open_positions": [],
         "active_trade_count": 0,
@@ -3391,9 +3391,9 @@
         {
           "time": 1794462300,
           "open": 3971.59,
-          "high": 3973.37,
+          "high": 3974.15,
           "low": 3971.59,
-          "close": 3972.53
+          "close": 3973.91
         }
       ],
       "ema50_series": [
@@ -3715,7 +3715,7 @@
         },
         {
           "time": 1794462300,
-          "value": 3989.43
+          "value": 3989.49
         }
       ],
       "ema200_series": [
@@ -4037,14 +4037,14 @@
         },
         {
           "time": 1794462300,
-          "value": 4031.25
+          "value": 4031.27
         }
       ],
-      "state_age_sec": 18,
+      "state_age_sec": 0,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-12T05:45:18.326344+00:00",
-        "heartbeat_epoch": 1794462318.3263447,
+        "heartbeat_utc": "2026-11-12T05:46:18.386497+00:00",
+        "heartbeat_epoch": 1794462378.3864977,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4058,7 +4058,7 @@
         "last_signal_eval": "bar 11-12 05:30: no signal: no 20-bar low break | close=3971.71 VAH=4049.23 VAL=3995.81 hh20=4000.59 ll20=3969.90 ema50=3990.12 ema200=4031.84",
         "last_order": null,
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
