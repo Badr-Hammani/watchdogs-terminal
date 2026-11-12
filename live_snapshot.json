@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-12 23:48:02 UTC",
+  "updated_at": "2026-11-12 23:48:43 UTC",
   "primary_url": "https://ambassador-topics-trading-scsi.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "23:47:51 UTC",
-      "generated_epoch": 1794527271.784059,
+      "timestamp": "23:48:42 UTC",
+      "generated_epoch": 1794527322.5641885,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
@@ -24,9 +24,9 @@
           "detail": "Floating PnL: $+0.00 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
-          "passed": false,
+          "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "3/2 Trades | 2/2 Losses | Daily PnL: $+3.40"
+          "detail": "0/2 Trades | 0/2 Losses | Daily PnL: $+0.00"
         },
         "loss_floor": {
           "passed": true,
@@ -44,8 +44,8 @@
           "detail": "Market Open"
         }
       },
-      "all_rules_passed": false,
-      "rules_block_reason": "Daily Circuit Breaker Triggered (3/2 trades used)",
+      "all_rules_passed": true,
+      "rules_block_reason": null,
       "watchdog": {
         "status": "ONLINE & ARMED",
         "connected": true,
@@ -54,7 +54,7 @@
         "server": "AtlasFunded-Server",
         "ping": "28 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50"
+        "last_signal_eval": "not evaluated yet"
       },
       "account": {
         "login": 212145883,
@@ -69,31 +69,31 @@
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
         "safety_buffer": 354.89,
-        "daily_trades_used": 3,
+        "daily_trades_used": 0,
         "max_daily_trades": 2,
-        "daily_losses_used": 2,
+        "daily_losses_used": 0,
         "daily_drawdown_risk": "0.71% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3883.73,
-        "ask": 3884.21,
+        "bid": 3881.77,
+        "ask": 3882.25,
         "spread": 0.48,
         "atr14": 5.74,
         "vah": 3970.66,
         "val": 3881.98,
         "poc": 3926.32,
-        "dist_to_vah": 86.93,
-        "dist_to_val": 1.75,
-        "ema50": 3895.75,
-        "ema200": 3968.65,
+        "dist_to_vah": 88.89,
+        "dist_to_val": -0.21,
+        "ema50": 3895.67,
+        "ema200": 3968.63,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": false,
-        "status_label": "UTC 23:47",
+        "status_label": "UTC 23:48",
         "current_hour_utc": 23,
-        "current_min_utc": 47
+        "current_min_utc": 48
       },
       "execution": {
         "armed_lot_size": "0.04 Lots",
@@ -104,6 +104,129 @@
         "floating_pnl": 0,
         "live_logs": []
       },
+      "closed_trades": [
+        {
+          "ticket": 20276316,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 0.04,
+          "open_price": 3959.59,
+          "open_utc": "2026-11-12 07:15",
+          "status": "CLOSED",
+          "magic": 100200,
+          "comment": "Phase1Alpha",
+          "close_price": 3940.24,
+          "close_utc": "2026-11-12 08:47",
+          "profit": 77.2,
+          "hold_min": 92
+        },
+        {
+          "ticket": 20269237,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 0.04,
+          "open_price": 3971.77,
+          "open_utc": "2026-11-12 05:30",
+          "status": "CLOSED",
+          "magic": 100200,
+          "comment": "Phase1Alpha",
+          "close_price": 3981.09,
+          "close_utc": "2026-11-12 05:52",
+          "profit": -37.48,
+          "hold_min": 22
+        },
+        {
+          "ticket": 20256366,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 0.06,
+          "open_price": 3977.82,
+          "open_utc": "2026-11-12 00:00",
+          "status": "CLOSED",
+          "magic": 100200,
+          "comment": "Phase1Alpha",
+          "close_price": 3983.94,
+          "close_utc": "2026-11-12 00:20",
+          "profit": -37.02,
+          "hold_min": 21
+        },
+        {
+          "ticket": 18747067,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 0.03,
+          "open_price": 4058.67,
+          "open_utc": "2026-10-22 12:24",
+          "status": "CLOSED",
+          "magic": 0,
+          "comment": "",
+          "close_price": 4061.53,
+          "close_utc": "2026-10-22 12:24",
+          "profit": -8.73,
+          "hold_min": 0
+        },
+        {
+          "ticket": 18747070,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 0.03,
+          "open_price": 4058.72,
+          "open_utc": "2026-10-22 12:24",
+          "status": "CLOSED",
+          "magic": 0,
+          "comment": "",
+          "close_price": 4061.53,
+          "close_utc": "2026-10-22 12:24",
+          "profit": -8.58,
+          "hold_min": 0
+        },
+        {
+          "ticket": 18745744,
+          "symbol": "XAUUSD",
+          "side": "BUY",
+          "volume": 0.03,
+          "open_price": 4068.08,
+          "open_utc": "2026-10-22 12:21",
+          "status": "CLOSED",
+          "magic": 0,
+          "comment": "",
+          "close_price": 4058.98,
+          "close_utc": "2026-10-22 12:24",
+          "profit": -27.45,
+          "hold_min": 2
+        },
+        {
+          "ticket": 18735653,
+          "symbol": "XAUUSD",
+          "side": "BUY",
+          "volume": 0.03,
+          "open_price": 4092.66,
+          "open_utc": "2026-10-22 09:44",
+          "status": "CLOSED",
+          "magic": 0,
+          "comment": "",
+          "close_price": 4058.97,
+          "close_utc": "2026-10-22 12:24",
+          "profit": -101.22,
+          "hold_min": 159
+        },
+        {
+          "ticket": 18735585,
+          "symbol": "EURUSD",
+          "side": "BUY",
+          "volume": 0.03,
+          "open_price": 1.12,
+          "open_utc": "2026-10-22 09:43",
+          "status": "CLOSED",
+          "magic": 0,
+          "comment": "",
+          "close_price": 1.12,
+          "close_utc": "2026-10-22 09:49",
+          "profit": -1.83,
+          "hold_min": 6
+        }
+      ],
+      "trade_events": [],
       "candles": [
         {
           "time": 1794459600,
@@ -663,7 +786,7 @@
           "open": 3878.5,
           "high": 3885.43,
           "low": 3878.44,
-          "close": 3883.73
+          "close": 3881.77
         }
       ],
       "ema50_series": [
@@ -985,7 +1108,7 @@
         },
         {
           "time": 1794534300,
-          "value": 3895.75
+          "value": 3895.67
         }
       ],
       "ema200_series": [
@@ -1307,14 +1430,14 @@
         },
         {
           "time": 1794534300,
-          "value": 3968.65
+          "value": 3968.63
         }
       ],
-      "state_age_sec": 10,
+      "state_age_sec": 1,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-12T23:47:51.794112+00:00",
-        "heartbeat_epoch": 1794527271.7941122,
+        "heartbeat_utc": "2026-11-12T23:48:42.579827+00:00",
+        "heartbeat_epoch": 1794527322.5798278,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1326,21 +1449,12 @@
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
-        "last_order": "2026-11-12T07:15:03.799889+00:00 SELL 0.04L XAUUSD @ 3959.59 SL 3969.26 TP 3940.24 ticket 20276316 risk $38.70 (0.81%)",
+        "last_order": null,
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
+        "stage": "evaluated",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-12 21:45:17 UTC] [EXNESS] EVAL bar 11-12 21:30: off-session (bar hour 21 broker time)",
-        "[2026-11-12 21:45:18 UTC] [PHASE1] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
-        "[2026-11-12 22:23:40 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:40 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:44 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:23:44 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:24:05 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 22:24:05 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 23:00:07 UTC] [PHASE1] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:07 UTC] [COMPETITION] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:42 UTC] [EXNESS] EVAL bar 11-12 21:45: off-session (bar hour 21 broker time)",
         "[2026-11-12 23:15:05 UTC] [EXNESS] EVAL bar 11-12 23:00: off-session (bar hour 23 broker time)",
@@ -1351,12 +1465,21 @@
         "[2026-11-12 23:30:09 UTC] [PHASE1] EVAL bar 11-13 01:15: no signal: no 20-bar low break, lower wick too big | close=3876.52 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.10 ema50=3896.97 ema200=3970.61",
         "[2026-11-12 23:45:07 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:45:11 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
-        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50"
+        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:41 UTC] [PHASE1] ENGINE v2 START account=phase1 terminal=C:\\MT5\\phase1\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [EXNESS] ENGINE v2 START account=exness terminal=C:\\MT5\\exness\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [COMPETITION] ENGINE v2 START account=competition terminal=C:\\MT5\\competition\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [EXNESS] CONNECTED #473002209 Exness-MT5Trial16 equity=$100.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:43 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)"
       ]
     },
     "competition": {
-      "timestamp": "23:47:51 UTC",
-      "generated_epoch": 1794527271.7350707,
+      "timestamp": "23:48:42 UTC",
+      "generated_epoch": 1794527322.7204514,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
@@ -1376,9 +1499,9 @@
           "detail": "Floating PnL: $+0.00 (Limit: -$2000.00)"
         },
         "daily_circuit_breaker": {
-          "passed": false,
+          "passed": true,
           "name": "Daily Circuit Breaker (Max 10 Trades)",
-          "detail": "3/10 Trades | 2/2 Losses | Daily PnL: $+1178.50"
+          "detail": "0/10 Trades | 0/2 Losses | Daily PnL: $+0.00"
         },
         "loss_floor": {
           "passed": true,
@@ -1396,8 +1519,8 @@
           "detail": "Market Open"
         }
       },
-      "all_rules_passed": false,
-      "rules_block_reason": "Daily Circuit Breaker Triggered (3/10 trades used)",
+      "all_rules_passed": true,
+      "rules_block_reason": null,
       "watchdog": {
         "status": "ONLINE & ARMED",
         "connected": true,
@@ -1406,7 +1529,7 @@
         "server": "AtlasFunded-Server",
         "ping": "29 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50"
+        "last_signal_eval": "not evaluated yet"
       },
       "account": {
         "login": 212176749,
@@ -1421,31 +1544,31 @@
         "progress_pct": 4.6,
         "max_loss_floor": 90000.0,
         "safety_buffer": 11150.8,
-        "daily_trades_used": 3,
+        "daily_trades_used": 0,
         "max_daily_trades": 10,
-        "daily_losses_used": 2,
+        "daily_losses_used": 0,
         "daily_drawdown_risk": "1.50% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3883.75,
-        "ask": 3884.22,
-        "spread": 0.47,
+        "bid": 3881.29,
+        "ask": 3881.78,
+        "spread": 0.49,
         "atr14": 5.74,
         "vah": 3970.66,
         "val": 3881.98,
         "poc": 3926.32,
-        "dist_to_vah": 86.91,
-        "dist_to_val": 1.77,
-        "ema50": 3895.75,
-        "ema200": 3968.65,
+        "dist_to_vah": 89.37,
+        "dist_to_val": -0.69,
+        "ema50": 3895.66,
+        "ema200": 3968.62,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": false,
-        "status_label": "UTC 23:47",
+        "status_label": "UTC 23:48",
         "current_hour_utc": 23,
-        "current_min_utc": 47
+        "current_min_utc": 48
       },
       "execution": {
         "armed_lot_size": "1.76 Lots",
@@ -1456,6 +1579,54 @@
         "floating_pnl": 0,
         "live_logs": []
       },
+      "closed_trades": [
+        {
+          "ticket": 20276317,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 1.5,
+          "open_price": 3959.56,
+          "open_utc": "2026-11-12 07:15",
+          "status": "CLOSED",
+          "magic": 200300,
+          "comment": "AtlasCompAlpha",
+          "close_price": 3930.54,
+          "close_utc": "2026-11-12 08:56",
+          "profit": 4345.5,
+          "hold_min": 102
+        },
+        {
+          "ticket": 20269236,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 1.58,
+          "open_price": 3971.77,
+          "open_utc": "2026-11-12 05:30",
+          "status": "CLOSED",
+          "magic": 200300,
+          "comment": "AtlasCompAlpha",
+          "close_price": 3981.29,
+          "close_utc": "2026-11-12 05:52",
+          "profit": -1512.06,
+          "hold_min": 22
+        },
+        {
+          "ticket": 20256367,
+          "symbol": "XAUUSD",
+          "side": "SELL",
+          "volume": 2.46,
+          "open_price": 3977.79,
+          "open_utc": "2026-11-12 00:00",
+          "status": "CLOSED",
+          "magic": 200300,
+          "comment": "AtlasCompAlpha",
+          "close_price": 3984.58,
+          "close_utc": "2026-11-12 00:20",
+          "profit": -1682.64,
+          "hold_min": 20
+        }
+      ],
+      "trade_events": [],
       "candles": [
         {
           "time": 1794459600,
@@ -2015,7 +2186,7 @@
           "open": 3878.5,
           "high": 3885.43,
           "low": 3878.44,
-          "close": 3883.75
+          "close": 3881.29
         }
       ],
       "ema50_series": [
@@ -2337,7 +2508,7 @@
         },
         {
           "time": 1794534300,
-          "value": 3895.75
+          "value": 3895.66
         }
       ],
       "ema200_series": [
@@ -2659,14 +2830,14 @@
         },
         {
           "time": 1794534300,
-          "value": 3968.65
+          "value": 3968.62
         }
       ],
-      "state_age_sec": 10,
+      "state_age_sec": 1,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-12T23:47:51.746624+00:00",
-        "heartbeat_epoch": 1794527271.746625,
+        "heartbeat_utc": "2026-11-12T23:48:42.736079+00:00",
+        "heartbeat_epoch": 1794527322.7360795,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -2678,21 +2849,12 @@
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
-        "last_order": "2026-11-12T07:15:03.951862+00:00 SELL 1.5L XAUUSD @ 3959.56 SL 3969.25 TP 3930.56 ticket 20276317 risk $1451.09 (1.50%)",
+        "last_order": null,
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
+        "stage": "evaluated",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-12 21:45:17 UTC] [EXNESS] EVAL bar 11-12 21:30: off-session (bar hour 21 broker time)",
-        "[2026-11-12 21:45:18 UTC] [PHASE1] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
-        "[2026-11-12 22:23:40 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:40 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:44 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:23:44 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:24:05 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 22:24:05 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 23:00:07 UTC] [PHASE1] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:07 UTC] [COMPETITION] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:42 UTC] [EXNESS] EVAL bar 11-12 21:45: off-session (bar hour 21 broker time)",
         "[2026-11-12 23:15:05 UTC] [EXNESS] EVAL bar 11-12 23:00: off-session (bar hour 23 broker time)",
@@ -2703,12 +2865,21 @@
         "[2026-11-12 23:30:09 UTC] [PHASE1] EVAL bar 11-13 01:15: no signal: no 20-bar low break, lower wick too big | close=3876.52 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.10 ema50=3896.97 ema200=3970.61",
         "[2026-11-12 23:45:07 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:45:11 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
-        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50"
+        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:41 UTC] [PHASE1] ENGINE v2 START account=phase1 terminal=C:\\MT5\\phase1\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [EXNESS] ENGINE v2 START account=exness terminal=C:\\MT5\\exness\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [COMPETITION] ENGINE v2 START account=competition terminal=C:\\MT5\\competition\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [EXNESS] CONNECTED #473002209 Exness-MT5Trial16 equity=$100.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:43 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)"
       ]
     },
     "exness": {
-      "timestamp": "23:47:47 UTC",
-      "generated_epoch": 1794527267.165853,
+      "timestamp": "23:48:43 UTC",
+      "generated_epoch": 1794527323.0016918,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
@@ -2758,7 +2929,7 @@
         "server": "Exness-MT5Trial16",
         "ping": "135 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-12 23:30: off-session (bar hour 23 broker time)"
+        "last_signal_eval": "not evaluated yet"
       },
       "account": {
         "login": 473002209,
@@ -2780,24 +2951,24 @@
       },
       "market": {
         "symbol": "XAUUSDm",
-        "bid": 3883.52,
-        "ask": 3883.76,
+        "bid": 3881.43,
+        "ask": 3881.67,
         "spread": 0.24,
         "atr14": 4.76,
         "vah": 4049.23,
         "val": 3995.81,
         "poc": 4022.52,
-        "dist_to_vah": 165.71,
-        "dist_to_val": -112.29,
-        "ema50": 3895.94,
-        "ema200": 3968.78,
+        "dist_to_vah": 167.8,
+        "dist_to_val": -114.37,
+        "ema50": 3895.86,
+        "ema200": 3968.76,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": false,
-        "status_label": "UTC 23:47",
+        "status_label": "UTC 23:48",
         "current_hour_utc": 23,
-        "current_min_utc": 47
+        "current_min_utc": 48
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
@@ -2808,6 +2979,8 @@
         "floating_pnl": 0,
         "live_logs": []
       },
+      "closed_trades": [],
+      "trade_events": [],
       "candles": [
         {
           "time": 1794452400,
@@ -3367,7 +3540,7 @@
           "open": 3878.51,
           "high": 3885.51,
           "low": 3878.36,
-          "close": 3883.52
+          "close": 3881.43
         }
       ],
       "ema50_series": [
@@ -3689,7 +3862,7 @@
         },
         {
           "time": 1794527100,
-          "value": 3895.94
+          "value": 3895.86
         }
       ],
       "ema200_series": [
@@ -4011,14 +4184,14 @@
         },
         {
           "time": 1794527100,
-          "value": 3968.78
+          "value": 3968.76
         }
       ],
-      "state_age_sec": 15,
+      "state_age_sec": 0,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-12T23:47:47.165852+00:00",
-        "heartbeat_epoch": 1794527267.165853,
+        "heartbeat_utc": "2026-11-12T23:48:43.017329+00:00",
+        "heartbeat_epoch": 1794527323.0173297,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4032,19 +4205,10 @@
         "last_signal_eval": "bar 11-12 23:30: off-session (bar hour 23 broker time)",
         "last_order": null,
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
+        "stage": "evaluated",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-12 21:45:17 UTC] [EXNESS] EVAL bar 11-12 21:30: off-session (bar hour 21 broker time)",
-        "[2026-11-12 21:45:18 UTC] [PHASE1] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
-        "[2026-11-12 22:23:40 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:40 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-12 22:23:44 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:23:44 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-12 22:24:05 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 22:24:05 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
-        "[2026-11-12 23:00:07 UTC] [PHASE1] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:07 UTC] [COMPETITION] EVAL bar 11-12 23:45: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:00:42 UTC] [EXNESS] EVAL bar 11-12 21:45: off-session (bar hour 21 broker time)",
         "[2026-11-12 23:15:05 UTC] [EXNESS] EVAL bar 11-12 23:00: off-session (bar hour 23 broker time)",
@@ -4055,7 +4219,16 @@
         "[2026-11-12 23:30:09 UTC] [PHASE1] EVAL bar 11-13 01:15: no signal: no 20-bar low break, lower wick too big | close=3876.52 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.10 ema50=3896.97 ema200=3970.61",
         "[2026-11-12 23:45:07 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-12 23:45:11 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
-        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50"
+        "[2026-11-12 23:45:11 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:41 UTC] [PHASE1] ENGINE v2 START account=phase1 terminal=C:\\MT5\\phase1\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [EXNESS] ENGINE v2 START account=exness terminal=C:\\MT5\\exness\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:41 UTC] [COMPETITION] ENGINE v2 START account=competition terminal=C:\\MT5\\competition\\terminal64.exe max_risk=2% auto_execute=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,854.89 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [PHASE1] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$101,150.80 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:42 UTC] [COMPETITION] EVAL bar 11-13 01:30: no signal: no 20-bar low break, lower wick too big | close=3878.46 VAH=3970.66 VAL=3881.98 hh20=3895.75 ll20=3870.92 ema50=3896.24 ema200=3969.50",
+        "[2026-11-12 23:48:42 UTC] [EXNESS] CONNECTED #473002209 Exness-MT5Trial16 equity=$100.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-12 23:48:43 UTC] [EXNESS] EVAL bar 11-12 23:30: off-session (bar hour 23 broker time)"
       ]
     }
   }
