@@ -1450,6 +1450,13 @@
           NO OPEN TRADES · CAPITAL 100% PRESERVED IN CASH · ZERO CHOP RISK
         </div>
       </div>
+      <div class="panel-header" style="margin-top: 12px;">
+        <span>📜 TRADE HISTORY (BROKER RECORDS)</span>
+        <span class="mono" style="color: var(--cyan); font-size: 11px;" id="history-count">0 TRADES</span>
+      </div>
+      <div id="trade-history-container" style="overflow-x: auto;">
+        <div style="padding: 20px 10px; text-align: center; color: var(--text-muted); font-size: 11px;" class="mono">NO CLOSED TRADES YET</div>
+      </div>
     </div>
 
     <!-- Bot Live Console -->
@@ -2192,8 +2199,31 @@
           }
         }
 
-        // 7. Bot Live Terminal Logs
-        const logs = data.bot_logs || (data.execution && data.execution.live_logs);
+        // 7a. Trade history from broker deal records (never pushed out by scan lines)
+        const hist = data.closed_trades || [];
+        const histBox = document.getElementById('trade-history-container');
+        const histCount = document.getElementById('history-count');
+        if (histBox) {
+          if (histCount) histCount.innerText = `${hist.length} TRADES`;
+          if (hist.length > 0) {
+            let net = 0;
+            let h = `<table class="pos-table mono"><thead><tr><th>OPEN (UTC)</th><th>TICKET</th><th>SIDE</th><th>LOTS</th><th>ENTRY</th><th>EXIT</th><th>HELD</th><th>P/L</th></tr></thead><tbody>`;
+            for (const t of hist) {
+              const pl = Number(t.profit || 0); if (t.status === 'CLOSED') net += pl;
+              const col = t.status !== 'CLOSED' ? 'var(--cyan)' : (pl >= 0 ? 'var(--green)' : 'var(--red)');
+              h += `<tr><td>${t.open_utc}</td><td>#${t.ticket}</td><td>${t.side}</td><td>${t.volume}</td><td>${t.open_price}</td>` +
+                   `<td>${t.close_price != null ? t.close_price : 'OPEN'}</td><td>${t.hold_min != null ? t.hold_min + 'm' : '-'}</td>` +
+                   `<td style="color:${col};">${t.status === 'CLOSED' ? (pl >= 0 ? '+' : '') + '$' + pl.toFixed(2) : 'OPEN'}</td></tr>`;
+            }
+            h += `</tbody></table><div class="mono" style="padding:6px 4px;font-size:11px;color:${net >= 0 ? 'var(--green)' : 'var(--red)'};">NET (listed): ${net >= 0 ? '+' : ''}$${net.toFixed(2)}</div>`;
+            histBox.innerHTML = h;
+          }
+        }
+
+        // 7. Bot Live Terminal Logs: trade events first (persistent), then the latest scan lines
+        const tradeEvents = data.trade_events || [];
+        const scanLogs = data.bot_logs || (data.execution && data.execution.live_logs) || [];
+        const logs = tradeEvents.length ? tradeEvents.slice(-15).concat(['──── latest scans ────'], scanLogs.slice(-10)) : scanLogs;
         if (logs && logs.length > 0) {
           const feed = document.getElementById('terminal-feed');
           if (feed) {
@@ -2202,7 +2232,8 @@
               let cls = 'scan';
               if (l.includes('NO SIGNAL')) cls = 'scan';
               else if (l.includes('BOT SCAN CYCLE') || l.includes('Sentinel Armed') || l.includes('Scanning')) cls = 'highlight';
-              else if (l.includes('ORDER') || l.includes('EXECUTED') || l.includes('Verified')) cls = 'trade';
+              else if (l.includes('ORDER') || l.includes('EXECUTED') || l.includes('CLOSED') || l.includes('Verified')) cls = 'trade';
+              else if (l.includes('BLOCKED') || l.includes('rejected') || l.includes('failed')) cls = 'warning';
               else if (l.includes('WARNING') || l.includes('CIRCUIT') || l.includes('BREACH')) cls = 'warning';
               logHtml += `<div class="term-line ${cls}">${l}</div>`;
             }
