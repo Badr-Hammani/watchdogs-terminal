@@ -278,6 +278,10 @@
       font-size: 13px; color: var(--muted); transition: all .2s var(--spring);
     }
     .filters button.active { background: rgba(255, 255, 255, 0.12); color: var(--text); }
+    .scope { display: inline-flex; gap: 4px; }
+    .scope button { border: 1px solid var(--border); background: rgba(255, 255, 255, 0.04); border-radius: 9px; padding: 4px 10px; cursor: pointer; font-size: 12.5px; color: var(--muted); transition: all .2s var(--spring); }
+    .scope button.active { background: rgba(255, 255, 255, 0.12); color: var(--text); }
+    .tag-manual { font-size: 11px; color: var(--amber); border: 1px solid rgba(251,191,36,.3); border-radius: 6px; padding: 1px 5px; margin-left: 6px; vertical-align: 1px; }
     .term {
       font-family: var(--mono); font-size: 12.5px; line-height: 1.55; background: rgba(2, 6, 14, 0.6); border: 1px solid var(--hairline);
       border-radius: 14px; padding: 10px; max-height: 68vh; overflow-y: auto;
@@ -420,7 +424,7 @@
               <h3 class="card-title" style="margin-bottom:10px">Validation &amp; Quant</h3>
               <div class="kv"><span>Pass progress</span><b class="num" id="ov-q-progress">—</b></div>
               <div class="kv"><span>Live win rate · PF</span><b class="num" id="ov-q-wr">—</b></div>
-              <div class="kv" style="margin-bottom:14px"><span>Closed trades (30d)</span><b class="num" id="ov-q-n">—</b></div>
+              <div class="kv" style="margin-bottom:14px"><span id="ov-q-n-l">Closed trades (30d)</span><b class="num" id="ov-q-n">—</b></div>
               <button class="btn" data-go="calendar">Open Calendar &amp; Stats →</button>
             </div>
 
@@ -510,6 +514,7 @@
 
           <div class="glass card">
             <div class="card-head"><h3 class="card-title">Live Performance Scorecard</h3><span class="chip neutral" id="sc-sample">—</span></div>
+            <div class="tl-flags"><div class="scope" data-scope-group><button data-scope="bot" class="active">Bot trades</button><button data-scope="all">All trades</button></div><span class="label" id="sc-scope-note"></span></div>
             <div class="score-grid">
               <div class="score g"><div class="label">Win Rate</div><div class="v num pos" id="sc-wr">—</div><div class="s num" id="sc-wr-s">&nbsp;</div></div>
               <div class="score c"><div class="label">Profit Factor</div><div class="v num info" id="sc-pf">—</div><div class="s">Gross wins / gross losses</div></div>
@@ -531,7 +536,7 @@
       <section class="view" data-view="trades">
         <div class="tl-grid">
           <div class="glass card" data-layout="trades">
-            <div class="card-head"><h3 class="card-title">Trade History <span class="dim" id="th-count"></span></h3></div>
+            <div class="card-head"><h3 class="card-title">Trade History <span class="dim" id="th-count"></span></h3><div class="scope" data-scope-group><button data-scope="bot" class="active">Bot trades</button><button data-scope="all">All trades</button></div></div>
             <div class="tl-flags">
               <span class="chip info" id="th-open">—</span>
               <span class="chip neutral num" id="th-net">—</span>
@@ -581,11 +586,13 @@
       fetchedAt: {},     // account -> client epoch ms
       source: {},        // account -> 'server' | 'tunnel' | 'snapshot'
       logFilter: 'ALL',
+      scope: 'bot',      // 'bot' = only trades placed by this account's engine (magic number), 'all' = every broker trade
       calMonth: null,    // Date (UTC first of month)
       selDay: null,
     };
     try {
       const a = localStorage.getItem('wd_acc'); if (ACCOUNTS.includes(a)) store.acc = a;
+      const sc = localStorage.getItem('wd_scope'); if (sc === 'all' || sc === 'bot') store.scope = sc;
     } catch (e) {}
     const hashTab = (location.hash || '').replace('#', '');
     if (TABS.includes(hashTab)) store.tab = hashTab;
@@ -766,6 +773,13 @@
       if (t) { go(t.dataset.tab); return; }
       const a = e.target.closest('#acct-seg button');
       if (a) { switchAccount(a.dataset.acc); return; }
+      const sc = e.target.closest('[data-scope]');
+      if (sc) {
+        store.scope = sc.dataset.scope; store.selDay = null;
+        document.querySelectorAll('[data-scope-group]').forEach(g => g.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.scope === store.scope)));
+        try { localStorage.setItem('wd_scope', store.scope); } catch (e2) {}
+        renderAll(); return;
+      }
       const lf = e.target.closest('#log-filters button');
       if (lf) { store.logFilter = lf.dataset.lf; activate($('log-filters'), 'lf', store.logFilter); renderLogs(); return; }
       const day = e.target.closest('.day.has');
@@ -885,7 +899,16 @@
     }
 
     // ------------------------------------------------------------------ trade stats
-    function closedTrades(d) { return ((d && d.closed_trades) || []).filter(t => t.status === 'CLOSED' && isNum(Number(t.profit))); }
+    // Engine magic numbers per account (tri_engine_daemon.py ACCOUNTS). Trades without the bot's magic are manual/older.
+    const BOT_MAGIC = { phase1: 100200, competition: 200300, exness: 777100 };
+    const isBotTrade = (t, acc) => Number(t.magic) === BOT_MAGIC[acc];
+    function scopedTrades(d) {
+      const all = (d && d.closed_trades) || [];
+      if (store.scope === 'all') return all;
+      const acc = (d && d.account_type) || store.acc;
+      return all.filter(t => isBotTrade(t, acc));
+    }
+    function closedTrades(d) { return scopedTrades(d).filter(t => t.status === 'CLOSED' && isNum(Number(t.profit))); }
     function stats(trades) {
       const n = trades.length;
       const pl = trades.map(t => Number(t.profit));
@@ -1025,13 +1048,14 @@
       setText('ov-q-progress', real && isNum(a.progress_pct) ? `${a.progress_pct.toFixed(1)}% of profit target` : '—');
       setText('ov-q-wr', st.n ? `${st.wr.toFixed(1)}% · ${st.pf != null ? st.pf.toFixed(2) : 'n/a'}` : (real ? 'No closed trades' : '—'));
       setText('ov-q-n', real ? String(st.n) : '—');
+      setText('ov-q-n-l', store.scope === 'bot' ? 'Closed bot trades (30d)' : 'Closed trades, all (30d)');
 
       // trades card
       const ct = closedTrades(real ? d : null);
       const sum = $('ov-t-sum');
-      if (real) sum.innerHTML = `${ct.length} Trades · Net <span class="${cls(st.net)}">${fmtUSD(st.net, true)}</span>`;
+      if (real) sum.innerHTML = `${ct.length} ${store.scope === 'bot' ? 'Bot ' : ''}Trades · Net <span class="${cls(st.net)}">${fmtUSD(st.net, true)}</span>`;
       else sum.textContent = '—';
-      const lt = ((real && d.closed_trades) || [])[0];
+      const lt = (real ? scopedTrades(d) : [])[0];
       if (lt) {
         const p = Number(lt.profit);
         setHTML('ov-t-last', `<span><span class="${lt.side === 'BUY' ? 'side-buy' : 'side-sell'}">${esc(lt.side)}</span>&nbsp; ${esc(lt.volume)}L <span class="muted" style="font-size:13px">${lt.open_utc ? esc(fmtShort(parseUTC(lt.open_utc))) : ''}</span></span>` +
@@ -1143,6 +1167,8 @@
       const real = isReal(d);
       const ct = closedTrades(real ? d : null);
       const s = stats(ct);
+      const allN = ((real && d.closed_trades) || []).filter(t => t.status === 'CLOSED').length;
+      setText('sc-scope-note', real && store.scope === 'bot' && allN > ct.length ? `${allN - ct.length} manual/older trade${allN - ct.length === 1 ? '' : 's'} hidden` : '\u00a0');
       const chip = $('sc-sample');
       chip.textContent = real ? `${s.n} closed trade${s.n === 1 ? '' : 's'}` : '—';
       chip.className = 'chip ' + (s.n >= 30 ? 'info' : 'warn');
@@ -1172,13 +1198,13 @@
       setHTML('sc-sessions', order.filter(k => gs[k]).map(k => row(k, gs[k])).join(''));
       const gd = groups(t => t.side);
       setHTML('sc-sides', ['BUY', 'SELL'].filter(k => gd[k]).map(k => row(k, gd[k])).join(''));
-      setText('sc-note', `Computed live from ${s.n} closed trade${s.n === 1 ? '' : 's'} in the broker's last-30-day history for this account.` + (s.n < 30 ? ' Under 30 trades is too few to judge the strategy; treat these as a log, not an edge estimate.' : ''));
+      setText('sc-note', `Computed live from ${s.n} closed ${store.scope === 'bot' ? 'bot ' : ''}trade${s.n === 1 ? '' : 's'} in the broker's last-30-day history for this account.` + (s.n < 30 ? ' Under 30 trades is too few to judge the strategy; treat these as a log, not an edge estimate.' : ''));
     }
 
     function renderTrades() {
       const d = store.data[store.acc];
       const real = isReal(d);
-      const hist = real ? (d.closed_trades || []) : [];
+      const hist = real ? scopedTrades(d) : [];
       const pos = real ? ((d.execution && d.execution.open_positions) || d.open_positions || []) : [];
       setText('th-count', real ? `(${hist.length} Trade${hist.length === 1 ? '' : 's'})` : '');
       const oc = $('th-open');
@@ -1200,7 +1226,7 @@
         hist.map(t => {
           const op = parseUTC(t.open_utc);
           const p = Number(t.profit);
-          return `<tr><td>${op ? esc(fmtShort(op)) : esc(t.open_utc)}</td><td class="hide-sm">#${esc(t.ticket)}</td><td class="${t.side === 'BUY' ? 'side-buy' : 'side-sell'}">${esc(t.side)}</td><td class="hide-sm">${esc(t.volume)}</td>` +
+          return `<tr><td>${op ? esc(fmtShort(op)) : esc(t.open_utc)}</td><td class="hide-sm">#${esc(t.ticket)}</td><td class="${t.side === 'BUY' ? 'side-buy' : 'side-sell'}">${esc(t.side)}${store.scope === 'all' && !isBotTrade(t, d.account_type || store.acc) ? '<span class="tag-manual">manual</span>' : ''}</td><td class="hide-sm">${esc(t.volume)}</td>` +
             `<td class="ee">${fmtPx(t.open_price)} → ${t.status === 'CLOSED' ? fmtPx(t.close_price) : '<span class="info">open</span>'}</td><td class="hide-sm">${isNum(t.hold_min) ? t.hold_min + 'm' : '—'}</td>` +
             `<td class="${t.status === 'CLOSED' ? cls(p) : 'info'}">${t.status === 'CLOSED' ? fmtUSD(p, true) : 'OPEN'}</td></tr>`;
         }).join('') + '</tbody></table>');
@@ -1275,6 +1301,7 @@
     // ------------------------------------------------------------------ boot
     activate($('acct-seg'), 'acc', store.acc);
     activate($('tab-seg'), 'tab', store.tab);
+    document.querySelectorAll('[data-scope-group]').forEach(g => g.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.scope === store.scope)));
     Object.values(views).forEach(v => v.classList.toggle('active', v.dataset.view === store.tab));
     mountChart();   // attach the host first so the chart is created at its real size
     initChart();
