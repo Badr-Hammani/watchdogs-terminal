@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-15 05:08:06 UTC",
+  "updated_at": "2026-11-15 05:08:47 UTC",
   "primary_url": "https://consolidated-herself-handled-debug.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "05:08:02 UTC",
-      "generated_epoch": 1794719282.498005,
+      "timestamp": "05:08:42 UTC",
+      "generated_epoch": 1794719322.5411985,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
@@ -1453,11 +1453,11 @@
           "value": 3919.34
         }
       ],
-      "state_age_sec": 3,
+      "state_age_sec": 5,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-15T05:08:02.498005+00:00",
-        "heartbeat_epoch": 1794719282.498005,
+        "heartbeat_utc": "2026-11-15T05:08:42.541198+00:00",
+        "heartbeat_epoch": 1794719322.5411985,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1475,8 +1475,6 @@
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-13 21:30:05 UTC] [COMPETITION] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
-        "[2026-11-13 21:30:13 UTC] [PHASE1] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:03 UTC] [EXNESS] EVAL bar 11-13 21:30: off-session (bar hour 21 broker time)",
         "[2026-11-13 21:45:06 UTC] [COMPETITION] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:14 UTC] [PHASE1] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
@@ -1494,12 +1492,14 @@
         "[2026-11-15 05:06:24 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
         "[2026-11-15 05:06:24 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe",
         "[2026-11-15 05:07:30 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
+        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe"
       ]
     },
     "competition": {
-      "timestamp": "05:08:01 UTC",
-      "generated_epoch": 1794719281.9036112,
+      "timestamp": "05:08:41 UTC",
+      "generated_epoch": 1794719321.9624617,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
@@ -2863,11 +2863,11 @@
           "value": 3919.34
         }
       ],
-      "state_age_sec": 4,
+      "state_age_sec": 6,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-15T05:08:01.935553+00:00",
-        "heartbeat_epoch": 1794719281.9355533,
+        "heartbeat_utc": "2026-11-15T05:08:41.962461+00:00",
+        "heartbeat_epoch": 1794719321.9624617,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -2885,8 +2885,6 @@
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-13 21:30:05 UTC] [COMPETITION] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
-        "[2026-11-13 21:30:13 UTC] [PHASE1] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:03 UTC] [EXNESS] EVAL bar 11-13 21:30: off-session (bar hour 21 broker time)",
         "[2026-11-13 21:45:06 UTC] [COMPETITION] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:14 UTC] [PHASE1] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
@@ -2904,7 +2902,9 @@
         "[2026-11-15 05:06:24 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
         "[2026-11-15 05:06:24 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe",
         "[2026-11-15 05:07:30 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
+        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe"
       ]
     },
     "exness": {
@@ -2952,9 +2952,9 @@
       "all_rules_passed": false,
       "rules_block_reason": "Weekend Window: Holding protection active",
       "watchdog": {
-        "status": "ONLINE & ARMED",
-        "connected": true,
-        "trade_allowed": true,
+        "status": "OFFLINE - ENGINE DATA STALE (3 min old)",
+        "connected": false,
+        "trade_allowed": false,
         "expert_allowed": true,
         "server": "Exness-MT5Trial16",
         "ping": "135 ms",
@@ -4221,7 +4221,7 @@
           "value": 3919.5
         }
       ],
-      "state_age_sec": 166,
+      "state_age_sec": 208,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-15T05:07:51.349178+00:00",
@@ -4242,9 +4242,8 @@
         "stage": "connect",
         "can_trade": false
       },
+      "status": "STALE",
       "bot_logs": [
-        "[2026-11-13 21:30:05 UTC] [COMPETITION] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
-        "[2026-11-13 21:30:13 UTC] [PHASE1] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:03 UTC] [EXNESS] EVAL bar 11-13 21:30: off-session (bar hour 21 broker time)",
         "[2026-11-13 21:45:06 UTC] [COMPETITION] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:14 UTC] [PHASE1] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
@@ -4262,12 +4261,14 @@
         "[2026-11-15 05:06:24 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
         "[2026-11-15 05:06:24 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe",
         "[2026-11-15 05:07:30 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
+        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe"
       ]
     },
     "fundednext": {
-      "timestamp": "05:08:02 UTC",
-      "generated_epoch": 1794719282.498005,
+      "timestamp": "05:08:42 UTC",
+      "generated_epoch": 1794719322.5411985,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
@@ -5716,11 +5717,11 @@
           "value": 3919.34
         }
       ],
-      "state_age_sec": 3,
+      "state_age_sec": 5,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-15T05:08:02.498005+00:00",
-        "heartbeat_epoch": 1794719282.498005,
+        "heartbeat_utc": "2026-11-15T05:08:42.541198+00:00",
+        "heartbeat_epoch": 1794719322.5411985,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -5738,8 +5739,6 @@
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-13 21:30:05 UTC] [COMPETITION] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
-        "[2026-11-13 21:30:13 UTC] [PHASE1] EVAL bar 11-13 23:15: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:03 UTC] [EXNESS] EVAL bar 11-13 21:30: off-session (bar hour 21 broker time)",
         "[2026-11-13 21:45:06 UTC] [COMPETITION] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
         "[2026-11-13 21:45:14 UTC] [PHASE1] EVAL bar 11-13 23:30: off-session (bar hour 23 broker time)",
@@ -5757,7 +5756,9 @@
         "[2026-11-15 05:06:24 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
         "[2026-11-15 05:06:24 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe",
         "[2026-11-15 05:07:30 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
-        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
+        "[2026-11-15 05:07:51 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] initialize failed: (-6, 'Terminal: Authorization failed') (failure 3)",
+        "[2026-11-15 05:08:11 UTC] [EXNESS] RECOVERY: restarting own terminal C:\\MT5\\exness\\terminal64.exe"
       ]
     }
   }
