@@ -7,12 +7,25 @@
   <title>Watch Dogs Radar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <script>
-    if (typeof LightweightCharts === 'undefined') {
-      document.write('<script src="lightweight-charts.js"><\/script>');
-    }
+    // Chart library loads in the background so a slow CDN never blocks the page.
+    // Same-origin copy first (shipped next to the page), then two public CDNs.
+    window.__lwc = new Promise(function (resolve) {
+      var srcs = ['lightweight-charts.js',
+        'https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js',
+        'https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js'];
+      (function next(i) {
+        if (typeof LightweightCharts !== 'undefined') return resolve(true);
+        if (i >= srcs.length) return resolve(false);
+        var el = document.createElement('script');
+        el.src = srcs[i]; el.async = true;
+        var t = setTimeout(function () { el.onload = el.onerror = null; next(i + 1); }, 6000);
+        el.onload = function () { clearTimeout(t); typeof LightweightCharts !== 'undefined' ? resolve(true) : next(i + 1); };
+        el.onerror = function () { clearTimeout(t); next(i + 1); };
+        document.head.appendChild(el);
+      })(0);
+    });
   </script>
   <style>
     :root {
@@ -290,7 +303,7 @@
     .log:last-child { margin-bottom: 0; }
     .log .ts { color: var(--muted); }
     .log .tg { font-weight: 600; }
-    .log .tg.PHASE1 { color: var(--cyan); } .log .tg.COMPETITION { color: #60A5FA; } .log .tg.EXNESS { color: var(--amber); }
+    .log .tg.PHASE1 { color: var(--cyan); } .log .tg.COMPETITION { color: #60A5FA; } .log .tg.EXNESS { color: var(--amber); } .log .tg.FUNDEDNEXT { color: var(--violet); }
     .log.trade { background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); }
     .log.blocked { background: rgba(251, 191, 36, 0.06); border: 1px solid rgba(251, 191, 36, 0.18); }
     .log.err { background: rgba(251, 113, 133, 0.06); border: 1px solid rgba(251, 113, 133, 0.2); }
@@ -335,6 +348,8 @@
       .day .p .full { display: none; }
       .day .p .short { display: inline; }
       .brand-name { font-size: 16px; }
+      .brand { flex-wrap: wrap; row-gap: 8px; }
+      .live-pill { font-size: 12px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -358,6 +373,7 @@
         <button data-acc="phase1" class="active">Phase 1</button>
         <button data-acc="competition">Nov Comp</button>
         <button data-acc="exness">Exness</button>
+        <button data-acc="fundednext">FundedNext</button>
       </div>
       <nav class="seg no-anim" id="tab-seg" role="tablist" aria-label="View">
         <span class="seg-pill"></span>
@@ -426,6 +442,16 @@
               <div class="kv"><span>Live win rate · PF</span><b class="num" id="ov-q-wr">—</b></div>
               <div class="kv" style="margin-bottom:14px"><span id="ov-q-n-l">Closed trades (30d)</span><b class="num" id="ov-q-n">—</b></div>
               <button class="btn" data-go="calendar">Open Calendar &amp; Stats →</button>
+            </div>
+
+            <div class="glass card" id="comp-card" style="display:none">
+              <div class="card-head"><h3 class="card-title">Atlas Nov Competition</h3><span class="chip info num" id="comp-days">—</span></div>
+              <div class="kv"><span>Goal</span><b class="num" id="comp-goal">—</b></div>
+              <div class="bar" style="margin:6px 0 8px"><i id="comp-goal-bar"></i></div>
+              <div class="kv"><span>Gain, closed</span><b class="num" id="comp-gain">—</b></div>
+              <div class="kv"><span>Gain, with open</span><b class="num" id="comp-gain-eq">—</b></div>
+              <div class="kv"><span>Equity floor</span><b class="num" id="comp-floor">—</b></div>
+              <div class="note" id="comp-note" style="margin-top:8px">Ranked by % gain in closed balance. Disqualified below the floor or on a 5% daily loss. Ends Nov 30, 2026 (exact time not published).</div>
             </div>
 
             <div class="glass card" data-layout="trades">
@@ -555,6 +581,7 @@
               <button data-lf="PHASE1">Phase 1</button>
               <button data-lf="COMPETITION">Competition</button>
               <button data-lf="EXNESS">Exness</button>
+              <button data-lf="FUNDEDNEXT">FundedNext</button>
             </div>
             <div class="term" id="term"><div class="empty">Waiting for data</div></div>
           </div>
@@ -570,8 +597,8 @@
     'use strict';
 
     // ------------------------------------------------------------------ config
-    const ACCOUNTS = ['phase1', 'competition', 'exness'];
-    const ACC_LABEL = { phase1: 'Phase 1', competition: 'Nov Comp', exness: 'Exness' };
+    const ACCOUNTS = ['phase1', 'competition', 'exness', 'fundednext'];
+    const ACC_LABEL = { phase1: 'Phase 1', competition: 'Nov Comp', exness: 'Exness', fundednext: 'FundedNext' };
     const TABS = ['overview', 'chart', 'calendar', 'trades'];
     const POLL_MS = 2000;            // active account
     const OTHERS_MS = 20000;         // other accounts (switcher labels + merged logs)
@@ -657,7 +684,7 @@
       } finally { clearTimeout(t); }
     }
     async function resolveTunnel(force) {
-      if (!force && tunnelOrigin && Date.now() - tunnelResolvedAt < 300000) return tunnelOrigin;
+      if (!force && tunnelResolvedAt && Date.now() - tunnelResolvedAt < 300000) return tunnelOrigin;
       try {
         const td = await fetchJSON(TUNNEL_URL + '?t=' + Date.now(), 5000);
         tunnelOrigin = (td.primary_url || td.backup_url || '').replace(/\/$/, '');
@@ -669,7 +696,6 @@
       if (snapCache && Date.now() - snapAt < 15000) return snapCache;
       snapCache = await fetchJSON(SNAPSHOT_URL + '?t=' + Date.now(), 6000);
       snapAt = Date.now();
-      if (snapCache && snapCache.primary_url && !tunnelOrigin) tunnelOrigin = snapCache.primary_url.replace(/\/$/, '');
       return snapCache;
     }
     let preferred = null; // last source that worked
@@ -677,9 +703,15 @@
       const q = `/api/status?account=${acc}`;
       const tries = [];
       if (sameOriginOK) tries.push(['server', () => fetchJSON(q)]);
-      tries.push(['tunnel', async () => { const o = await resolveTunnel(); if (!o) throw new Error('no tunnel'); return fetchJSON(o + q); }]);
-      tries.push(['snapshot', async () => { const s = await getSnapshot(); const d = s && s.accounts && s.accounts[acc]; if (!d) throw new Error('not in snapshot'); return d; }]);
-      if (preferred) tries.sort((a, b) => (b[0] === preferred) - (a[0] === preferred));
+      const tunnelTry = ['tunnel', async () => { const o = await resolveTunnel(); if (!o) throw new Error('no tunnel'); return fetchJSON(o + q, 3000); }];
+      const snapTry = ['snapshot', async () => {
+        const s = await getSnapshot(); const d = s && s.accounts && s.accounts[acc]; if (!d) throw new Error('not in snapshot');
+        // a stale snapshot only counts if nothing fresher answers
+        if (onPages && isNum(d.generated_epoch) && Date.now() / 1000 - d.generated_epoch > 180) throw Object.assign(new Error('stale'), { stale: d });
+        return d;
+      }];
+      if (onPages) { tries.push(snapTry, tunnelTry); } else { tries.push(tunnelTry, snapTry); if (preferred) tries.sort((a, b) => (b[0] === preferred) - (a[0] === preferred)); }
+      let staleD = null;
       for (const [name, fn] of tries) {
         try {
           const d = await fn();
@@ -689,9 +721,11 @@
             return d;
           }
         } catch (e) {
-          if (name === 'tunnel') resolveTunnel(true);
+          if (e && e.stale) staleD = e.stale;
+          if (name === 'tunnel') { tunnelOrigin = ''; tunnelResolvedAt = Date.now(); }
         }
       }
+      if (staleD) { staleD.__src = 'snapshot'; store.data[acc] = staleD; store.fetchedAt[acc] = Date.now(); store.source[acc] = 'snapshot'; return staleD; }
       return null;
     }
 
@@ -819,7 +853,7 @@
     chartMsg.textContent = 'Waiting for live candles…';
 
     function initChart() {
-      if (typeof LightweightCharts === 'undefined') { chartMsg.textContent = 'Chart library failed to load.'; return; }
+      if (typeof LightweightCharts === 'undefined') { chartMsg.textContent = 'Loading chart…'; return; }
       chart = LightweightCharts.createChart(chartHost, {
         autoSize: true,
         layout: { background: { type: 'solid', color: 'transparent' }, textColor: '#8A97AB', fontFamily: 'Inter, -apple-system, sans-serif', fontSize: 12 },
@@ -900,7 +934,7 @@
 
     // ------------------------------------------------------------------ trade stats
     // Engine magic numbers per account (tri_engine_daemon.py ACCOUNTS). Trades without the bot's magic are manual/older.
-    const BOT_MAGIC = { phase1: 100200, competition: 200300, exness: 777100 };
+    const BOT_MAGIC = { phase1: 100200, competition: 200300, exness: 777100, fundednext: 300400 };
     const isBotTrade = (t, acc) => Number(t.magic) === BOT_MAGIC[acc];
     function scopedTrades(d) {
       const all = (d && d.closed_trades) || [];
@@ -977,6 +1011,26 @@
 
       const age = d ? `${ageSec(d)}s` : '—';
       setText('foot', d ? `Engine snapshot ${d.timestamp || '—'} · age ${age} · via ${store.source[store.acc]} · account #${(d.account && isReal(d)) ? d.account.login : '—'}` : 'Connecting…');
+    }
+
+    // Atlas November competition. The rank is only published on the logged-in Atlas dashboard, so it is shown with the
+    // time it was read; the gain is computed live from the competition account's own balance (Atlas ranks on closed balance).
+    const COMP = { start: 100000, end: Date.UTC(2026, 10, 30, 23, 59, 59), goalPct: 70, floor: 90000 };
+    function renderCompetition() {
+      const card = $('comp-card');
+      card.style.display = store.acc === 'competition' ? '' : 'none';
+      if (store.acc !== 'competition') return;
+      const d = store.data.competition;
+      const real = isReal(d);
+      const left = COMP.end - Date.now();
+      setText('comp-days', left > 0 ? `${Math.floor(left / 86400000)}d ${Math.floor(left % 86400000 / 3600000)}h left` : 'Ended');
+      const gp = real ? (d.account.balance - COMP.start) / COMP.start * 100 : null;
+      setText('comp-goal', isNum(gp) ? `+${COMP.goalPct}% · ${Math.max(0, COMP.goalPct - gp).toFixed(2)}% to go` : `+${COMP.goalPct}%`);
+      $('comp-goal-bar').style.width = (isNum(gp) ? Math.max(0, Math.min(100, gp / COMP.goalPct * 100)) : 0) + '%';
+      const g = (v) => isNum(v) ? `${v >= COMP.start ? '+' : '−'}${Math.abs((v - COMP.start) / COMP.start * 100).toFixed(2)}%` : '—';
+      const gb = $('comp-gain'); gb.textContent = real ? g(d.account.balance) : '—'; gb.className = 'num ' + (real ? cls(d.account.balance - COMP.start) : '');
+      const ge = $('comp-gain-eq'); ge.textContent = real ? g(d.account.equity) : '—'; ge.className = 'num ' + (real ? cls(d.account.equity - COMP.start) : '');
+      setText('comp-floor', fmtUSD(COMP.floor).replace('.00', ''));
     }
 
     function renderOverview() {
@@ -1274,7 +1328,7 @@
 
     function renderAll() {
       renderStatus();
-      if (store.tab === 'overview') renderOverview();
+      if (store.tab === 'overview') { renderOverview(); renderCompetition(); }
       if (store.tab === 'chart') { renderOverview(); renderChartTab(); }
       if (store.tab === 'calendar') { renderCalendar(); renderScorecard(); }
       if (store.tab === 'trades') { renderTrades(); renderLogs(); }
@@ -1304,8 +1358,10 @@
     document.querySelectorAll('[data-scope-group]').forEach(g => g.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.scope === store.scope)));
     Object.values(views).forEach(v => v.classList.toggle('active', v.dataset.view === store.tab));
     mountChart();   // attach the host first so the chart is created at its real size
-    initChart();
-    mountChart();
+    window.__lwc.then(ok => {
+      if (!ok) { chartMsg.textContent = 'Chart library failed to load.'; return; }
+      initChart(); mountChart(); renderAll();
+    });
     requestAnimationFrame(() => { placePill($('acct-seg'), false); placePill($('tab-seg'), false); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { placePill($('acct-seg'), false); placePill($('tab-seg'), false); });
     tickTimer(); setInterval(tickTimer, 1000);
