@@ -655,7 +655,9 @@
 
     // A payload is "real" only when it comes from the engine's MT5 state. The server's OFFLINE
     // fallback contains placeholder balances and must never be shown as account data.
-    const isReal = (d) => !!(d && d.account && d.status !== 'OFFLINE' && d.status !== 'ERROR' && d.generated_epoch);
+    // MT5 login each tab must show; data from any other login (e.g. FundedNext engine not signed in, mirroring Phase 1) is not this account's
+    const EXPECTED_LOGIN = { phase1: 212145883, competition: 212176749, fundednext: 35407401 };
+    const isReal = (d) => !!(d && d.account && !d.__wrongAcct && d.status !== 'OFFLINE' && d.status !== 'ERROR' && d.generated_epoch);
     // Age of the engine state. A GitHub snapshot carries the age it had when it was synced, so for that source the
     // time since the snapshot was written is added from generated_epoch (an old snapshot must never read as LIVE).
     const ageSec = (d) => {
@@ -717,6 +719,7 @@
           const d = await fn();
           if (d && typeof d === 'object') {
             d.__src = name;
+            d.__wrongAcct = !!(EXPECTED_LOGIN[acc] && d.account && d.account.login && Number(d.account.login) !== EXPECTED_LOGIN[acc]);
             store.data[acc] = d; store.fetchedAt[acc] = Date.now(); store.source[acc] = name; preferred = name;
             return d;
           }
@@ -725,7 +728,7 @@
           if (name === 'tunnel') { tunnelOrigin = ''; tunnelResolvedAt = Date.now(); }
         }
       }
-      if (staleD) { staleD.__src = 'snapshot'; store.data[acc] = staleD; store.fetchedAt[acc] = Date.now(); store.source[acc] = 'snapshot'; return staleD; }
+      if (staleD) { staleD.__src = 'snapshot'; staleD.__wrongAcct = !!(EXPECTED_LOGIN[acc] && staleD.account && staleD.account.login && Number(staleD.account.login) !== EXPECTED_LOGIN[acc]); store.data[acc] = staleD; store.fetchedAt[acc] = Date.now(); store.source[acc] = 'snapshot'; return staleD; }
       return null;
     }
 
@@ -985,7 +988,8 @@
         if (isStale(d)) { mode = 'is-stale'; txt = `STALE · ${Math.round(ageSec(d) / 60)}m old`; }
         else if (wd.connected === false) { mode = 'is-off'; txt = 'MT5 DISCONNECTED'; }
         else { mode = 'is-live'; const p = (wd.ping || '').replace(/\s+/g, ''); txt = 'LIVE' + (p && p !== 'n/a' ? ' · ' + p : ''); }
-      } else if (d) { mode = 'is-off'; txt = 'ENGINE OFFLINE'; }
+      } else if (d && d.__wrongAcct) { mode = 'is-off'; txt = 'NOT CONNECTED'; }
+      else if (d) { mode = 'is-off'; txt = 'ENGINE OFFLINE'; }
       else if (store.fetchedAt[store.acc] === undefined && pollFails > 1) { mode = 'is-off'; txt = 'NO CONNECTION'; }
       pill.className = 'live-pill ' + mode;
       setText('live-text', txt);
@@ -994,7 +998,8 @@
       // banner
       const b = $('banner');
       let msg = '', bad = false;
-      if (d && !isReal(d)) { msg = 'The trading engine has no live MT5 state for this account, so no account figures are shown. Check the server.'; bad = true; }
+      if (d && d.__wrongAcct) { msg = `${ACC_LABEL[store.acc]} is not signed in to MT5 on the server (it is reporting account #${d.account.login}, expected #${EXPECTED_LOGIN[store.acc]}), so no figures are shown.`; bad = true; }
+      else if (d && !isReal(d)) { msg = 'The trading engine has no live MT5 state for this account, so no account figures are shown. Check the server.'; bad = true; }
       else if (d && isStale(d)) { msg = `Engine data is ${Math.round(ageSec(d) / 60)} minutes old. Figures below are the last known values, not live.`; }
       else if (d && d.watchdog && d.watchdog.status && /DISABLED/.test(d.watchdog.status)) { msg = `Engine connected but trading is disabled: ${d.watchdog.status}.`; }
       else if (!d && pollFails > 2) { msg = 'Cannot reach the dashboard server, tunnel or GitHub snapshot. Retrying…'; bad = true; }
