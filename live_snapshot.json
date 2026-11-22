@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-22 01:59:43 UTC",
+  "updated_at": "2026-11-22 02:00:26 UTC",
   "primary_url": "https://consolidated-herself-handled-debug.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "01:59:11 UTC",
-      "generated_epoch": 1795312751.9360178,
+      "timestamp": "02:00:15 UTC",
+      "generated_epoch": 1795312815.0967987,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
@@ -91,9 +91,9 @@
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:59",
-        "current_hour_utc": 1,
-        "current_min_utc": 59
+        "status_label": "UTC 02:00",
+        "current_hour_utc": 2,
+        "current_min_utc": 0
       },
       "execution": {
         "armed_lot_size": "0.02 Lots",
@@ -1535,31 +1535,28 @@
           "value": 3629.18
         }
       ],
-      "state_age_sec": 32,
+      "state_age_sec": 11,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-22T01:59:32.590014+00:00",
-        "heartbeat_epoch": 1795312772.590014,
+        "heartbeat_utc": "2026-11-22T02:00:15.108865+00:00",
+        "heartbeat_epoch": 1795312815.108865,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
-        "connected": false,
-        "terminal_autotrading": false,
-        "api_trading_enabled": false,
-        "account_trade_allowed": false,
-        "login": null,
-        "server": null,
-        "equity": null,
-        "consecutive_failures": 1,
-        "last_error": "initialize failed: (-6, 'Terminal: Authorization failed')",
+        "connected": true,
+        "terminal_autotrading": true,
+        "api_trading_enabled": true,
+        "account_trade_allowed": true,
+        "login": 212145883,
+        "server": "AtlasFunded-Server",
+        "equity": 4952.06,
+        "consecutive_failures": 0,
+        "last_error": null,
         "last_signal_eval": "bar 11-20 21:30: off-session (bar hour 21:00 UTC)",
         "last_order": "2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
         "market_data_ok": true,
-        "stage": "connect",
-        "can_trade": false
+        "stage": "waiting_next_bar",
+        "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-22 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-22 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-22 01:45:08 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-22 01:46:34 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
@@ -1576,12 +1573,15 @@
         "[2026-11-22 01:59:31 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
         "[2026-11-22 01:59:32 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
         "[2026-11-22 01:59:37 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
+        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-22 01:59:55 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,952.06 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 01:59:58 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$105,382.10 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 02:00:14 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
       ]
     },
     "competition": {
-      "timestamp": "01:59:17 UTC",
-      "generated_epoch": 1795312757.2391334,
+      "timestamp": "02:00:18 UTC",
+      "generated_epoch": 1795312818.4542906,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
@@ -1629,7 +1629,7 @@
         "trade_allowed": true,
         "expert_allowed": true,
         "server": "AtlasFunded-Server",
-        "ping": "29 ms",
+        "ping": "30 ms",
         "refresh_interval_sec": 20,
         "last_signal_eval": "bar 11-20 21:30: off-session (bar hour 21:00 UTC)"
       },
@@ -1668,9 +1668,9 @@
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:59",
-        "current_hour_utc": 1,
-        "current_min_utc": 59
+        "status_label": "UTC 02:00",
+        "current_hour_utc": 2,
+        "current_min_utc": 0
       },
       "execution": {
         "armed_lot_size": "0.65 Lots",
@@ -3102,31 +3102,28 @@
           "value": 3629.18
         }
       ],
-      "state_age_sec": 27,
+      "state_age_sec": 8,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-22T01:59:37.874382+00:00",
-        "heartbeat_epoch": 1795312777.8743825,
+        "heartbeat_utc": "2026-11-22T02:00:18.470093+00:00",
+        "heartbeat_epoch": 1795312818.4700935,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
-        "connected": false,
-        "terminal_autotrading": false,
-        "api_trading_enabled": false,
-        "account_trade_allowed": false,
-        "login": null,
-        "server": null,
-        "equity": null,
-        "consecutive_failures": 1,
-        "last_error": "initialize failed: (-6, 'Terminal: Authorization failed')",
+        "connected": true,
+        "terminal_autotrading": true,
+        "api_trading_enabled": true,
+        "account_trade_allowed": true,
+        "login": 212176749,
+        "server": "AtlasFunded-Server",
+        "equity": 105382.1,
+        "consecutive_failures": 0,
+        "last_error": null,
         "last_signal_eval": "bar 11-20 21:30: off-session (bar hour 21:00 UTC)",
         "last_order": "2026-11-20T03:15:06.084817+00:00 SELL 0.5L XAUUSD @ 3525.2 SL 3558.05 TP 3460.8 ticket 20694587 risk $1620.75 (1.51%)",
         "market_data_ok": true,
-        "stage": "connect",
-        "can_trade": false
+        "stage": "waiting_next_bar",
+        "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-22 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-22 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-22 01:45:08 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-22 01:46:34 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
@@ -3143,12 +3140,15 @@
         "[2026-11-22 01:59:31 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
         "[2026-11-22 01:59:32 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
         "[2026-11-22 01:59:37 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
+        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-22 01:59:55 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,952.06 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 01:59:58 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$105,382.10 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 02:00:14 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
       ]
     },
     "exness": {
-      "timestamp": "01:59:33 UTC",
-      "generated_epoch": 1795312773.559283,
+      "timestamp": "02:00:13 UTC",
+      "generated_epoch": 1795312813.6077406,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
@@ -3235,9 +3235,9 @@
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:59",
-        "current_hour_utc": 1,
-        "current_min_utc": 59
+        "status_label": "UTC 02:00",
+        "current_hour_utc": 2,
+        "current_min_utc": 0
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
@@ -4595,11 +4595,11 @@
           "value": 3629.38
         }
       ],
-      "state_age_sec": 10,
+      "state_age_sec": 12,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-22T01:59:33.559282+00:00",
-        "heartbeat_epoch": 1795312773.559283,
+        "heartbeat_utc": "2026-11-22T02:00:13.607740+00:00",
+        "heartbeat_epoch": 1795312813.6077406,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4617,9 +4617,6 @@
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-22 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-22 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-22 01:45:08 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-22 01:46:34 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
@@ -4636,12 +4633,15 @@
         "[2026-11-22 01:59:31 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
         "[2026-11-22 01:59:32 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
         "[2026-11-22 01:59:37 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
+        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-22 01:59:55 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,952.06 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 01:59:58 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$105,382.10 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 02:00:14 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
       ]
     },
     "fundednext": {
-      "timestamp": "01:59:11 UTC",
-      "generated_epoch": 1795312751.9360178,
+      "timestamp": "02:00:15 UTC",
+      "generated_epoch": 1795312815.0967987,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
@@ -4728,9 +4728,9 @@
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:59",
-        "current_hour_utc": 1,
-        "current_min_utc": 59
+        "status_label": "UTC 02:00",
+        "current_hour_utc": 2,
+        "current_min_utc": 0
       },
       "execution": {
         "armed_lot_size": "0.02 Lots",
@@ -6172,31 +6172,28 @@
           "value": 3629.18
         }
       ],
-      "state_age_sec": 32,
+      "state_age_sec": 11,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-22T01:59:32.590014+00:00",
-        "heartbeat_epoch": 1795312772.590014,
+        "heartbeat_utc": "2026-11-22T02:00:15.108865+00:00",
+        "heartbeat_epoch": 1795312815.108865,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
-        "connected": false,
-        "terminal_autotrading": false,
-        "api_trading_enabled": false,
-        "account_trade_allowed": false,
-        "login": null,
-        "server": null,
-        "equity": null,
-        "consecutive_failures": 1,
-        "last_error": "initialize failed: (-6, 'Terminal: Authorization failed')",
+        "connected": true,
+        "terminal_autotrading": true,
+        "api_trading_enabled": true,
+        "account_trade_allowed": true,
+        "login": 212145883,
+        "server": "AtlasFunded-Server",
+        "equity": 4952.06,
+        "consecutive_failures": 0,
+        "last_error": null,
         "last_signal_eval": "bar 11-20 21:30: off-session (bar hour 21:00 UTC)",
         "last_order": "2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
         "market_data_ok": true,
-        "stage": "connect",
-        "can_trade": false
+        "stage": "waiting_next_bar",
+        "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-22 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-22 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-22 01:42:58 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-22 01:45:08 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-22 01:46:34 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
@@ -6213,7 +6210,10 @@
         "[2026-11-22 01:59:31 UTC] [PHASE1] Connection lost ((1, 'Success')); reconnecting",
         "[2026-11-22 01:59:32 UTC] [PHASE1] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
         "[2026-11-22 01:59:37 UTC] [COMPETITION] Connection lost ((1, 'Success')); reconnecting",
-        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
+        "[2026-11-22 01:59:37 UTC] [COMPETITION] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-22 01:59:55 UTC] [PHASE1] CONNECTED #212145883 AtlasFunded-Server equity=$4,952.06 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 01:59:58 UTC] [COMPETITION] CONNECTED #212176749 AtlasFunded-Server equity=$105,382.10 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
+        "[2026-11-22 02:00:14 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
       ]
     }
   }
