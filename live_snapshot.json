@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-24 18:00:24 UTC",
+  "updated_at": "2026-11-24 18:01:06 UTC",
   "primary_url": "https://consolidated-herself-handled-debug.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "18:00:10 UTC",
-      "generated_epoch": 1795543210.5056403,
+      "timestamp": "18:00:50 UTC",
+      "generated_epoch": 1795543250.6026275,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 894s / 180s elapsed",
+          "detail": "COMPLIANT: 934s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -21,17 +21,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+59.73 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+59.61 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-43.08 | Since reset: $+16.35 of -$200.00"
+          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-43.08 | Since reset: $+16.23 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $4,968.41 (Safety Cushion: $468.41)"
+          "detail": "Equity: $4,968.29 (Safety Cushion: $468.29)"
         },
         "anti_martingale": {
           "passed": true,
@@ -54,21 +54,21 @@
         "server": "AtlasFunded-Server",
         "ping": "31 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 17:30: off-session (bar hour 17:00 UTC)"
+        "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
       },
       "account": {
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 4908.68,
-        "equity": 4968.41,
+        "equity": 4968.29,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 181.59,
+        "distance_to_target": 181.71,
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 468.41,
+        "safety_buffer": 468.29,
         "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
@@ -76,15 +76,15 @@
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3567.0,
-        "ask": 3567.44,
-        "spread": 0.44,
-        "atr14": 12.21,
+        "bid": 3567.05,
+        "ask": 3567.48,
+        "spread": 0.43,
+        "atr14": 12.26,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": 98.26,
-        "dist_to_val": -25.4,
+        "dist_to_vah": 98.21,
+        "dist_to_val": -25.35,
         "ema50": 3605.5,
         "ema200": 3620.57,
         "regime": "STRONG BEARISH"
@@ -97,7 +97,7 @@
       },
       "execution": {
         "armed_lot_size": "0.03 Lots",
-        "armed_risk_dollars": "$54.95 (1.11% Equity)",
+        "armed_risk_dollars": "$55.19 (1.11% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -106,15 +106,15 @@
             "type": "SELL",
             "volume": 0.03,
             "open_price": 3587.35,
-            "current_price": 3567.44,
+            "current_price": 3567.48,
             "sl": 3606.64,
             "tp": 3548.74,
-            "profit": 59.73,
+            "profit": 59.61,
             "time": 1795542316
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 59.73,
+        "floating_pnl": 59.61,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -935,9 +935,9 @@
         {
           "time": 1795543200,
           "open": 3566.01,
-          "high": 3567.01,
+          "high": 3567.76,
           "low": 3565.33,
-          "close": 3567.0
+          "close": 3567.05
         }
       ],
       "ema50_series": [
@@ -1584,11 +1584,11 @@
           "value": 3620.57
         }
       ],
-      "state_age_sec": 14,
+      "state_age_sec": 15,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-24T18:00:10.537001+00:00",
-        "heartbeat_epoch": 1795543210.5370014,
+        "heartbeat_utc": "2026-11-24T18:00:50.602627+00:00",
+        "heartbeat_epoch": 1795543250.6026275,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1596,17 +1596,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 4968.41,
+        "equity": 4968.29,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "last_order": "2026-11-24T15:45:17.397243+00:00 SELL 0.03L XAUUSD @ 3587.35 SL 3606.64 TP 3548.74 ticket 20889522 risk $57.90 (1.18%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 17:41:42 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-24 17:43:54 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 17:45:09 UTC] [PHASE1] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 17:45:10 UTC] [EXNESS] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
@@ -1625,12 +1624,13 @@
         "[2026-11-24 17:59:09 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 18:00:10 UTC] [PHASE1] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 18:00:11 UTC] [EXNESS] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
-        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
+        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
+        "[2026-11-24 18:00:35 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)"
       ]
     },
     "competition": {
-      "timestamp": "18:00:18 UTC",
-      "generated_epoch": 1795543218.4189918,
+      "timestamp": "18:00:58 UTC",
+      "generated_epoch": 1795543258.484058,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
@@ -1680,7 +1680,7 @@
         "server": "AtlasFunded-Server",
         "ping": "30 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 17:30: off-session (bar hour 17:00 UTC)"
+        "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
       },
       "account": {
         "login": 212176749,
@@ -1698,21 +1698,21 @@
         "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 2,
-        "daily_drawdown_risk": "1.49% per trade"
+        "daily_drawdown_risk": "1.50% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3567.6,
-        "ask": 3568.03,
+        "bid": 3568.35,
+        "ask": 3568.78,
         "spread": 0.43,
-        "atr14": 12.26,
+        "atr14": 12.31,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": 97.66,
-        "dist_to_val": -24.8,
-        "ema50": 3605.52,
-        "ema200": 3620.58,
+        "dist_to_vah": 96.91,
+        "dist_to_val": -24.05,
+        "ema50": 3605.55,
+        "ema200": 3620.59,
         "regime": "STRONG BEARISH"
       },
       "session": {
@@ -1723,7 +1723,7 @@
       },
       "execution": {
         "armed_lot_size": "0.83 Lots",
-        "armed_risk_dollars": "$1,526.90 (1.49% Equity)",
+        "armed_risk_dollars": "$1,533.13 (1.50% Equity)",
         "armed_target_profit": "1:3.0 R:R",
         "open_positions": [],
         "active_trade_count": 0,
@@ -2544,9 +2544,9 @@
         {
           "time": 1795543200,
           "open": 3566.01,
-          "high": 3567.76,
+          "high": 3568.46,
           "low": 3565.33,
-          "close": 3567.6
+          "close": 3568.35
         }
       ],
       "ema50_series": [
@@ -2868,7 +2868,7 @@
         },
         {
           "time": 1795543200,
-          "value": 3605.52
+          "value": 3605.55
         }
       ],
       "ema200_series": [
@@ -3190,14 +3190,14 @@
         },
         {
           "time": 1795543200,
-          "value": 3620.58
+          "value": 3620.59
         }
       ],
-      "state_age_sec": 6,
+      "state_age_sec": 8,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-24T18:00:18.450392+00:00",
-        "heartbeat_epoch": 1795543218.4503927,
+        "heartbeat_utc": "2026-11-24T18:00:58.499817+00:00",
+        "heartbeat_epoch": 1795543258.499818,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -3211,11 +3211,10 @@
         "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "last_order": "2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 17:41:42 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-24 17:43:54 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 17:45:09 UTC] [PHASE1] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 17:45:10 UTC] [EXNESS] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
@@ -3234,18 +3233,19 @@
         "[2026-11-24 17:59:09 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 18:00:10 UTC] [PHASE1] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 18:00:11 UTC] [EXNESS] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
-        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
+        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
+        "[2026-11-24 18:00:35 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)"
       ]
     },
     "exness": {
-      "timestamp": "18:00:11 UTC",
-      "generated_epoch": 1795543211.3853447,
+      "timestamp": "18:00:51 UTC",
+      "generated_epoch": 1795543251.463192,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 8095s / 180s elapsed",
+          "detail": "COMPLIANT: 8135s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -3256,17 +3256,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+18.36 (Limit: -$2.00)"
+          "detail": "Floating PnL: $+18.87 (Limit: -$2.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 5 Trades)",
-          "detail": "2/5 Trades | 1/2 Losses | Daily PnL: $-14.86 | Since reset: $+3.50 of -$20.00"
+          "detail": "2/5 Trades | 1/2 Losses | Daily PnL: $-14.86 | Since reset: $+4.01 of -$20.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($0.00)",
-          "detail": "Equity: $53.66 (Safety Cushion: $53.66)"
+          "detail": "Equity: $54.17 (Safety Cushion: $54.17)"
         },
         "anti_martingale": {
           "passed": true,
@@ -3289,39 +3289,39 @@
         "server": "Exness-MT5Trial16",
         "ping": "135 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 17:30: off-session (bar hour 17:00 UTC)"
+        "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
       },
       "account": {
         "login": 473002209,
         "name": "aws trading bot capital",
         "balance": 35.3,
-        "equity": 53.66,
+        "equity": 54.17,
         "currency": "USD",
         "phase": "Exness Personal Capital",
         "initial_balance": 100.0,
         "target_amount": 500.0,
-        "distance_to_target": 446.34,
+        "distance_to_target": 445.83,
         "progress_pct": 0,
         "max_loss_floor": 0.0,
-        "safety_buffer": 53.66,
+        "safety_buffer": 54.17,
         "daily_trades_used": 2,
         "max_daily_trades": 5,
         "daily_losses_used": 1,
-        "daily_drawdown_risk": "34.91% per trade"
+        "daily_drawdown_risk": "34.68% per trade"
       },
       "market": {
         "symbol": "XAUUSDm",
-        "bid": 3567.57,
-        "ask": 3567.8,
+        "bid": 3567.07,
+        "ask": 3567.29,
         "spread": 0.22,
-        "atr14": 12.49,
+        "atr14": 12.52,
         "vah": 3665.41,
         "val": 3592.42,
         "poc": 3628.91,
-        "dist_to_vah": 97.83,
-        "dist_to_val": -24.84,
-        "ema50": 3605.68,
-        "ema200": 3620.75,
+        "dist_to_vah": 98.34,
+        "dist_to_val": -25.35,
+        "ema50": 3605.66,
+        "ema200": 3620.74,
         "regime": "STRONG BEARISH"
       },
       "session": {
@@ -3332,7 +3332,7 @@
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
-        "armed_risk_dollars": "$18.73 (34.91% Equity)",
+        "armed_risk_dollars": "$18.78 (34.68% Equity)",
         "armed_target_profit": "1:2.5 R:R",
         "open_positions": [
           {
@@ -3341,15 +3341,15 @@
             "type": "SELL",
             "volume": 0.01,
             "open_price": 3586.16,
-            "current_price": 3567.8,
+            "current_price": 3567.29,
             "sl": 3605.01,
             "tp": 3536.69,
-            "profit": 18.36,
+            "profit": 18.87,
             "time": 1795535116
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 18.36,
+        "floating_pnl": 18.87,
         "live_logs": [
           "[2026-11-13 13:30:07 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: High-Impact News Blackout (Core PPI m/m - 0m after); High-Impact News Blackout (Core PPI m/m - 0m after)",
           "[2026-11-16 06:00:13 UTC] [EXNESS] ORDER EXECUTED 2026-11-16T06:00:12.871503+00:00 SELL 0.01L XAUUSDm @ 3834.8340000000003 SL 3848.91 TP 3806.53 ticket 2241796733 risk $14.13 (14.13%)",
@@ -4086,9 +4086,9 @@
         {
           "time": 1795543200,
           "open": 3566.69,
-          "high": 3567.57,
+          "high": 3568.03,
           "low": 3565.33,
-          "close": 3567.57
+          "close": 3567.07
         }
       ],
       "ema50_series": [
@@ -4410,7 +4410,7 @@
         },
         {
           "time": 1795543200,
-          "value": 3605.68
+          "value": 3605.66
         }
       ],
       "ema200_series": [
@@ -4732,14 +4732,14 @@
         },
         {
           "time": 1795543200,
-          "value": 3620.75
+          "value": 3620.74
         }
       ],
-      "state_age_sec": 13,
+      "state_age_sec": 15,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-24T18:00:11.428253+00:00",
-        "heartbeat_epoch": 1795543211.4282537,
+        "heartbeat_utc": "2026-11-24T18:00:51.463192+00:00",
+        "heartbeat_epoch": 1795543251.463192,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4747,17 +4747,16 @@
         "account_trade_allowed": true,
         "login": 473002209,
         "server": "Exness-MT5Trial16",
-        "equity": 53.66,
+        "equity": 54.17,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "last_order": "2026-11-24T15:45:16.490275+00:00 SELL 0.01L XAUUSDm @ 3586.156 SL 3605.01 TP 3536.69 ticket 2295423956 risk $19.52 (55.30%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 17:41:42 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-24 17:43:54 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 17:45:09 UTC] [PHASE1] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 17:45:10 UTC] [EXNESS] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
@@ -4776,18 +4775,19 @@
         "[2026-11-24 17:59:09 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 18:00:10 UTC] [PHASE1] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 18:00:11 UTC] [EXNESS] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
-        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
+        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
+        "[2026-11-24 18:00:35 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)"
       ]
     },
     "fundednext": {
-      "timestamp": "18:00:10 UTC",
-      "generated_epoch": 1795543210.5056403,
+      "timestamp": "18:00:50 UTC",
+      "generated_epoch": 1795543250.6026275,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 894s / 180s elapsed",
+          "detail": "COMPLIANT: 934s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -4798,17 +4798,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+59.73 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+59.61 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-43.08 | Since reset: $+16.35 of -$200.00"
+          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-43.08 | Since reset: $+16.23 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $4,968.41 (Safety Cushion: $468.41)"
+          "detail": "Equity: $4,968.29 (Safety Cushion: $468.29)"
         },
         "anti_martingale": {
           "passed": true,
@@ -4831,21 +4831,21 @@
         "server": "AtlasFunded-Server",
         "ping": "31 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 17:30: off-session (bar hour 17:00 UTC)"
+        "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
       },
       "account": {
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 4908.68,
-        "equity": 4968.41,
+        "equity": 4968.29,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 181.59,
+        "distance_to_target": 181.71,
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 468.41,
+        "safety_buffer": 468.29,
         "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
@@ -4853,15 +4853,15 @@
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3567.0,
-        "ask": 3567.44,
-        "spread": 0.44,
-        "atr14": 12.21,
+        "bid": 3567.05,
+        "ask": 3567.48,
+        "spread": 0.43,
+        "atr14": 12.26,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": 98.26,
-        "dist_to_val": -25.4,
+        "dist_to_vah": 98.21,
+        "dist_to_val": -25.35,
         "ema50": 3605.5,
         "ema200": 3620.57,
         "regime": "STRONG BEARISH"
@@ -4874,7 +4874,7 @@
       },
       "execution": {
         "armed_lot_size": "0.03 Lots",
-        "armed_risk_dollars": "$54.95 (1.11% Equity)",
+        "armed_risk_dollars": "$55.19 (1.11% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -4883,15 +4883,15 @@
             "type": "SELL",
             "volume": 0.03,
             "open_price": 3587.35,
-            "current_price": 3567.44,
+            "current_price": 3567.48,
             "sl": 3606.64,
             "tp": 3548.74,
-            "profit": 59.73,
+            "profit": 59.61,
             "time": 1795542316
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 59.73,
+        "floating_pnl": 59.61,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -5712,9 +5712,9 @@
         {
           "time": 1795543200,
           "open": 3566.01,
-          "high": 3567.01,
+          "high": 3567.76,
           "low": 3565.33,
-          "close": 3567.0
+          "close": 3567.05
         }
       ],
       "ema50_series": [
@@ -6361,11 +6361,11 @@
           "value": 3620.57
         }
       ],
-      "state_age_sec": 14,
+      "state_age_sec": 16,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-24T18:00:10.537001+00:00",
-        "heartbeat_epoch": 1795543210.5370014,
+        "heartbeat_utc": "2026-11-24T18:00:50.602627+00:00",
+        "heartbeat_epoch": 1795543250.6026275,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -6373,17 +6373,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 4968.41,
+        "equity": 4968.29,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "last_order": "2026-11-24T15:45:17.397243+00:00 SELL 0.03L XAUUSD @ 3587.35 SL 3606.64 TP 3548.74 ticket 20889522 risk $57.90 (1.18%)",
         "market_data_ok": true,
-        "stage": "evaluated",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 17:41:42 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
         "[2026-11-24 17:43:54 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 17:45:09 UTC] [PHASE1] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 17:45:10 UTC] [EXNESS] EVAL bar 11-24 17:30: off-session (bar hour 17:00 UTC)",
@@ -6402,7 +6401,8 @@
         "[2026-11-24 17:59:09 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
         "[2026-11-24 18:00:10 UTC] [PHASE1] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
         "[2026-11-24 18:00:11 UTC] [EXNESS] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
-        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)"
+        "[2026-11-24 18:00:18 UTC] [COMPETITION] EVAL bar 11-24 17:45: off-session (bar hour 17:00 UTC)",
+        "[2026-11-24 18:00:35 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)"
       ]
     }
   }
