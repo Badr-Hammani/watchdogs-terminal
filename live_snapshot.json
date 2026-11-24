@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-24 01:44:59 UTC",
+  "updated_at": "2026-11-24 01:45:41 UTC",
   "primary_url": "https://consolidated-herself-handled-debug.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "01:44:57 UTC",
-      "generated_epoch": 1795484697.4857051,
+      "timestamp": "01:45:37 UTC",
+      "generated_epoch": 1795484737.590989,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -4514s / 180s elapsed",
+          "detail": "LOCKED: -4474s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -21,17 +21,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+36.93 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+40.08 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+36.63 of -$200.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+39.93 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $4,988.69 (Safety Cushion: $488.69)"
+          "detail": "Equity: $4,991.99 (Safety Cushion: $491.99)"
         },
         "anti_martingale": {
           "passed": true,
@@ -54,50 +54,50 @@
         "server": "AtlasFunded-Server",
         "ping": "32 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93"
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open"
       },
       "account": {
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 4951.91,
-        "equity": 4988.69,
+        "equity": 4991.99,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 161.31,
+        "distance_to_target": 158.01,
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 488.69,
+        "safety_buffer": 491.99,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "1.02% per trade"
+        "daily_drawdown_risk": "1.01% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3676.72,
-        "ask": 3677.19,
-        "spread": 0.47,
-        "atr14": 11.36,
+        "bid": 3677.82,
+        "ask": 3678.23,
+        "spread": 0.41,
+        "atr14": 11.26,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": -11.46,
-        "dist_to_val": 84.32,
-        "ema50": 3643.53,
-        "ema200": 3628.42,
+        "dist_to_vah": -12.56,
+        "dist_to_val": 85.42,
+        "ema50": 3644.86,
+        "ema200": 3628.5,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:44",
+        "status_label": "UTC 01:45",
         "current_hour_utc": 1,
-        "current_min_utc": 44
+        "current_min_utc": 45
       },
       "execution": {
         "armed_lot_size": "0.03 Lots",
-        "armed_risk_dollars": "$51.12 (1.02% Equity)",
+        "armed_risk_dollars": "$50.67 (1.01% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -106,15 +106,15 @@
             "type": "BUY",
             "volume": 0.03,
             "open_price": 3664.46,
-            "current_price": 3676.77,
+            "current_price": 3677.82,
             "sl": 3650.1,
             "tp": 3693.18,
-            "profit": 36.93,
+            "profit": 40.08,
             "time": 1795489212
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 36.93,
+        "floating_pnl": 40.08,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -151,7 +151,8 @@
           "[2026-11-20 03:15:08 UTC] [PHASE1] ORDER EXECUTED 2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
           "[2026-11-20 06:06:44 UTC] [PHASE1] CLOSED #20694591 SELL 0.02L 3525.14 -> 3557.4 P/L $-64.62 held 171m",
           "[2026-11-20 15:30:16 UTC] [PHASE1] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
-          "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)"
+          "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
+          "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
         ]
       },
       "closed_trades": [
@@ -353,16 +354,10 @@
         "[2026-11-20 03:15:08 UTC] [PHASE1] ORDER EXECUTED 2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
         "[2026-11-20 06:06:44 UTC] [PHASE1] CLOSED #20694591 SELL 0.02L 3525.14 -> 3557.4 P/L $-64.62 held 171m",
         "[2026-11-20 15:30:16 UTC] [PHASE1] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
-        "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)"
+        "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ],
       "candles": [
-        {
-          "time": 1795409100,
-          "open": 3610.82,
-          "high": 3613.21,
-          "low": 3607.79,
-          "close": 3607.91
-        },
         {
           "time": 1795410000,
           "open": 3607.59,
@@ -914,14 +909,17 @@
           "open": 3667.4,
           "high": 3677.45,
           "low": 3662.55,
-          "close": 3676.72
+          "close": 3676.14
+        },
+        {
+          "time": 1795484700,
+          "open": 3676.14,
+          "high": 3678.1,
+          "low": 3676.14,
+          "close": 3677.82
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795409100,
-          "value": 3576.69
-        },
         {
           "time": 1795410000,
           "value": 3577.98
@@ -992,7 +990,7 @@
         },
         {
           "time": 1795425300,
-          "value": 3598.03
+          "value": 3598.02
         },
         {
           "time": 1795426200,
@@ -1116,7 +1114,7 @@
         },
         {
           "time": 1795453200,
-          "value": 3634.57
+          "value": 3634.56
         },
         {
           "time": 1795454100,
@@ -1132,7 +1130,7 @@
         },
         {
           "time": 1795456800,
-          "value": 3637.73
+          "value": 3637.72
         },
         {
           "time": 1795457700,
@@ -1236,336 +1234,340 @@
         },
         {
           "time": 1795483800,
-          "value": 3643.53
+          "value": 3643.51
+        },
+        {
+          "time": 1795484700,
+          "value": 3644.86
         }
       ],
       "ema200_series": [
         {
-          "time": 1795409100,
-          "value": 3613.23
-        },
-        {
           "time": 1795410000,
-          "value": 3613.19
+          "value": 3612.3
         },
         {
           "time": 1795410900,
-          "value": 3613.25
+          "value": 3612.36
         },
         {
           "time": 1795411800,
-          "value": 3613.35
+          "value": 3612.48
         },
         {
           "time": 1795412700,
-          "value": 3613.39
+          "value": 3612.52
         },
         {
           "time": 1795413600,
-          "value": 3613.42
+          "value": 3612.56
         },
         {
           "time": 1795414500,
-          "value": 3613.47
+          "value": 3612.62
         },
         {
           "time": 1795415400,
-          "value": 3613.58
+          "value": 3612.73
         },
         {
           "time": 1795416300,
-          "value": 3613.65
+          "value": 3612.82
         },
         {
           "time": 1795417200,
-          "value": 3613.85
+          "value": 3613.02
         },
         {
           "time": 1795418100,
-          "value": 3614.03
+          "value": 3613.22
         },
         {
           "time": 1795419000,
-          "value": 3614.15
+          "value": 3613.34
         },
         {
           "time": 1795419900,
-          "value": 3614.19
+          "value": 3613.39
         },
         {
           "time": 1795420800,
-          "value": 3614.09
+          "value": 3613.3
         },
         {
           "time": 1795421700,
-          "value": 3614.03
+          "value": 3613.24
         },
         {
           "time": 1795422600,
-          "value": 3614.0
+          "value": 3613.22
         },
         {
           "time": 1795423500,
-          "value": 3614.0
+          "value": 3613.23
         },
         {
           "time": 1795424400,
-          "value": 3614.04
+          "value": 3613.28
         },
         {
           "time": 1795425300,
-          "value": 3614.1
+          "value": 3613.34
         },
         {
           "time": 1795426200,
-          "value": 3614.13
+          "value": 3613.38
         },
         {
           "time": 1795427100,
-          "value": 3614.13
+          "value": 3613.39
         },
         {
           "time": 1795428000,
-          "value": 3614.2
+          "value": 3613.47
         },
         {
           "time": 1795428900,
-          "value": 3614.24
+          "value": 3613.51
         },
         {
           "time": 1795429800,
-          "value": 3614.3
+          "value": 3613.58
         },
         {
           "time": 1795430700,
-          "value": 3614.4
+          "value": 3613.68
         },
         {
           "time": 1795431600,
-          "value": 3614.46
+          "value": 3613.75
         },
         {
           "time": 1795432500,
-          "value": 3614.51
+          "value": 3613.82
         },
         {
           "time": 1795433400,
-          "value": 3614.59
+          "value": 3613.9
         },
         {
           "time": 1795434300,
-          "value": 3614.63
+          "value": 3613.95
         },
         {
           "time": 1795435200,
-          "value": 3614.64
+          "value": 3613.96
         },
         {
           "time": 1795436100,
-          "value": 3614.64
+          "value": 3613.97
         },
         {
           "time": 1795437000,
-          "value": 3614.67
+          "value": 3614.01
         },
         {
           "time": 1795437900,
-          "value": 3614.7
+          "value": 3614.04
         },
         {
           "time": 1795438800,
-          "value": 3614.76
+          "value": 3614.11
         },
         {
           "time": 1795439700,
-          "value": 3614.88
+          "value": 3614.24
         },
         {
           "time": 1795440600,
-          "value": 3614.93
+          "value": 3614.29
         },
         {
           "time": 1795441500,
-          "value": 3615.31
+          "value": 3614.68
         },
         {
           "time": 1795442400,
-          "value": 3615.83
+          "value": 3615.21
         },
         {
           "time": 1795443300,
-          "value": 3616.55
+          "value": 3615.93
         },
         {
           "time": 1795444200,
-          "value": 3617.04
+          "value": 3616.43
         },
         {
           "time": 1795445100,
-          "value": 3617.55
+          "value": 3616.95
         },
         {
           "time": 1795446000,
-          "value": 3617.98
+          "value": 3617.38
         },
         {
           "time": 1795446900,
-          "value": 3618.58
+          "value": 3617.98
         },
         {
           "time": 1795447800,
-          "value": 3619.1
+          "value": 3618.51
         },
         {
           "time": 1795448700,
-          "value": 3619.59
+          "value": 3619.01
         },
         {
           "time": 1795449600,
-          "value": 3620.09
+          "value": 3619.52
         },
         {
           "time": 1795450500,
-          "value": 3620.64
+          "value": 3620.07
         },
         {
           "time": 1795451400,
-          "value": 3621.04
+          "value": 3620.48
         },
         {
           "time": 1795452300,
-          "value": 3621.56
+          "value": 3621.0
         },
         {
           "time": 1795453200,
-          "value": 3622.0
+          "value": 3621.45
         },
         {
           "time": 1795454100,
-          "value": 3622.39
+          "value": 3621.85
         },
         {
           "time": 1795455000,
-          "value": 3622.7
+          "value": 3622.15
         },
         {
           "time": 1795455900,
-          "value": 3622.99
+          "value": 3622.46
         },
         {
           "time": 1795456800,
-          "value": 3623.33
+          "value": 3622.8
         },
         {
           "time": 1795457700,
-          "value": 3623.61
+          "value": 3623.09
         },
         {
           "time": 1795458600,
-          "value": 3623.86
+          "value": 3623.34
         },
         {
           "time": 1795459500,
-          "value": 3624.11
+          "value": 3623.6
         },
         {
           "time": 1795460400,
-          "value": 3624.42
+          "value": 3623.91
         },
         {
           "time": 1795461300,
-          "value": 3624.69
+          "value": 3624.18
         },
         {
           "time": 1795462200,
-          "value": 3624.84
+          "value": 3624.34
         },
         {
           "time": 1795463100,
-          "value": 3625.02
+          "value": 3624.53
         },
         {
           "time": 1795464000,
-          "value": 3625.18
+          "value": 3624.69
         },
         {
           "time": 1795464900,
-          "value": 3625.37
+          "value": 3624.89
         },
         {
           "time": 1795465800,
-          "value": 3625.52
+          "value": 3625.03
         },
         {
           "time": 1795466700,
-          "value": 3625.61
+          "value": 3625.14
         },
         {
           "time": 1795467600,
-          "value": 3625.72
+          "value": 3625.25
         },
         {
           "time": 1795468500,
-          "value": 3625.83
+          "value": 3625.36
         },
         {
           "time": 1795469400,
-          "value": 3625.9
+          "value": 3625.44
         },
         {
           "time": 1795470300,
-          "value": 3625.99
+          "value": 3625.53
         },
         {
           "time": 1795474800,
-          "value": 3626.03
+          "value": 3625.58
         },
         {
           "time": 1795475700,
-          "value": 3626.11
+          "value": 3625.66
         },
         {
           "time": 1795476600,
-          "value": 3626.13
+          "value": 3625.68
         },
         {
           "time": 1795477500,
-          "value": 3626.17
+          "value": 3625.73
         },
         {
           "time": 1795478400,
-          "value": 3626.27
+          "value": 3625.83
         },
         {
           "time": 1795479300,
-          "value": 3626.46
+          "value": 3626.03
         },
         {
           "time": 1795480200,
-          "value": 3626.76
+          "value": 3626.34
         },
         {
           "time": 1795481100,
-          "value": 3627.19
+          "value": 3626.77
         },
         {
           "time": 1795482000,
-          "value": 3627.53
+          "value": 3627.12
         },
         {
           "time": 1795482900,
-          "value": 3627.93
+          "value": 3627.52
         },
         {
           "time": 1795483800,
-          "value": 3628.42
+          "value": 3628.0
+        },
+        {
+          "time": 1795484700,
+          "value": 3628.5
         }
       ],
-      "state_age_sec": 2,
+      "state_age_sec": 4,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-24T01:44:57.501469+00:00",
-        "heartbeat_epoch": 1795484697.5014696,
+        "heartbeat_utc": "2026-11-24T01:45:37.606721+00:00",
+        "heartbeat_epoch": 1795484737.6067219,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1573,23 +1575,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 4988.84,
+        "equity": 4991.99,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open",
         "last_order": "2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 01:23:25 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:24:51 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:28:29 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:29:56 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:30:01 UTC] [EXNESS] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04",
         "[2026-11-24 01:30:06 UTC] [COMPETITION] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:30:16 UTC] [PHASE1] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:31:22 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
@@ -1602,19 +1597,26 @@
         "[2026-11-24 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
+        "[2026-11-24 01:45:11 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ]
     },
     "competition": {
-      "timestamp": "01:44:48 UTC",
-      "generated_epoch": 1795484688.0925202,
+      "timestamp": "01:45:28 UTC",
+      "generated_epoch": 1795484728.5086339,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "Armed: Minimum 185s hold strictly enforced on any entry",
-          "can_close": true
+          "detail": "LOCKED: -7178s / 180s elapsed",
+          "can_close": false
         },
         "news_filter": {
           "passed": true,
@@ -1624,22 +1626,22 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+0.00 (Limit: -$2000.00)"
+          "detail": "Floating PnL: $-62.31 (Limit: -$2000.00)"
         },
         "daily_circuit_breaker": {
-          "passed": true,
+          "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 1/2 Losses | Daily PnL: $-1469.00 | Since reset: $-1474.65 of -$4000.00"
+          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-1469.00 | Since reset: $-1541.61 of -$4000.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($90,000.00)",
-          "detail": "Equity: $103,907.45 (Safety Cushion: $13,907.45)"
+          "detail": "Equity: $103,840.49 (Safety Cushion: $13,840.49)"
         },
         "anti_martingale": {
           "passed": true,
           "name": "Anti-Martingale & Single Position Rule",
-          "detail": "0/1 Open Positions (Grid/Martingale Strictly Disabled)"
+          "detail": "1/1 Open Positions (Grid/Martingale Strictly Disabled)"
         },
         "weekend_filter": {
           "passed": true,
@@ -1647,8 +1649,8 @@
           "detail": "Market Open"
         }
       },
-      "all_rules_passed": true,
-      "rules_block_reason": null,
+      "all_rules_passed": false,
+      "rules_block_reason": "Daily Circuit Breaker Triggered (2/2 trades used)",
       "watchdog": {
         "status": "ONLINE & ARMED",
         "connected": true,
@@ -1657,54 +1659,67 @@
         "server": "AtlasFunded-Server",
         "ping": "32 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93"
+        "last_signal_eval": "bar 11-24 01:30: BUY"
       },
       "account": {
         "login": 212176749,
         "name": "Badr Hammani",
-        "balance": 103907.45,
-        "equity": 103907.45,
+        "balance": 103902.8,
+        "equity": 103840.49,
         "currency": "USD",
         "phase": "Nov Competition",
         "initial_balance": 100000.0,
         "target_amount": 125000.0,
-        "distance_to_target": 21092.55,
-        "progress_pct": 15.6,
+        "distance_to_target": 21159.51,
+        "progress_pct": 15.4,
         "max_loss_floor": 90000.0,
-        "safety_buffer": 13907.45,
-        "daily_trades_used": 1,
+        "safety_buffer": 13840.49,
+        "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
-        "daily_drawdown_risk": "1.49% per trade"
+        "daily_drawdown_risk": "1.50% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3676.0,
-        "ask": 3676.47,
-        "spread": 0.47,
-        "atr14": 11.36,
+        "bid": 3677.18,
+        "ask": 3677.64,
+        "spread": 0.46,
+        "atr14": 11.26,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": -10.74,
-        "dist_to_val": 83.6,
-        "ema50": 3643.51,
-        "ema200": 3628.41,
+        "dist_to_vah": -11.92,
+        "dist_to_val": 84.78,
+        "ema50": 3644.83,
+        "ema200": 3628.49,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:44",
+        "status_label": "UTC 01:45",
         "current_hour_utc": 1,
-        "current_min_utc": 44
+        "current_min_utc": 45
       },
       "execution": {
-        "armed_lot_size": "0.91 Lots",
-        "armed_risk_dollars": "$1,550.54 (1.49% Equity)",
+        "armed_lot_size": "0.92 Lots",
+        "armed_risk_dollars": "$1,553.78 (1.50% Equity)",
         "armed_target_profit": "1:3.0 R:R",
-        "open_positions": [],
-        "active_trade_count": 0,
-        "floating_pnl": 0,
+        "open_positions": [
+          {
+            "ticket": 20845906,
+            "symbol": "XAUUSD",
+            "type": "BUY",
+            "volume": 0.93,
+            "open_price": 3677.85,
+            "current_price": 3677.18,
+            "sl": 3660.97,
+            "tp": 3711.47,
+            "profit": -62.31,
+            "time": 1795491907
+          }
+        ],
+        "active_trade_count": 1,
+        "floating_pnl": -62.31,
         "live_logs": [
           "[2026-11-12 00:20 UTC] [COMPETITION] CLOSED #20256367 SELL 2.46L 3977.79 -> 3984.58 P/L $-1682.64 held 20m (backfilled from broker history)",
           "[2026-11-12 05:52 UTC] [COMPETITION] CLOSED #20269236 SELL 1.58L 3971.77 -> 3981.29 P/L $-1512.06 held 22m (backfilled from broker history)",
@@ -1737,10 +1752,22 @@
           "[2026-11-20 06:06:41 UTC] [COMPETITION] CLOSED #20694587 SELL 0.5L 3525.2 -> 3558.1 P/L $-1647.50 held 171m",
           "[2026-11-20 15:30:13 UTC] [COMPETITION] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
           "[2026-11-24 01:00:04 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:00:03.605591+00:00 BUY 1.13L XAUUSD @ 3666.3 SL 3653.15 TP 3695.27 ticket 20843812 risk $1586.64 (1.51%)",
-          "[2026-11-24 01:06:44 UTC] [COMPETITION] CLOSED #20843812 BUY 1.13L 3666.3 -> 3653.3 P/L $-1474.65 held 6m"
+          "[2026-11-24 01:06:44 UTC] [COMPETITION] CLOSED #20843812 BUY 1.13L 3666.3 -> 3653.3 P/L $-1474.65 held 6m",
+          "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)"
         ]
       },
       "closed_trades": [
+        {
+          "ticket": 20845906,
+          "symbol": "XAUUSD",
+          "side": "BUY",
+          "volume": 0.93,
+          "open_price": 3677.85,
+          "open_utc": "2026-11-24 01:45",
+          "status": "OPEN",
+          "magic": 200300,
+          "comment": "AtlasCompAlpha"
+        },
         {
           "ticket": 20843812,
           "symbol": "XAUUSD",
@@ -1939,16 +1966,10 @@
         "[2026-11-20 06:06:41 UTC] [COMPETITION] CLOSED #20694587 SELL 0.5L 3525.2 -> 3558.1 P/L $-1647.50 held 171m",
         "[2026-11-20 15:30:13 UTC] [COMPETITION] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
         "[2026-11-24 01:00:04 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:00:03.605591+00:00 BUY 1.13L XAUUSD @ 3666.3 SL 3653.15 TP 3695.27 ticket 20843812 risk $1586.64 (1.51%)",
-        "[2026-11-24 01:06:44 UTC] [COMPETITION] CLOSED #20843812 BUY 1.13L 3666.3 -> 3653.3 P/L $-1474.65 held 6m"
+        "[2026-11-24 01:06:44 UTC] [COMPETITION] CLOSED #20843812 BUY 1.13L 3666.3 -> 3653.3 P/L $-1474.65 held 6m",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)"
       ],
       "candles": [
-        {
-          "time": 1795409100,
-          "open": 3610.82,
-          "high": 3613.21,
-          "low": 3607.79,
-          "close": 3607.91
-        },
         {
           "time": 1795410000,
           "open": 3607.59,
@@ -2500,14 +2521,17 @@
           "open": 3667.4,
           "high": 3677.45,
           "low": 3662.55,
-          "close": 3676.0
+          "close": 3676.14
+        },
+        {
+          "time": 1795484700,
+          "open": 3676.14,
+          "high": 3678.1,
+          "low": 3676.14,
+          "close": 3677.18
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795409100,
-          "value": 3576.69
-        },
         {
           "time": 1795410000,
           "value": 3577.98
@@ -2578,7 +2602,7 @@
         },
         {
           "time": 1795425300,
-          "value": 3598.03
+          "value": 3598.02
         },
         {
           "time": 1795426200,
@@ -2702,7 +2726,7 @@
         },
         {
           "time": 1795453200,
-          "value": 3634.57
+          "value": 3634.56
         },
         {
           "time": 1795454100,
@@ -2718,7 +2742,7 @@
         },
         {
           "time": 1795456800,
-          "value": 3637.73
+          "value": 3637.72
         },
         {
           "time": 1795457700,
@@ -2823,335 +2847,339 @@
         {
           "time": 1795483800,
           "value": 3643.51
+        },
+        {
+          "time": 1795484700,
+          "value": 3644.83
         }
       ],
       "ema200_series": [
         {
-          "time": 1795409100,
-          "value": 3613.23
-        },
-        {
           "time": 1795410000,
-          "value": 3613.19
+          "value": 3612.3
         },
         {
           "time": 1795410900,
-          "value": 3613.25
+          "value": 3612.36
         },
         {
           "time": 1795411800,
-          "value": 3613.35
+          "value": 3612.48
         },
         {
           "time": 1795412700,
-          "value": 3613.39
+          "value": 3612.52
         },
         {
           "time": 1795413600,
-          "value": 3613.42
+          "value": 3612.56
         },
         {
           "time": 1795414500,
-          "value": 3613.47
+          "value": 3612.62
         },
         {
           "time": 1795415400,
-          "value": 3613.58
+          "value": 3612.73
         },
         {
           "time": 1795416300,
-          "value": 3613.65
+          "value": 3612.82
         },
         {
           "time": 1795417200,
-          "value": 3613.85
+          "value": 3613.02
         },
         {
           "time": 1795418100,
-          "value": 3614.03
+          "value": 3613.22
         },
         {
           "time": 1795419000,
-          "value": 3614.15
+          "value": 3613.34
         },
         {
           "time": 1795419900,
-          "value": 3614.19
+          "value": 3613.39
         },
         {
           "time": 1795420800,
-          "value": 3614.09
+          "value": 3613.3
         },
         {
           "time": 1795421700,
-          "value": 3614.03
+          "value": 3613.24
         },
         {
           "time": 1795422600,
-          "value": 3614.0
+          "value": 3613.22
         },
         {
           "time": 1795423500,
-          "value": 3614.0
+          "value": 3613.23
         },
         {
           "time": 1795424400,
-          "value": 3614.04
+          "value": 3613.28
         },
         {
           "time": 1795425300,
-          "value": 3614.1
+          "value": 3613.34
         },
         {
           "time": 1795426200,
-          "value": 3614.13
+          "value": 3613.38
         },
         {
           "time": 1795427100,
-          "value": 3614.13
+          "value": 3613.39
         },
         {
           "time": 1795428000,
-          "value": 3614.2
+          "value": 3613.47
         },
         {
           "time": 1795428900,
-          "value": 3614.24
+          "value": 3613.51
         },
         {
           "time": 1795429800,
-          "value": 3614.3
+          "value": 3613.58
         },
         {
           "time": 1795430700,
-          "value": 3614.4
+          "value": 3613.68
         },
         {
           "time": 1795431600,
-          "value": 3614.46
+          "value": 3613.75
         },
         {
           "time": 1795432500,
-          "value": 3614.51
+          "value": 3613.82
         },
         {
           "time": 1795433400,
-          "value": 3614.59
+          "value": 3613.9
         },
         {
           "time": 1795434300,
-          "value": 3614.63
+          "value": 3613.95
         },
         {
           "time": 1795435200,
-          "value": 3614.64
+          "value": 3613.96
         },
         {
           "time": 1795436100,
-          "value": 3614.64
+          "value": 3613.97
         },
         {
           "time": 1795437000,
-          "value": 3614.67
+          "value": 3614.01
         },
         {
           "time": 1795437900,
-          "value": 3614.7
+          "value": 3614.04
         },
         {
           "time": 1795438800,
-          "value": 3614.76
+          "value": 3614.11
         },
         {
           "time": 1795439700,
-          "value": 3614.88
+          "value": 3614.24
         },
         {
           "time": 1795440600,
-          "value": 3614.93
+          "value": 3614.29
         },
         {
           "time": 1795441500,
-          "value": 3615.31
+          "value": 3614.68
         },
         {
           "time": 1795442400,
-          "value": 3615.83
+          "value": 3615.21
         },
         {
           "time": 1795443300,
-          "value": 3616.55
+          "value": 3615.93
         },
         {
           "time": 1795444200,
-          "value": 3617.04
+          "value": 3616.43
         },
         {
           "time": 1795445100,
-          "value": 3617.55
+          "value": 3616.95
         },
         {
           "time": 1795446000,
-          "value": 3617.98
+          "value": 3617.38
         },
         {
           "time": 1795446900,
-          "value": 3618.58
+          "value": 3617.98
         },
         {
           "time": 1795447800,
-          "value": 3619.1
+          "value": 3618.51
         },
         {
           "time": 1795448700,
-          "value": 3619.59
+          "value": 3619.01
         },
         {
           "time": 1795449600,
-          "value": 3620.09
+          "value": 3619.52
         },
         {
           "time": 1795450500,
-          "value": 3620.64
+          "value": 3620.07
         },
         {
           "time": 1795451400,
-          "value": 3621.04
+          "value": 3620.48
         },
         {
           "time": 1795452300,
-          "value": 3621.56
+          "value": 3621.0
         },
         {
           "time": 1795453200,
-          "value": 3622.0
+          "value": 3621.45
         },
         {
           "time": 1795454100,
-          "value": 3622.39
+          "value": 3621.85
         },
         {
           "time": 1795455000,
-          "value": 3622.7
+          "value": 3622.15
         },
         {
           "time": 1795455900,
-          "value": 3622.99
+          "value": 3622.46
         },
         {
           "time": 1795456800,
-          "value": 3623.33
+          "value": 3622.8
         },
         {
           "time": 1795457700,
-          "value": 3623.61
+          "value": 3623.09
         },
         {
           "time": 1795458600,
-          "value": 3623.86
+          "value": 3623.34
         },
         {
           "time": 1795459500,
-          "value": 3624.11
+          "value": 3623.6
         },
         {
           "time": 1795460400,
-          "value": 3624.42
+          "value": 3623.91
         },
         {
           "time": 1795461300,
-          "value": 3624.69
+          "value": 3624.18
         },
         {
           "time": 1795462200,
-          "value": 3624.84
+          "value": 3624.34
         },
         {
           "time": 1795463100,
-          "value": 3625.02
+          "value": 3624.53
         },
         {
           "time": 1795464000,
-          "value": 3625.18
+          "value": 3624.69
         },
         {
           "time": 1795464900,
-          "value": 3625.37
+          "value": 3624.89
         },
         {
           "time": 1795465800,
-          "value": 3625.52
+          "value": 3625.03
         },
         {
           "time": 1795466700,
-          "value": 3625.61
+          "value": 3625.14
         },
         {
           "time": 1795467600,
-          "value": 3625.72
+          "value": 3625.25
         },
         {
           "time": 1795468500,
-          "value": 3625.83
+          "value": 3625.36
         },
         {
           "time": 1795469400,
-          "value": 3625.9
+          "value": 3625.44
         },
         {
           "time": 1795470300,
-          "value": 3625.99
+          "value": 3625.53
         },
         {
           "time": 1795474800,
-          "value": 3626.03
+          "value": 3625.58
         },
         {
           "time": 1795475700,
-          "value": 3626.11
+          "value": 3625.66
         },
         {
           "time": 1795476600,
-          "value": 3626.13
+          "value": 3625.68
         },
         {
           "time": 1795477500,
-          "value": 3626.17
+          "value": 3625.73
         },
         {
           "time": 1795478400,
-          "value": 3626.27
+          "value": 3625.83
         },
         {
           "time": 1795479300,
-          "value": 3626.46
+          "value": 3626.03
         },
         {
           "time": 1795480200,
-          "value": 3626.76
+          "value": 3626.34
         },
         {
           "time": 1795481100,
-          "value": 3627.19
+          "value": 3626.77
         },
         {
           "time": 1795482000,
-          "value": 3627.53
+          "value": 3627.12
         },
         {
           "time": 1795482900,
-          "value": 3627.93
+          "value": 3627.52
         },
         {
           "time": 1795483800,
-          "value": 3628.41
+          "value": 3628.0
+        },
+        {
+          "time": 1795484700,
+          "value": 3628.49
         }
       ],
-      "state_age_sec": 11,
+      "state_age_sec": 13,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-24T01:44:48.105575+00:00",
-        "heartbeat_epoch": 1795484688.1055753,
+        "heartbeat_utc": "2026-11-24T01:45:28.539809+00:00",
+        "heartbeat_epoch": 1795484728.5398092,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -3159,23 +3187,16 @@
         "account_trade_allowed": true,
         "login": 212176749,
         "server": "AtlasFunded-Server",
-        "equity": 103907.45,
+        "equity": 103840.49,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
-        "last_order": "2026-11-24T01:00:03.605591+00:00 BUY 1.13L XAUUSD @ 3666.3 SL 3653.15 TP 3695.27 ticket 20843812 risk $1586.64 (1.51%)",
+        "last_signal_eval": "bar 11-24 01:30: BUY",
+        "last_order": "2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 01:23:25 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:24:51 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:28:29 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:29:56 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:30:01 UTC] [EXNESS] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04",
         "[2026-11-24 01:30:06 UTC] [COMPETITION] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:30:16 UTC] [PHASE1] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:31:22 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
@@ -3188,18 +3209,25 @@
         "[2026-11-24 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
+        "[2026-11-24 01:45:11 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ]
     },
     "exness": {
-      "timestamp": "01:44:42 UTC",
-      "generated_epoch": 1795484682.9962378,
+      "timestamp": "01:45:23 UTC",
+      "generated_epoch": 1795484723.239073,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 2664s / 180s elapsed",
+          "detail": "COMPLIANT: 2705s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -3210,17 +3238,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+12.93 (Limit: -$2.00)"
+          "detail": "Floating PnL: $+14.59 (Limit: -$2.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 5 Trades)",
-          "detail": "1/5 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+12.93 of -$20.00"
+          "detail": "1/5 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+14.59 of -$20.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($0.00)",
-          "detail": "Equity: $63.09 (Safety Cushion: $63.09)"
+          "detail": "Equity: $64.75 (Safety Cushion: $64.75)"
         },
         "anti_martingale": {
           "passed": true,
@@ -3243,50 +3271,50 @@
         "server": "Exness-MT5Trial16",
         "ping": "133 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04"
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open"
       },
       "account": {
         "login": 473002209,
         "name": "aws trading bot capital",
         "balance": 50.16,
-        "equity": 63.09,
+        "equity": 64.75,
         "currency": "USD",
         "phase": "Exness Personal Capital",
         "initial_balance": 100.0,
         "target_amount": 500.0,
-        "distance_to_target": 436.91,
+        "distance_to_target": 435.25,
         "progress_pct": 0,
         "max_loss_floor": 0.0,
-        "safety_buffer": 63.09,
+        "safety_buffer": 64.75,
         "daily_trades_used": 1,
         "max_daily_trades": 5,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "27.57% per trade"
+        "daily_drawdown_risk": "26.66% per trade"
       },
       "market": {
         "symbol": "XAUUSDm",
-        "bid": 3675.94,
-        "ask": 3676.18,
+        "bid": 3677.6,
+        "ask": 3677.84,
         "spread": 0.24,
-        "atr14": 11.59,
+        "atr14": 11.51,
         "vah": 3665.41,
         "val": 3592.42,
         "poc": 3628.91,
-        "dist_to_vah": -10.53,
-        "dist_to_val": 83.52,
-        "ema50": 3643.53,
-        "ema200": 3628.51,
+        "dist_to_vah": -12.19,
+        "dist_to_val": 85.18,
+        "ema50": 3644.89,
+        "ema200": 3628.6,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:44",
+        "status_label": "UTC 01:45",
         "current_hour_utc": 1,
-        "current_min_utc": 44
+        "current_min_utc": 45
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
-        "armed_risk_dollars": "$17.39 (27.57% Equity)",
+        "armed_risk_dollars": "$17.26 (26.66% Equity)",
         "armed_target_profit": "1:2.5 R:R",
         "open_positions": [
           {
@@ -3295,15 +3323,15 @@
             "type": "BUY",
             "volume": 0.01,
             "open_price": 3663.01,
-            "current_price": 3675.94,
+            "current_price": 3677.6,
             "sl": 3648.15,
             "tp": 3692.48,
-            "profit": 12.93,
+            "profit": 14.59,
             "time": 1795482018
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 12.93,
+        "floating_pnl": 14.59,
         "live_logs": [
           "[2026-11-13 13:30:07 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: High-Impact News Blackout (Core PPI m/m - 0m after); High-Impact News Blackout (Core PPI m/m - 0m after)",
           "[2026-11-16 06:00:13 UTC] [EXNESS] ORDER EXECUTED 2026-11-16T06:00:12.871503+00:00 SELL 0.01L XAUUSDm @ 3834.8340000000003 SL 3848.91 TP 3806.53 ticket 2241796733 risk $14.13 (14.13%)",
@@ -3328,7 +3356,8 @@
           "[2026-11-20 02:00:07 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
           "[2026-11-20 02:30:09 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
           "[2026-11-20 03:15:15 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
-          "[2026-11-24 01:00:18 UTC] [EXNESS] ORDER EXECUTED 2026-11-24T01:00:18.259242+00:00 BUY 0.01L XAUUSDm @ 3663.008 SL 3648.15 TP 3692.48 ticket 2290065392 risk $14.78 (29.46%)"
+          "[2026-11-24 01:00:18 UTC] [EXNESS] ORDER EXECUTED 2026-11-24T01:00:18.259242+00:00 BUY 0.01L XAUUSDm @ 3663.008 SL 3648.15 TP 3692.48 ticket 2290065392 risk $14.78 (29.46%)",
+          "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open"
         ]
       },
       "closed_trades": [
@@ -3458,16 +3487,10 @@
         "[2026-11-20 02:00:07 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
         "[2026-11-20 02:30:09 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
         "[2026-11-20 03:15:15 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: Approaching Max Loss Floor ($50.00)",
-        "[2026-11-24 01:00:18 UTC] [EXNESS] ORDER EXECUTED 2026-11-24T01:00:18.259242+00:00 BUY 0.01L XAUUSDm @ 3663.008 SL 3648.15 TP 3692.48 ticket 2290065392 risk $14.78 (29.46%)"
+        "[2026-11-24 01:00:18 UTC] [EXNESS] ORDER EXECUTED 2026-11-24T01:00:18.259242+00:00 BUY 0.01L XAUUSDm @ 3663.008 SL 3648.15 TP 3692.48 ticket 2290065392 risk $14.78 (29.46%)",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ],
       "candles": [
-        {
-          "time": 1795409100,
-          "open": 3610.32,
-          "high": 3613.51,
-          "low": 3607.84,
-          "close": 3608.01
-        },
         {
           "time": 1795410000,
           "open": 3608.07,
@@ -4019,14 +4042,17 @@
           "open": 3667.13,
           "high": 3677.8,
           "low": 3662.55,
-          "close": 3675.94
+          "close": 3676.68
+        },
+        {
+          "time": 1795484700,
+          "open": 3676.57,
+          "high": 3678.44,
+          "low": 3676.03,
+          "close": 3677.6
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795409100,
-          "value": 3576.89
-        },
         {
           "time": 1795410000,
           "value": 3578.16
@@ -4341,336 +4367,340 @@
         },
         {
           "time": 1795483800,
-          "value": 3643.53
+          "value": 3643.56
+        },
+        {
+          "time": 1795484700,
+          "value": 3644.89
         }
       ],
       "ema200_series": [
         {
-          "time": 1795409100,
-          "value": 3613.43
-        },
-        {
           "time": 1795410000,
-          "value": 3613.39
+          "value": 3612.5
         },
         {
           "time": 1795410900,
-          "value": 3613.45
+          "value": 3612.57
         },
         {
           "time": 1795411800,
-          "value": 3613.55
+          "value": 3612.68
         },
         {
           "time": 1795412700,
-          "value": 3613.58
+          "value": 3612.72
         },
         {
           "time": 1795413600,
-          "value": 3613.62
+          "value": 3612.76
         },
         {
           "time": 1795414500,
-          "value": 3613.66
+          "value": 3612.81
         },
         {
           "time": 1795415400,
-          "value": 3613.77
+          "value": 3612.93
         },
         {
           "time": 1795416300,
-          "value": 3613.85
+          "value": 3613.01
         },
         {
           "time": 1795417200,
-          "value": 3614.04
+          "value": 3613.22
         },
         {
           "time": 1795418100,
-          "value": 3614.22
+          "value": 3613.41
         },
         {
           "time": 1795419000,
-          "value": 3614.34
+          "value": 3613.53
         },
         {
           "time": 1795419900,
-          "value": 3614.38
+          "value": 3613.58
         },
         {
           "time": 1795420800,
-          "value": 3614.28
+          "value": 3613.49
         },
         {
           "time": 1795421700,
-          "value": 3614.21
+          "value": 3613.43
         },
         {
           "time": 1795422600,
-          "value": 3614.18
+          "value": 3613.41
         },
         {
           "time": 1795423500,
-          "value": 3614.18
+          "value": 3613.41
         },
         {
           "time": 1795424400,
-          "value": 3614.22
+          "value": 3613.46
         },
         {
           "time": 1795425300,
-          "value": 3614.28
+          "value": 3613.52
         },
         {
           "time": 1795426200,
-          "value": 3614.31
+          "value": 3613.57
         },
         {
           "time": 1795427100,
-          "value": 3614.31
+          "value": 3613.58
         },
         {
           "time": 1795428000,
-          "value": 3614.38
+          "value": 3613.65
         },
         {
           "time": 1795428900,
-          "value": 3614.41
+          "value": 3613.69
         },
         {
           "time": 1795429800,
-          "value": 3614.47
+          "value": 3613.76
         },
         {
           "time": 1795430700,
-          "value": 3614.57
+          "value": 3613.86
         },
         {
           "time": 1795431600,
-          "value": 3614.64
+          "value": 3613.93
         },
         {
           "time": 1795432500,
-          "value": 3614.68
+          "value": 3613.99
         },
         {
           "time": 1795433400,
-          "value": 3614.76
+          "value": 3614.07
         },
         {
           "time": 1795434300,
-          "value": 3614.8
+          "value": 3614.12
         },
         {
           "time": 1795435200,
-          "value": 3614.8
+          "value": 3614.13
         },
         {
           "time": 1795436100,
-          "value": 3614.8
+          "value": 3614.14
         },
         {
           "time": 1795437000,
-          "value": 3614.83
+          "value": 3614.17
         },
         {
           "time": 1795437900,
-          "value": 3614.86
+          "value": 3614.2
         },
         {
           "time": 1795438800,
-          "value": 3614.92
+          "value": 3614.27
         },
         {
           "time": 1795439700,
-          "value": 3615.04
+          "value": 3614.4
         },
         {
           "time": 1795440600,
-          "value": 3615.07
+          "value": 3614.44
         },
         {
           "time": 1795441500,
-          "value": 3615.46
+          "value": 3614.84
         },
         {
           "time": 1795442400,
-          "value": 3615.98
+          "value": 3615.35
         },
         {
           "time": 1795443300,
-          "value": 3616.7
+          "value": 3616.09
         },
         {
           "time": 1795444200,
-          "value": 3617.18
+          "value": 3616.57
         },
         {
           "time": 1795445100,
-          "value": 3617.69
+          "value": 3617.09
         },
         {
           "time": 1795446000,
-          "value": 3618.1
+          "value": 3617.5
         },
         {
           "time": 1795446900,
-          "value": 3618.7
+          "value": 3618.11
         },
         {
           "time": 1795447800,
-          "value": 3619.22
+          "value": 3618.63
         },
         {
           "time": 1795448700,
-          "value": 3619.71
+          "value": 3619.13
         },
         {
           "time": 1795449600,
-          "value": 3620.21
+          "value": 3619.64
         },
         {
           "time": 1795450500,
-          "value": 3620.75
+          "value": 3620.19
         },
         {
           "time": 1795451400,
-          "value": 3621.17
+          "value": 3620.61
         },
         {
           "time": 1795452300,
-          "value": 3621.68
+          "value": 3621.12
         },
         {
           "time": 1795453200,
-          "value": 3622.11
+          "value": 3621.56
         },
         {
           "time": 1795454100,
-          "value": 3622.5
+          "value": 3621.96
         },
         {
           "time": 1795455000,
-          "value": 3622.8
+          "value": 3622.26
         },
         {
           "time": 1795455900,
-          "value": 3623.11
+          "value": 3622.57
         },
         {
           "time": 1795456800,
-          "value": 3623.45
+          "value": 3622.92
         },
         {
           "time": 1795457700,
-          "value": 3623.72
+          "value": 3623.2
         },
         {
           "time": 1795458600,
-          "value": 3623.98
+          "value": 3623.46
         },
         {
           "time": 1795459500,
-          "value": 3624.23
+          "value": 3623.72
         },
         {
           "time": 1795460400,
-          "value": 3624.54
+          "value": 3624.03
         },
         {
           "time": 1795461300,
-          "value": 3624.8
+          "value": 3624.3
         },
         {
           "time": 1795462200,
-          "value": 3624.96
+          "value": 3624.46
         },
         {
           "time": 1795463100,
-          "value": 3625.14
+          "value": 3624.65
         },
         {
           "time": 1795464000,
-          "value": 3625.29
+          "value": 3624.8
         },
         {
           "time": 1795464900,
-          "value": 3625.49
+          "value": 3625.0
         },
         {
           "time": 1795465800,
-          "value": 3625.63
+          "value": 3625.15
         },
         {
           "time": 1795466700,
-          "value": 3625.72
+          "value": 3625.25
         },
         {
           "time": 1795467600,
-          "value": 3625.83
+          "value": 3625.36
         },
         {
           "time": 1795468500,
-          "value": 3625.93
+          "value": 3625.47
         },
         {
           "time": 1795469400,
-          "value": 3626.01
+          "value": 3625.55
         },
         {
           "time": 1795470300,
-          "value": 3626.11
+          "value": 3625.65
         },
         {
           "time": 1795474800,
-          "value": 3626.15
+          "value": 3625.7
         },
         {
           "time": 1795475700,
-          "value": 3626.23
+          "value": 3625.79
         },
         {
           "time": 1795476600,
-          "value": 3626.25
+          "value": 3625.81
         },
         {
           "time": 1795477500,
-          "value": 3626.3
+          "value": 3625.87
         },
         {
           "time": 1795478400,
-          "value": 3626.4
+          "value": 3625.96
         },
         {
           "time": 1795479300,
-          "value": 3626.59
+          "value": 3626.16
         },
         {
           "time": 1795480200,
-          "value": 3626.89
+          "value": 3626.47
         },
         {
           "time": 1795481100,
-          "value": 3627.31
+          "value": 3626.89
         },
         {
           "time": 1795482000,
-          "value": 3627.65
+          "value": 3627.23
         },
         {
           "time": 1795482900,
-          "value": 3628.04
+          "value": 3627.62
         },
         {
           "time": 1795483800,
-          "value": 3628.51
+          "value": 3628.11
+        },
+        {
+          "time": 1795484700,
+          "value": 3628.6
         }
       ],
-      "state_age_sec": 16,
+      "state_age_sec": 18,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-24T01:44:43.008845+00:00",
-        "heartbeat_epoch": 1795484683.008845,
+        "heartbeat_utc": "2026-11-24T01:45:23.286018+00:00",
+        "heartbeat_epoch": 1795484723.2860186,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4678,23 +4708,16 @@
         "account_trade_allowed": true,
         "login": 473002209,
         "server": "Exness-MT5Trial16",
-        "equity": 62.93,
+        "equity": 64.75,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04",
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open",
         "last_order": "2026-11-24T01:00:18.259242+00:00 BUY 0.01L XAUUSDm @ 3663.008 SL 3648.15 TP 3692.48 ticket 2290065392 risk $14.78 (29.46%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 01:23:25 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:24:51 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:28:29 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:29:56 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:30:01 UTC] [EXNESS] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04",
         "[2026-11-24 01:30:06 UTC] [COMPETITION] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:30:16 UTC] [PHASE1] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:31:22 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
@@ -4707,18 +4730,25 @@
         "[2026-11-24 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
+        "[2026-11-24 01:45:11 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ]
     },
     "fundednext": {
-      "timestamp": "01:44:57 UTC",
-      "generated_epoch": 1795484697.4857051,
+      "timestamp": "01:45:37 UTC",
+      "generated_epoch": 1795484737.590989,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -4514s / 180s elapsed",
+          "detail": "LOCKED: -4474s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -4729,17 +4759,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+36.93 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+40.08 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+36.63 of -$200.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+39.93 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $4,988.69 (Safety Cushion: $488.69)"
+          "detail": "Equity: $4,991.99 (Safety Cushion: $491.99)"
         },
         "anti_martingale": {
           "passed": true,
@@ -4762,50 +4792,50 @@
         "server": "AtlasFunded-Server",
         "ping": "32 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93"
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open"
       },
       "account": {
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 4951.91,
-        "equity": 4988.69,
+        "equity": 4991.99,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 161.31,
+        "distance_to_target": 158.01,
         "progress_pct": 0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 488.69,
+        "safety_buffer": 491.99,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "1.02% per trade"
+        "daily_drawdown_risk": "1.01% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3676.72,
-        "ask": 3677.19,
-        "spread": 0.47,
-        "atr14": 11.36,
+        "bid": 3677.82,
+        "ask": 3678.23,
+        "spread": 0.41,
+        "atr14": 11.26,
         "vah": 3665.26,
         "val": 3592.4,
         "poc": 3628.83,
-        "dist_to_vah": -11.46,
-        "dist_to_val": 84.32,
-        "ema50": 3643.53,
-        "ema200": 3628.42,
+        "dist_to_vah": -12.56,
+        "dist_to_val": 85.42,
+        "ema50": 3644.86,
+        "ema200": 3628.5,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 01:44",
+        "status_label": "UTC 01:45",
         "current_hour_utc": 1,
-        "current_min_utc": 44
+        "current_min_utc": 45
       },
       "execution": {
         "armed_lot_size": "0.03 Lots",
-        "armed_risk_dollars": "$51.12 (1.02% Equity)",
+        "armed_risk_dollars": "$50.67 (1.01% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -4814,15 +4844,15 @@
             "type": "BUY",
             "volume": 0.03,
             "open_price": 3664.46,
-            "current_price": 3676.77,
+            "current_price": 3677.82,
             "sl": 3650.1,
             "tp": 3693.18,
-            "profit": 36.93,
+            "profit": 40.08,
             "time": 1795489212
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 36.93,
+        "floating_pnl": 40.08,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -4859,7 +4889,8 @@
           "[2026-11-20 03:15:08 UTC] [PHASE1] ORDER EXECUTED 2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
           "[2026-11-20 06:06:44 UTC] [PHASE1] CLOSED #20694591 SELL 0.02L 3525.14 -> 3557.4 P/L $-64.62 held 171m",
           "[2026-11-20 15:30:16 UTC] [PHASE1] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
-          "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)"
+          "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
+          "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
         ]
       },
       "closed_trades": [
@@ -5061,16 +5092,10 @@
         "[2026-11-20 03:15:08 UTC] [PHASE1] ORDER EXECUTED 2026-11-20T03:15:08.799616+00:00 SELL 0.02L XAUUSD @ 3525.14 SL 3557.4 TP 3460.16 ticket 20694591 risk $64.83 (1.29%)",
         "[2026-11-20 06:06:44 UTC] [PHASE1] CLOSED #20694591 SELL 0.02L 3525.14 -> 3557.4 P/L $-64.62 held 171m",
         "[2026-11-20 15:30:16 UTC] [PHASE1] SIGNAL SELL BLOCKED: rules: Daily Circuit Breaker Triggered (2/2 trades used)",
-        "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)"
+        "[2026-11-24 01:00:13 UTC] [PHASE1] ORDER EXECUTED 2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ],
       "candles": [
-        {
-          "time": 1795409100,
-          "open": 3610.82,
-          "high": 3613.21,
-          "low": 3607.79,
-          "close": 3607.91
-        },
         {
           "time": 1795410000,
           "open": 3607.59,
@@ -5622,14 +5647,17 @@
           "open": 3667.4,
           "high": 3677.45,
           "low": 3662.55,
-          "close": 3676.72
+          "close": 3676.14
+        },
+        {
+          "time": 1795484700,
+          "open": 3676.14,
+          "high": 3678.1,
+          "low": 3676.14,
+          "close": 3677.82
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795409100,
-          "value": 3576.69
-        },
         {
           "time": 1795410000,
           "value": 3577.98
@@ -5700,7 +5728,7 @@
         },
         {
           "time": 1795425300,
-          "value": 3598.03
+          "value": 3598.02
         },
         {
           "time": 1795426200,
@@ -5824,7 +5852,7 @@
         },
         {
           "time": 1795453200,
-          "value": 3634.57
+          "value": 3634.56
         },
         {
           "time": 1795454100,
@@ -5840,7 +5868,7 @@
         },
         {
           "time": 1795456800,
-          "value": 3637.73
+          "value": 3637.72
         },
         {
           "time": 1795457700,
@@ -5944,336 +5972,340 @@
         },
         {
           "time": 1795483800,
-          "value": 3643.53
+          "value": 3643.51
+        },
+        {
+          "time": 1795484700,
+          "value": 3644.86
         }
       ],
       "ema200_series": [
         {
-          "time": 1795409100,
-          "value": 3613.23
-        },
-        {
           "time": 1795410000,
-          "value": 3613.19
+          "value": 3612.3
         },
         {
           "time": 1795410900,
-          "value": 3613.25
+          "value": 3612.36
         },
         {
           "time": 1795411800,
-          "value": 3613.35
+          "value": 3612.48
         },
         {
           "time": 1795412700,
-          "value": 3613.39
+          "value": 3612.52
         },
         {
           "time": 1795413600,
-          "value": 3613.42
+          "value": 3612.56
         },
         {
           "time": 1795414500,
-          "value": 3613.47
+          "value": 3612.62
         },
         {
           "time": 1795415400,
-          "value": 3613.58
+          "value": 3612.73
         },
         {
           "time": 1795416300,
-          "value": 3613.65
+          "value": 3612.82
         },
         {
           "time": 1795417200,
-          "value": 3613.85
+          "value": 3613.02
         },
         {
           "time": 1795418100,
-          "value": 3614.03
+          "value": 3613.22
         },
         {
           "time": 1795419000,
-          "value": 3614.15
+          "value": 3613.34
         },
         {
           "time": 1795419900,
-          "value": 3614.19
+          "value": 3613.39
         },
         {
           "time": 1795420800,
-          "value": 3614.09
+          "value": 3613.3
         },
         {
           "time": 1795421700,
-          "value": 3614.03
+          "value": 3613.24
         },
         {
           "time": 1795422600,
-          "value": 3614.0
+          "value": 3613.22
         },
         {
           "time": 1795423500,
-          "value": 3614.0
+          "value": 3613.23
         },
         {
           "time": 1795424400,
-          "value": 3614.04
+          "value": 3613.28
         },
         {
           "time": 1795425300,
-          "value": 3614.1
+          "value": 3613.34
         },
         {
           "time": 1795426200,
-          "value": 3614.13
+          "value": 3613.38
         },
         {
           "time": 1795427100,
-          "value": 3614.13
+          "value": 3613.39
         },
         {
           "time": 1795428000,
-          "value": 3614.2
+          "value": 3613.47
         },
         {
           "time": 1795428900,
-          "value": 3614.24
+          "value": 3613.51
         },
         {
           "time": 1795429800,
-          "value": 3614.3
+          "value": 3613.58
         },
         {
           "time": 1795430700,
-          "value": 3614.4
+          "value": 3613.68
         },
         {
           "time": 1795431600,
-          "value": 3614.46
+          "value": 3613.75
         },
         {
           "time": 1795432500,
-          "value": 3614.51
+          "value": 3613.82
         },
         {
           "time": 1795433400,
-          "value": 3614.59
+          "value": 3613.9
         },
         {
           "time": 1795434300,
-          "value": 3614.63
+          "value": 3613.95
         },
         {
           "time": 1795435200,
-          "value": 3614.64
+          "value": 3613.96
         },
         {
           "time": 1795436100,
-          "value": 3614.64
+          "value": 3613.97
         },
         {
           "time": 1795437000,
-          "value": 3614.67
+          "value": 3614.01
         },
         {
           "time": 1795437900,
-          "value": 3614.7
+          "value": 3614.04
         },
         {
           "time": 1795438800,
-          "value": 3614.76
+          "value": 3614.11
         },
         {
           "time": 1795439700,
-          "value": 3614.88
+          "value": 3614.24
         },
         {
           "time": 1795440600,
-          "value": 3614.93
+          "value": 3614.29
         },
         {
           "time": 1795441500,
-          "value": 3615.31
+          "value": 3614.68
         },
         {
           "time": 1795442400,
-          "value": 3615.83
+          "value": 3615.21
         },
         {
           "time": 1795443300,
-          "value": 3616.55
+          "value": 3615.93
         },
         {
           "time": 1795444200,
-          "value": 3617.04
+          "value": 3616.43
         },
         {
           "time": 1795445100,
-          "value": 3617.55
+          "value": 3616.95
         },
         {
           "time": 1795446000,
-          "value": 3617.98
+          "value": 3617.38
         },
         {
           "time": 1795446900,
-          "value": 3618.58
+          "value": 3617.98
         },
         {
           "time": 1795447800,
-          "value": 3619.1
+          "value": 3618.51
         },
         {
           "time": 1795448700,
-          "value": 3619.59
+          "value": 3619.01
         },
         {
           "time": 1795449600,
-          "value": 3620.09
+          "value": 3619.52
         },
         {
           "time": 1795450500,
-          "value": 3620.64
+          "value": 3620.07
         },
         {
           "time": 1795451400,
-          "value": 3621.04
+          "value": 3620.48
         },
         {
           "time": 1795452300,
-          "value": 3621.56
+          "value": 3621.0
         },
         {
           "time": 1795453200,
-          "value": 3622.0
+          "value": 3621.45
         },
         {
           "time": 1795454100,
-          "value": 3622.39
+          "value": 3621.85
         },
         {
           "time": 1795455000,
-          "value": 3622.7
+          "value": 3622.15
         },
         {
           "time": 1795455900,
-          "value": 3622.99
+          "value": 3622.46
         },
         {
           "time": 1795456800,
-          "value": 3623.33
+          "value": 3622.8
         },
         {
           "time": 1795457700,
-          "value": 3623.61
+          "value": 3623.09
         },
         {
           "time": 1795458600,
-          "value": 3623.86
+          "value": 3623.34
         },
         {
           "time": 1795459500,
-          "value": 3624.11
+          "value": 3623.6
         },
         {
           "time": 1795460400,
-          "value": 3624.42
+          "value": 3623.91
         },
         {
           "time": 1795461300,
-          "value": 3624.69
+          "value": 3624.18
         },
         {
           "time": 1795462200,
-          "value": 3624.84
+          "value": 3624.34
         },
         {
           "time": 1795463100,
-          "value": 3625.02
+          "value": 3624.53
         },
         {
           "time": 1795464000,
-          "value": 3625.18
+          "value": 3624.69
         },
         {
           "time": 1795464900,
-          "value": 3625.37
+          "value": 3624.89
         },
         {
           "time": 1795465800,
-          "value": 3625.52
+          "value": 3625.03
         },
         {
           "time": 1795466700,
-          "value": 3625.61
+          "value": 3625.14
         },
         {
           "time": 1795467600,
-          "value": 3625.72
+          "value": 3625.25
         },
         {
           "time": 1795468500,
-          "value": 3625.83
+          "value": 3625.36
         },
         {
           "time": 1795469400,
-          "value": 3625.9
+          "value": 3625.44
         },
         {
           "time": 1795470300,
-          "value": 3625.99
+          "value": 3625.53
         },
         {
           "time": 1795474800,
-          "value": 3626.03
+          "value": 3625.58
         },
         {
           "time": 1795475700,
-          "value": 3626.11
+          "value": 3625.66
         },
         {
           "time": 1795476600,
-          "value": 3626.13
+          "value": 3625.68
         },
         {
           "time": 1795477500,
-          "value": 3626.17
+          "value": 3625.73
         },
         {
           "time": 1795478400,
-          "value": 3626.27
+          "value": 3625.83
         },
         {
           "time": 1795479300,
-          "value": 3626.46
+          "value": 3626.03
         },
         {
           "time": 1795480200,
-          "value": 3626.76
+          "value": 3626.34
         },
         {
           "time": 1795481100,
-          "value": 3627.19
+          "value": 3626.77
         },
         {
           "time": 1795482000,
-          "value": 3627.53
+          "value": 3627.12
         },
         {
           "time": 1795482900,
-          "value": 3627.93
+          "value": 3627.52
         },
         {
           "time": 1795483800,
-          "value": 3628.42
+          "value": 3628.0
+        },
+        {
+          "time": 1795484700,
+          "value": 3628.5
         }
       ],
-      "state_age_sec": 2,
+      "state_age_sec": 4,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-24T01:44:57.501469+00:00",
-        "heartbeat_epoch": 1795484697.5014696,
+        "heartbeat_utc": "2026-11-24T01:45:37.606721+00:00",
+        "heartbeat_epoch": 1795484737.6067219,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -6281,23 +6313,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 4988.84,
+        "equity": 4991.99,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
+        "last_signal_eval": "bar 11-24 01:30: BUY | BLOCKED: 1 position(s) already open",
         "last_order": "2026-11-24T01:00:13.506758+00:00 BUY 0.03L XAUUSD @ 3664.46 SL 3650.1 TP 3693.18 ticket 20843835 risk $43.07 (0.87%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-24 01:23:25 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:24:51 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
-        "[2026-11-24 01:26:17 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:28:29 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-24 01:29:56 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
-        "[2026-11-24 01:30:01 UTC] [EXNESS] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3666.82 VAH=3665.41 VAL=3592.42 hh20=3670.08 ll20=3619.62 ema50=3642.21 ema200=3628.04",
         "[2026-11-24 01:30:06 UTC] [COMPETITION] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:30:16 UTC] [PHASE1] EVAL bar 11-24 01:15: no signal: no 20-bar high break, upper wick too big | close=3667.52 VAH=3665.26 VAL=3592.40 hh20=3669.82 ll20=3619.67 ema50=3642.18 ema200=3627.93",
         "[2026-11-24 01:31:22 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
@@ -6310,7 +6335,14 @@
         "[2026-11-24 01:40:06 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-24 01:41:32 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-24 01:43:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:03 UTC] [EXNESS] SIGNAL BUY BLOCKED: 1 position(s) already open",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:08 UTC] [COMPETITION] ORDER EXECUTED 2026-11-24T01:45:08.113648+00:00 BUY 0.93L XAUUSD @ 3677.85 SL 3660.97 TP 3711.47 ticket 20845906 risk $1565.49 (1.51%)",
+        "[2026-11-24 01:45:11 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] EVAL bar 11-24 01:30: BUY",
+        "[2026-11-24 01:45:17 UTC] [PHASE1] SIGNAL BUY BLOCKED: 1 position(s) already open"
       ]
     }
   }
