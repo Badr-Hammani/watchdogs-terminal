@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-25 06:14:58 UTC",
+  "updated_at": "2026-11-25 06:15:39 UTC",
   "primary_url": "https://consolidated-herself-handled-debug.trycloudflare.com",
   "accounts": {
     "phase1": {
-      "timestamp": "06:14:41 UTC",
-      "generated_epoch": 1795587281.024934,
+      "timestamp": "06:15:21 UTC",
+      "generated_epoch": 1795587321.0747633,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -5435s / 180s elapsed",
+          "detail": "LOCKED: -5395s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -21,17 +21,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+14.28 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+26.72 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+14.08 of -$200.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+26.52 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $5,038.59 (Safety Cushion: $538.59)"
+          "detail": "Equity: $5,051.03 (Safety Cushion: $551.03)"
         },
         "anti_martingale": {
           "passed": true,
@@ -60,44 +60,44 @@
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 5024.31,
-        "equity": 5038.59,
+        "equity": 5051.03,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 111.41,
-        "progress_pct": 25.7,
+        "distance_to_target": 98.97,
+        "progress_pct": 34.0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 538.59,
+        "safety_buffer": 551.03,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "1.05% per trade"
+        "daily_drawdown_risk": "0.99% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3526.64,
-        "ask": 3527.11,
-        "spread": 0.47,
-        "atr14": 8.8,
+        "bid": 3523.52,
+        "ask": 3524.0,
+        "spread": 0.48,
+        "atr14": 8.3,
         "vah": 3651.77,
         "val": 3572.8,
         "poc": 3612.28,
-        "dist_to_vah": 125.13,
-        "dist_to_val": -46.16,
-        "ema50": 3557.73,
-        "ema200": 3590.96,
+        "dist_to_vah": 128.25,
+        "dist_to_val": -49.28,
+        "ema50": 3556.32,
+        "ema200": 3589.42,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 06:14",
+        "status_label": "UTC 06:15",
         "current_hour_utc": 6,
-        "current_min_utc": 14
+        "current_min_utc": 15
       },
       "execution": {
         "armed_lot_size": "0.04 Lots",
-        "armed_risk_dollars": "$52.82 (1.05% Equity)",
+        "armed_risk_dollars": "$49.77 (0.99% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -106,15 +106,15 @@
             "type": "SELL",
             "volume": 0.04,
             "open_price": 3530.68,
-            "current_price": 3527.11,
+            "current_price": 3524.0,
             "sl": 3543.28,
             "tp": 3505.45,
-            "profit": 14.28,
+            "profit": 26.72,
             "time": 1795592717
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 14.28,
+        "floating_pnl": 26.72,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -401,13 +401,6 @@
       ],
       "candles": [
         {
-          "time": 1795511700,
-          "open": 3621.55,
-          "high": 3622.86,
-          "low": 3615.62,
-          "close": 3617.18
-        },
-        {
           "time": 1795512600,
           "open": 3617.19,
           "high": 3625.26,
@@ -958,14 +951,17 @@
           "open": 3523.17,
           "high": 3530.06,
           "low": 3515.73,
-          "close": 3526.64
+          "close": 3524.84
+        },
+        {
+          "time": 1795587300,
+          "open": 3524.65,
+          "high": 3524.79,
+          "low": 3522.87,
+          "close": 3523.52
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795511700,
-          "value": 3631.55
-        },
         {
           "time": 1795512600,
           "value": 3631.25
@@ -996,11 +992,11 @@
         },
         {
           "time": 1795518900,
-          "value": 3629.71
+          "value": 3629.7
         },
         {
           "time": 1795519800,
-          "value": 3629.88
+          "value": 3629.87
         },
         {
           "time": 1795520700,
@@ -1008,15 +1004,15 @@
         },
         {
           "time": 1795521600,
-          "value": 3629.8
+          "value": 3629.79
         },
         {
           "time": 1795522500,
-          "value": 3629.65
+          "value": 3629.64
         },
         {
           "time": 1795523400,
-          "value": 3630.2
+          "value": 3630.19
         },
         {
           "time": 1795524300,
@@ -1052,7 +1048,7 @@
         },
         {
           "time": 1795531500,
-          "value": 3628.24
+          "value": 3628.23
         },
         {
           "time": 1795532400,
@@ -1076,7 +1072,7 @@
         },
         {
           "time": 1795536900,
-          "value": 3617.74
+          "value": 3617.73
         },
         {
           "time": 1795537800,
@@ -1140,7 +1136,7 @@
         },
         {
           "time": 1795551300,
-          "value": 3590.69
+          "value": 3590.68
         },
         {
           "time": 1795552200,
@@ -1184,7 +1180,7 @@
         },
         {
           "time": 1795564800,
-          "value": 3577.86
+          "value": 3577.85
         },
         {
           "time": 1795565700,
@@ -1280,336 +1276,340 @@
         },
         {
           "time": 1795586400,
-          "value": 3557.73
+          "value": 3557.66
+        },
+        {
+          "time": 1795587300,
+          "value": 3556.32
         }
       ],
       "ema200_series": [
         {
-          "time": 1795511700,
-          "value": 3617.58
-        },
-        {
           "time": 1795512600,
-          "value": 3617.64
+          "value": 3615.77
         },
         {
           "time": 1795513500,
-          "value": 3617.69
+          "value": 3615.83
         },
         {
           "time": 1795514400,
-          "value": 3617.74
+          "value": 3615.91
         },
         {
           "time": 1795515300,
-          "value": 3617.79
+          "value": 3615.97
         },
         {
           "time": 1795516200,
-          "value": 3617.85
+          "value": 3616.05
         },
         {
           "time": 1795517100,
-          "value": 3617.96
+          "value": 3616.18
         },
         {
           "time": 1795518000,
-          "value": 3618.02
+          "value": 3616.26
         },
         {
           "time": 1795518900,
-          "value": 3618.13
+          "value": 3616.38
         },
         {
           "time": 1795519800,
-          "value": 3618.29
+          "value": 3616.56
         },
         {
           "time": 1795520700,
-          "value": 3618.46
+          "value": 3616.75
         },
         {
           "time": 1795521600,
-          "value": 3618.5
+          "value": 3616.8
         },
         {
           "time": 1795522500,
-          "value": 3618.57
+          "value": 3616.89
         },
         {
           "time": 1795523400,
-          "value": 3618.82
+          "value": 3617.16
         },
         {
           "time": 1795524300,
-          "value": 3619.05
+          "value": 3617.41
         },
         {
           "time": 1795525200,
-          "value": 3619.17
+          "value": 3617.54
         },
         {
           "time": 1795526100,
-          "value": 3619.25
+          "value": 3617.64
         },
         {
           "time": 1795527000,
-          "value": 3619.22
+          "value": 3617.63
         },
         {
           "time": 1795527900,
-          "value": 3619.18
+          "value": 3617.6
         },
         {
           "time": 1795528800,
-          "value": 3619.15
+          "value": 3617.58
         },
         {
           "time": 1795529700,
-          "value": 3619.14
+          "value": 3617.6
         },
         {
           "time": 1795530600,
-          "value": 3619.23
+          "value": 3617.7
         },
         {
           "time": 1795531500,
-          "value": 3619.27
+          "value": 3617.75
         },
         {
           "time": 1795532400,
-          "value": 3619.1
+          "value": 3617.6
         },
         {
           "time": 1795533300,
-          "value": 3618.83
+          "value": 3617.35
         },
         {
           "time": 1795534200,
-          "value": 3618.47
+          "value": 3617.0
         },
         {
           "time": 1795535100,
-          "value": 3617.98
+          "value": 3616.52
         },
         {
           "time": 1795536000,
-          "value": 3617.47
+          "value": 3616.03
         },
         {
           "time": 1795536900,
-          "value": 3616.96
+          "value": 3615.54
         },
         {
           "time": 1795537800,
-          "value": 3616.54
+          "value": 3615.13
         },
         {
           "time": 1795538700,
-          "value": 3616.02
+          "value": 3614.62
         },
         {
           "time": 1795539600,
-          "value": 3615.57
+          "value": 3614.18
         },
         {
           "time": 1795540500,
-          "value": 3615.06
+          "value": 3613.69
         },
         {
           "time": 1795541400,
-          "value": 3614.59
+          "value": 3613.23
         },
         {
           "time": 1795542300,
-          "value": 3614.1
+          "value": 3612.76
         },
         {
           "time": 1795543200,
-          "value": 3613.58
+          "value": 3612.25
         },
         {
           "time": 1795544100,
-          "value": 3613.08
+          "value": 3611.76
         },
         {
           "time": 1795545000,
-          "value": 3612.51
+          "value": 3611.21
         },
         {
           "time": 1795545900,
-          "value": 3611.94
+          "value": 3610.65
         },
         {
           "time": 1795546800,
-          "value": 3611.42
+          "value": 3610.14
         },
         {
           "time": 1795547700,
-          "value": 3610.88
+          "value": 3609.61
         },
         {
           "time": 1795548600,
-          "value": 3610.36
+          "value": 3609.1
         },
         {
           "time": 1795549500,
-          "value": 3609.82
+          "value": 3608.58
         },
         {
           "time": 1795550400,
-          "value": 3609.3
+          "value": 3608.07
         },
         {
           "time": 1795551300,
-          "value": 3608.72
+          "value": 3607.51
         },
         {
           "time": 1795552200,
-          "value": 3608.12
+          "value": 3606.92
         },
         {
           "time": 1795553100,
-          "value": 3607.57
+          "value": 3606.38
         },
         {
           "time": 1795554000,
-          "value": 3607.01
+          "value": 3605.82
         },
         {
           "time": 1795554900,
-          "value": 3606.46
+          "value": 3605.29
         },
         {
           "time": 1795555800,
-          "value": 3605.93
+          "value": 3604.77
         },
         {
           "time": 1795556700,
-          "value": 3605.43
+          "value": 3604.29
         },
         {
           "time": 1795561200,
-          "value": 3605.01
+          "value": 3603.87
         },
         {
           "time": 1795562100,
-          "value": 3604.62
+          "value": 3603.5
         },
         {
           "time": 1795563000,
-          "value": 3604.12
+          "value": 3603.01
         },
         {
           "time": 1795563900,
-          "value": 3603.6
-        },
-        {
-          "time": 1795564800,
-          "value": 3603.08
-        },
-        {
-          "time": 1795565700,
           "value": 3602.49
         },
         {
+          "time": 1795564800,
+          "value": 3601.99
+        },
+        {
+          "time": 1795565700,
+          "value": 3601.41
+        },
+        {
           "time": 1795566600,
-          "value": 3601.9
+          "value": 3600.83
         },
         {
           "time": 1795567500,
-          "value": 3601.37
+          "value": 3600.31
         },
         {
           "time": 1795568400,
-          "value": 3600.76
+          "value": 3599.71
         },
         {
           "time": 1795569300,
-          "value": 3600.17
+          "value": 3599.13
         },
         {
           "time": 1795570200,
-          "value": 3599.69
+          "value": 3598.66
         },
         {
           "time": 1795571100,
-          "value": 3599.16
+          "value": 3598.14
         },
         {
           "time": 1795572000,
-          "value": 3598.77
+          "value": 3597.76
         },
         {
           "time": 1795572900,
-          "value": 3598.44
+          "value": 3597.45
         },
         {
           "time": 1795573800,
-          "value": 3598.03
+          "value": 3597.04
         },
         {
           "time": 1795574700,
-          "value": 3597.56
+          "value": 3596.58
         },
         {
           "time": 1795575600,
-          "value": 3597.15
+          "value": 3596.19
         },
         {
           "time": 1795576500,
-          "value": 3596.69
+          "value": 3595.73
         },
         {
           "time": 1795577400,
-          "value": 3596.22
-        },
-        {
-          "time": 1795578300,
-          "value": 3595.74
-        },
-        {
-          "time": 1795579200,
           "value": 3595.28
         },
         {
+          "time": 1795578300,
+          "value": 3594.8
+        },
+        {
+          "time": 1795579200,
+          "value": 3594.35
+        },
+        {
           "time": 1795580100,
-          "value": 3594.84
-        },
-        {
-          "time": 1795581000,
-          "value": 3594.37
-        },
-        {
-          "time": 1795581900,
           "value": 3593.92
         },
         {
+          "time": 1795581000,
+          "value": 3593.46
+        },
+        {
+          "time": 1795581900,
+          "value": 3593.01
+        },
+        {
           "time": 1795582800,
-          "value": 3593.45
+          "value": 3592.55
         },
         {
           "time": 1795583700,
-          "value": 3592.91
+          "value": 3592.03
         },
         {
           "time": 1795584600,
-          "value": 3592.3
+          "value": 3591.42
         },
         {
           "time": 1795585500,
-          "value": 3591.61
+          "value": 3590.74
         },
         {
           "time": 1795586400,
-          "value": 3590.96
+          "value": 3590.09
+        },
+        {
+          "time": 1795587300,
+          "value": 3589.42
         }
       ],
-      "state_age_sec": 17,
+      "state_age_sec": 18,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-25T06:14:41.040676+00:00",
-        "heartbeat_epoch": 1795587281.0406768,
+        "heartbeat_utc": "2026-11-25T06:15:21.147954+00:00",
+        "heartbeat_epoch": 1795587321.147955,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1617,19 +1617,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 5038.59,
+        "equity": 5051.03,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open",
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
         "last_order": "2026-11-25T05:45:18.168043+00:00 SELL 0.04L XAUUSD @ 3530.68 SL 3543.28 TP 3505.45 ticket 20915545 risk $50.43 (1.00%)",
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
+        "stage": "evaluated",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-25 05:56:54 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 05:59:07 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-25 06:00:03 UTC] [COMPETITION] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:03 UTC] [COMPETITION] SIGNAL SELL BLOCKED: 1 position(s) already open",
         "[2026-11-25 06:00:14 UTC] [EXNESS] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:14 UTC] [EXNESS] SIGNAL SELL BLOCKED: 1 position(s) already open",
@@ -1646,18 +1643,21 @@
         "[2026-11-25 06:10:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-25 06:15:05 UTC] [COMPETITION] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
+        "[2026-11-25 06:15:16 UTC] [EXNESS] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23",
+        "[2026-11-25 06:15:21 UTC] [PHASE1] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09"
       ]
     },
     "competition": {
-      "timestamp": "06:14:45 UTC",
-      "generated_epoch": 1795587285.1550934,
+      "timestamp": "06:15:25 UTC",
+      "generated_epoch": 1795587325.2910755,
       "account_type": "competition",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -5414s / 180s elapsed",
+          "detail": "LOCKED: -5374s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -1668,17 +1668,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+527.04 (Limit: -$2000.00)"
+          "detail": "Floating PnL: $+838.14 (Limit: -$2000.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+520.94 of -$4000.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+830.82 of -$4000.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($90,000.00)",
-          "detail": "Equity: $102,844.60 (Safety Cushion: $12,844.60)"
+          "detail": "Equity: $103,154.48 (Safety Cushion: $13,154.48)"
         },
         "anti_martingale": {
           "passed": true,
@@ -1701,21 +1701,21 @@
         "server": "AtlasFunded-Server",
         "ping": "30 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open"
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09"
       },
       "account": {
         "login": 212176749,
         "name": "Badr Hammani",
         "balance": 102317.56,
-        "equity": 102844.6,
+        "equity": 103154.48,
         "currency": "USD",
         "phase": "Nov Competition",
         "initial_balance": 100000.0,
         "target_amount": 125000.0,
-        "distance_to_target": 22155.4,
-        "progress_pct": 11.4,
+        "distance_to_target": 21845.52,
+        "progress_pct": 12.6,
         "max_loss_floor": 90000.0,
-        "safety_buffer": 12844.6,
+        "safety_buffer": 13154.48,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
@@ -1723,28 +1723,28 @@
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3526.19,
-        "ask": 3526.66,
-        "spread": 0.47,
-        "atr14": 8.8,
+        "bid": 3523.62,
+        "ask": 3524.11,
+        "spread": 0.49,
+        "atr14": 8.3,
         "vah": 3651.77,
         "val": 3572.8,
         "poc": 3612.28,
-        "dist_to_vah": 125.58,
-        "dist_to_val": -46.61,
-        "ema50": 3557.71,
-        "ema200": 3590.96,
+        "dist_to_vah": 128.15,
+        "dist_to_val": -49.18,
+        "ema50": 3556.32,
+        "ema200": 3589.43,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 06:14",
+        "status_label": "UTC 06:15",
         "current_hour_utc": 6,
-        "current_min_utc": 14
+        "current_min_utc": 15
       },
       "execution": {
-        "armed_lot_size": "1.17 Lots",
-        "armed_risk_dollars": "$1,544.90 (1.50% Equity)",
+        "armed_lot_size": "1.24 Lots",
+        "armed_risk_dollars": "$1,543.00 (1.50% Equity)",
         "armed_target_profit": "1:3.0 R:R",
         "open_positions": [
           {
@@ -1753,15 +1753,15 @@
             "type": "SELL",
             "volume": 1.22,
             "open_price": 3530.98,
-            "current_price": 3526.66,
+            "current_price": 3524.11,
             "sl": 3543.44,
             "tp": 3505.79,
-            "profit": 527.04,
+            "profit": 838.14,
             "time": 1795592700
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 527.04,
+        "floating_pnl": 838.14,
         "live_logs": [
           "[2026-11-12 00:20 UTC] [COMPETITION] CLOSED #20256367 SELL 2.46L 3977.79 -> 3984.58 P/L $-1682.64 held 20m (backfilled from broker history)",
           "[2026-11-12 05:52 UTC] [COMPETITION] CLOSED #20269236 SELL 1.58L 3971.77 -> 3981.29 P/L $-1512.06 held 22m (backfilled from broker history)",
@@ -2038,13 +2038,6 @@
       ],
       "candles": [
         {
-          "time": 1795511700,
-          "open": 3621.55,
-          "high": 3622.86,
-          "low": 3615.62,
-          "close": 3617.18
-        },
-        {
           "time": 1795512600,
           "open": 3617.19,
           "high": 3625.26,
@@ -2595,14 +2588,17 @@
           "open": 3523.17,
           "high": 3530.06,
           "low": 3515.73,
-          "close": 3526.19
+          "close": 3524.84
+        },
+        {
+          "time": 1795587300,
+          "open": 3524.65,
+          "high": 3524.79,
+          "low": 3522.87,
+          "close": 3523.64
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795511700,
-          "value": 3631.55
-        },
         {
           "time": 1795512600,
           "value": 3631.25
@@ -2633,11 +2629,11 @@
         },
         {
           "time": 1795518900,
-          "value": 3629.71
+          "value": 3629.7
         },
         {
           "time": 1795519800,
-          "value": 3629.88
+          "value": 3629.87
         },
         {
           "time": 1795520700,
@@ -2645,15 +2641,15 @@
         },
         {
           "time": 1795521600,
-          "value": 3629.8
+          "value": 3629.79
         },
         {
           "time": 1795522500,
-          "value": 3629.65
+          "value": 3629.64
         },
         {
           "time": 1795523400,
-          "value": 3630.2
+          "value": 3630.19
         },
         {
           "time": 1795524300,
@@ -2689,7 +2685,7 @@
         },
         {
           "time": 1795531500,
-          "value": 3628.24
+          "value": 3628.23
         },
         {
           "time": 1795532400,
@@ -2713,7 +2709,7 @@
         },
         {
           "time": 1795536900,
-          "value": 3617.74
+          "value": 3617.73
         },
         {
           "time": 1795537800,
@@ -2777,7 +2773,7 @@
         },
         {
           "time": 1795551300,
-          "value": 3590.69
+          "value": 3590.68
         },
         {
           "time": 1795552200,
@@ -2821,7 +2817,7 @@
         },
         {
           "time": 1795564800,
-          "value": 3577.86
+          "value": 3577.85
         },
         {
           "time": 1795565700,
@@ -2917,336 +2913,340 @@
         },
         {
           "time": 1795586400,
-          "value": 3557.71
+          "value": 3557.66
+        },
+        {
+          "time": 1795587300,
+          "value": 3556.32
         }
       ],
       "ema200_series": [
         {
-          "time": 1795511700,
-          "value": 3617.58
-        },
-        {
           "time": 1795512600,
-          "value": 3617.64
+          "value": 3615.77
         },
         {
           "time": 1795513500,
-          "value": 3617.69
+          "value": 3615.83
         },
         {
           "time": 1795514400,
-          "value": 3617.74
+          "value": 3615.91
         },
         {
           "time": 1795515300,
-          "value": 3617.79
+          "value": 3615.97
         },
         {
           "time": 1795516200,
-          "value": 3617.85
+          "value": 3616.05
         },
         {
           "time": 1795517100,
-          "value": 3617.96
+          "value": 3616.18
         },
         {
           "time": 1795518000,
-          "value": 3618.02
+          "value": 3616.26
         },
         {
           "time": 1795518900,
-          "value": 3618.13
+          "value": 3616.38
         },
         {
           "time": 1795519800,
-          "value": 3618.29
+          "value": 3616.56
         },
         {
           "time": 1795520700,
-          "value": 3618.46
+          "value": 3616.75
         },
         {
           "time": 1795521600,
-          "value": 3618.5
+          "value": 3616.8
         },
         {
           "time": 1795522500,
-          "value": 3618.57
+          "value": 3616.89
         },
         {
           "time": 1795523400,
-          "value": 3618.82
+          "value": 3617.16
         },
         {
           "time": 1795524300,
-          "value": 3619.05
+          "value": 3617.41
         },
         {
           "time": 1795525200,
-          "value": 3619.17
+          "value": 3617.54
         },
         {
           "time": 1795526100,
-          "value": 3619.25
+          "value": 3617.64
         },
         {
           "time": 1795527000,
-          "value": 3619.22
+          "value": 3617.63
         },
         {
           "time": 1795527900,
-          "value": 3619.18
+          "value": 3617.6
         },
         {
           "time": 1795528800,
-          "value": 3619.15
+          "value": 3617.58
         },
         {
           "time": 1795529700,
-          "value": 3619.14
+          "value": 3617.6
         },
         {
           "time": 1795530600,
-          "value": 3619.23
+          "value": 3617.7
         },
         {
           "time": 1795531500,
-          "value": 3619.27
+          "value": 3617.75
         },
         {
           "time": 1795532400,
-          "value": 3619.1
+          "value": 3617.6
         },
         {
           "time": 1795533300,
-          "value": 3618.83
+          "value": 3617.35
         },
         {
           "time": 1795534200,
-          "value": 3618.47
+          "value": 3617.0
         },
         {
           "time": 1795535100,
-          "value": 3617.98
+          "value": 3616.52
         },
         {
           "time": 1795536000,
-          "value": 3617.47
+          "value": 3616.03
         },
         {
           "time": 1795536900,
-          "value": 3616.96
+          "value": 3615.54
         },
         {
           "time": 1795537800,
-          "value": 3616.54
+          "value": 3615.13
         },
         {
           "time": 1795538700,
-          "value": 3616.02
+          "value": 3614.62
         },
         {
           "time": 1795539600,
-          "value": 3615.57
+          "value": 3614.18
         },
         {
           "time": 1795540500,
-          "value": 3615.06
+          "value": 3613.69
         },
         {
           "time": 1795541400,
-          "value": 3614.59
+          "value": 3613.23
         },
         {
           "time": 1795542300,
-          "value": 3614.1
+          "value": 3612.76
         },
         {
           "time": 1795543200,
-          "value": 3613.58
+          "value": 3612.25
         },
         {
           "time": 1795544100,
-          "value": 3613.08
+          "value": 3611.76
         },
         {
           "time": 1795545000,
-          "value": 3612.51
+          "value": 3611.21
         },
         {
           "time": 1795545900,
-          "value": 3611.94
+          "value": 3610.65
         },
         {
           "time": 1795546800,
-          "value": 3611.42
+          "value": 3610.14
         },
         {
           "time": 1795547700,
-          "value": 3610.88
+          "value": 3609.61
         },
         {
           "time": 1795548600,
-          "value": 3610.36
+          "value": 3609.1
         },
         {
           "time": 1795549500,
-          "value": 3609.82
+          "value": 3608.58
         },
         {
           "time": 1795550400,
-          "value": 3609.3
+          "value": 3608.07
         },
         {
           "time": 1795551300,
-          "value": 3608.72
+          "value": 3607.51
         },
         {
           "time": 1795552200,
-          "value": 3608.12
+          "value": 3606.92
         },
         {
           "time": 1795553100,
-          "value": 3607.57
+          "value": 3606.38
         },
         {
           "time": 1795554000,
-          "value": 3607.01
+          "value": 3605.82
         },
         {
           "time": 1795554900,
-          "value": 3606.46
+          "value": 3605.29
         },
         {
           "time": 1795555800,
-          "value": 3605.93
+          "value": 3604.77
         },
         {
           "time": 1795556700,
-          "value": 3605.43
+          "value": 3604.29
         },
         {
           "time": 1795561200,
-          "value": 3605.01
+          "value": 3603.87
         },
         {
           "time": 1795562100,
-          "value": 3604.62
+          "value": 3603.5
         },
         {
           "time": 1795563000,
-          "value": 3604.12
+          "value": 3603.01
         },
         {
           "time": 1795563900,
-          "value": 3603.6
-        },
-        {
-          "time": 1795564800,
-          "value": 3603.08
-        },
-        {
-          "time": 1795565700,
           "value": 3602.49
         },
         {
+          "time": 1795564800,
+          "value": 3601.99
+        },
+        {
+          "time": 1795565700,
+          "value": 3601.41
+        },
+        {
           "time": 1795566600,
-          "value": 3601.9
+          "value": 3600.83
         },
         {
           "time": 1795567500,
-          "value": 3601.37
+          "value": 3600.31
         },
         {
           "time": 1795568400,
-          "value": 3600.76
+          "value": 3599.71
         },
         {
           "time": 1795569300,
-          "value": 3600.17
+          "value": 3599.13
         },
         {
           "time": 1795570200,
-          "value": 3599.69
+          "value": 3598.66
         },
         {
           "time": 1795571100,
-          "value": 3599.16
+          "value": 3598.14
         },
         {
           "time": 1795572000,
-          "value": 3598.77
+          "value": 3597.76
         },
         {
           "time": 1795572900,
-          "value": 3598.44
+          "value": 3597.45
         },
         {
           "time": 1795573800,
-          "value": 3598.03
+          "value": 3597.04
         },
         {
           "time": 1795574700,
-          "value": 3597.56
+          "value": 3596.58
         },
         {
           "time": 1795575600,
-          "value": 3597.15
+          "value": 3596.19
         },
         {
           "time": 1795576500,
-          "value": 3596.69
+          "value": 3595.73
         },
         {
           "time": 1795577400,
-          "value": 3596.22
-        },
-        {
-          "time": 1795578300,
-          "value": 3595.74
-        },
-        {
-          "time": 1795579200,
           "value": 3595.28
         },
         {
+          "time": 1795578300,
+          "value": 3594.8
+        },
+        {
+          "time": 1795579200,
+          "value": 3594.35
+        },
+        {
           "time": 1795580100,
-          "value": 3594.84
-        },
-        {
-          "time": 1795581000,
-          "value": 3594.37
-        },
-        {
-          "time": 1795581900,
           "value": 3593.92
         },
         {
+          "time": 1795581000,
+          "value": 3593.46
+        },
+        {
+          "time": 1795581900,
+          "value": 3593.01
+        },
+        {
           "time": 1795582800,
-          "value": 3593.45
+          "value": 3592.55
         },
         {
           "time": 1795583700,
-          "value": 3592.91
+          "value": 3592.03
         },
         {
           "time": 1795584600,
-          "value": 3592.3
+          "value": 3591.42
         },
         {
           "time": 1795585500,
-          "value": 3591.61
+          "value": 3590.74
         },
         {
           "time": 1795586400,
-          "value": 3590.96
+          "value": 3590.09
+        },
+        {
+          "time": 1795587300,
+          "value": 3589.43
         }
       ],
-      "state_age_sec": 12,
+      "state_age_sec": 14,
       "engine_health": {
         "account": "competition",
-        "heartbeat_utc": "2026-11-25T06:14:45.170834+00:00",
-        "heartbeat_epoch": 1795587285.170834,
+        "heartbeat_utc": "2026-11-25T06:15:25.322396+00:00",
+        "heartbeat_epoch": 1795587325.3223963,
         "terminal_path": "C:\\MT5\\competition\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -3254,19 +3254,16 @@
         "account_trade_allowed": true,
         "login": 212176749,
         "server": "AtlasFunded-Server",
-        "equity": 102851.92,
+        "equity": 103155.7,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open",
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
         "last_order": "2026-11-25T05:45:01.704588+00:00 SELL 1.22L XAUUSD @ 3530.98 SL 3543.44 TP 3505.79 ticket 20915526 risk $1530.93 (1.50%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-25 05:56:54 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 05:59:07 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-25 06:00:03 UTC] [COMPETITION] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:03 UTC] [COMPETITION] SIGNAL SELL BLOCKED: 1 position(s) already open",
         "[2026-11-25 06:00:14 UTC] [EXNESS] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:14 UTC] [EXNESS] SIGNAL SELL BLOCKED: 1 position(s) already open",
@@ -3283,18 +3280,21 @@
         "[2026-11-25 06:10:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-25 06:15:05 UTC] [COMPETITION] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
+        "[2026-11-25 06:15:16 UTC] [EXNESS] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23",
+        "[2026-11-25 06:15:21 UTC] [PHASE1] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09"
       ]
     },
     "exness": {
-      "timestamp": "06:14:56 UTC",
-      "generated_epoch": 1795587296.161635,
+      "timestamp": "06:15:36 UTC",
+      "generated_epoch": 1795587336.2509787,
       "account_type": "exness",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 1783s / 180s elapsed",
+          "detail": "COMPLIANT: 1823s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -3305,17 +3305,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+4.41 (Limit: -$2.00)"
+          "detail": "Floating PnL: $+4.83 (Limit: -$2.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 5 Trades)",
-          "detail": "1/5 Trades | 0/2 Losses | Daily PnL: $+49.47 | Since reset: $+18.51 of -$20.00"
+          "detail": "1/5 Trades | 0/2 Losses | Daily PnL: $+49.47 | Since reset: $+18.88 of -$20.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($0.00)",
-          "detail": "Equity: $89.18 (Safety Cushion: $89.18)"
+          "detail": "Equity: $89.55 (Safety Cushion: $89.55)"
         },
         "anti_martingale": {
           "passed": true,
@@ -3338,50 +3338,50 @@
         "server": "Exness-MT5Trial16",
         "ping": "135 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open"
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23"
       },
       "account": {
         "login": 473002209,
         "name": "aws trading bot capital",
         "balance": 84.77,
-        "equity": 89.18,
+        "equity": 89.55,
         "currency": "USD",
         "phase": "Exness Personal Capital",
         "initial_balance": 100.0,
         "target_amount": 500.0,
-        "distance_to_target": 410.82,
+        "distance_to_target": 410.45,
         "progress_pct": 0,
         "max_loss_floor": 0.0,
-        "safety_buffer": 89.18,
+        "safety_buffer": 89.55,
         "daily_trades_used": 1,
         "max_daily_trades": 5,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "15.24% per trade"
+        "daily_drawdown_risk": "14.45% per trade"
       },
       "market": {
         "symbol": "XAUUSDm",
-        "bid": 3525.95,
-        "ask": 3526.17,
+        "bid": 3525.58,
+        "ask": 3525.8,
         "spread": 0.22,
-        "atr14": 9.06,
+        "atr14": 8.62,
         "vah": 3652.06,
         "val": 3572.94,
         "poc": 3612.5,
-        "dist_to_vah": 126.12,
-        "dist_to_val": -46.99,
-        "ema50": 3557.78,
-        "ema200": 3591.09,
+        "dist_to_vah": 126.49,
+        "dist_to_val": -47.36,
+        "ema50": 3556.49,
+        "ema200": 3589.59,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 06:14",
+        "status_label": "UTC 06:15",
         "current_hour_utc": 6,
-        "current_min_utc": 14
+        "current_min_utc": 15
       },
       "execution": {
         "armed_lot_size": "0.01 Lots",
-        "armed_risk_dollars": "$13.59 (15.24% Equity)",
+        "armed_risk_dollars": "$12.94 (14.45% Equity)",
         "armed_target_profit": "1:2.5 R:R",
         "open_positions": [
           {
@@ -3390,15 +3390,15 @@
             "type": "SELL",
             "volume": 0.01,
             "open_price": 3530.58,
-            "current_price": 3526.17,
+            "current_price": 3525.75,
             "sl": 3543.6,
             "tp": 3504.53,
-            "profit": 4.41,
+            "profit": 4.83,
             "time": 1795585513
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 4.41,
+        "floating_pnl": 4.83,
         "live_logs": [
           "[2026-11-13 13:30:07 UTC] [EXNESS] SIGNAL SELL BLOCKED: rules: High-Impact News Blackout (Core PPI m/m - 0m after); High-Impact News Blackout (Core PPI m/m - 0m after)",
           "[2026-11-16 06:00:13 UTC] [EXNESS] ORDER EXECUTED 2026-11-16T06:00:12.871503+00:00 SELL 0.01L XAUUSDm @ 3834.8340000000003 SL 3848.91 TP 3806.53 ticket 2241796733 risk $14.13 (14.13%)",
@@ -3600,13 +3600,6 @@
         "[2026-11-25 06:00:14 UTC] [EXNESS] SIGNAL SELL BLOCKED: 1 position(s) already open"
       ],
       "candles": [
-        {
-          "time": 1795511700,
-          "open": 3621.59,
-          "high": 3623.0,
-          "low": 3615.58,
-          "close": 3617.24
-        },
         {
           "time": 1795512600,
           "open": 3617.18,
@@ -4158,14 +4151,17 @@
           "open": 3523.38,
           "high": 3530.38,
           "low": 3515.7,
-          "close": 3525.95
+          "close": 3525.08
+        },
+        {
+          "time": 1795587300,
+          "open": 3525.25,
+          "high": 3526.03,
+          "low": 3522.95,
+          "close": 3525.58
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795511700,
-          "value": 3631.8
-        },
         {
           "time": 1795512600,
           "value": 3631.49
@@ -4356,7 +4352,7 @@
         },
         {
           "time": 1795554900,
-          "value": 3585.01
+          "value": 3585.0
         },
         {
           "time": 1795555800,
@@ -4480,336 +4476,340 @@
         },
         {
           "time": 1795586400,
-          "value": 3557.78
+          "value": 3557.75
+        },
+        {
+          "time": 1795587300,
+          "value": 3556.49
         }
       ],
       "ema200_series": [
         {
-          "time": 1795511700,
-          "value": 3617.77
-        },
-        {
           "time": 1795512600,
-          "value": 3617.83
+          "value": 3615.96
         },
         {
           "time": 1795513500,
-          "value": 3617.87
+          "value": 3616.02
         },
         {
           "time": 1795514400,
-          "value": 3617.93
+          "value": 3616.1
         },
         {
           "time": 1795515300,
-          "value": 3617.97
+          "value": 3616.16
         },
         {
           "time": 1795516200,
-          "value": 3618.03
+          "value": 3616.23
         },
         {
           "time": 1795517100,
-          "value": 3618.14
+          "value": 3616.36
         },
         {
           "time": 1795518000,
-          "value": 3618.2
+          "value": 3616.45
         },
         {
           "time": 1795518900,
-          "value": 3618.31
+          "value": 3616.57
         },
         {
           "time": 1795519800,
-          "value": 3618.47
+          "value": 3616.74
         },
         {
           "time": 1795520700,
-          "value": 3618.64
+          "value": 3616.93
         },
         {
           "time": 1795521600,
-          "value": 3618.68
+          "value": 3616.99
         },
         {
           "time": 1795522500,
-          "value": 3618.75
+          "value": 3617.08
         },
         {
           "time": 1795523400,
-          "value": 3619.0
+          "value": 3617.35
         },
         {
           "time": 1795524300,
-          "value": 3619.23
+          "value": 3617.59
         },
         {
           "time": 1795525200,
-          "value": 3619.35
+          "value": 3617.73
         },
         {
           "time": 1795526100,
-          "value": 3619.43
+          "value": 3617.82
         },
         {
           "time": 1795527000,
-          "value": 3619.4
+          "value": 3617.81
         },
         {
           "time": 1795527900,
-          "value": 3619.36
+          "value": 3617.78
         },
         {
           "time": 1795528800,
-          "value": 3619.33
+          "value": 3617.77
         },
         {
           "time": 1795529700,
-          "value": 3619.33
+          "value": 3617.78
         },
         {
           "time": 1795530600,
-          "value": 3619.41
+          "value": 3617.88
         },
         {
           "time": 1795531500,
-          "value": 3619.44
+          "value": 3617.92
         },
         {
           "time": 1795532400,
-          "value": 3619.27
+          "value": 3617.77
         },
         {
           "time": 1795533300,
-          "value": 3618.99
+          "value": 3617.51
         },
         {
           "time": 1795534200,
-          "value": 3618.63
+          "value": 3617.16
         },
         {
           "time": 1795535100,
-          "value": 3618.13
+          "value": 3616.68
         },
         {
           "time": 1795536000,
-          "value": 3617.63
-        },
-        {
-          "time": 1795536900,
-          "value": 3617.13
-        },
-        {
-          "time": 1795537800,
-          "value": 3616.71
-        },
-        {
-          "time": 1795538700,
           "value": 3616.19
         },
         {
+          "time": 1795536900,
+          "value": 3615.7
+        },
+        {
+          "time": 1795537800,
+          "value": 3615.3
+        },
+        {
+          "time": 1795538700,
+          "value": 3614.8
+        },
+        {
           "time": 1795539600,
-          "value": 3615.74
+          "value": 3614.36
         },
         {
           "time": 1795540500,
-          "value": 3615.23
+          "value": 3613.86
         },
         {
           "time": 1795541400,
-          "value": 3614.75
+          "value": 3613.4
         },
         {
           "time": 1795542300,
-          "value": 3614.27
+          "value": 3612.93
         },
         {
           "time": 1795543200,
-          "value": 3613.76
+          "value": 3612.43
         },
         {
           "time": 1795544100,
-          "value": 3613.25
+          "value": 3611.94
         },
         {
           "time": 1795545000,
-          "value": 3612.69
+          "value": 3611.39
         },
         {
           "time": 1795545900,
-          "value": 3612.11
+          "value": 3610.82
         },
         {
           "time": 1795546800,
-          "value": 3611.6
+          "value": 3610.32
         },
         {
           "time": 1795547700,
-          "value": 3611.05
+          "value": 3609.79
         },
         {
           "time": 1795548600,
-          "value": 3610.53
+          "value": 3609.28
         },
         {
           "time": 1795549500,
-          "value": 3609.99
+          "value": 3608.75
         },
         {
           "time": 1795550400,
-          "value": 3609.47
+          "value": 3608.24
         },
         {
           "time": 1795551300,
-          "value": 3608.89
+          "value": 3607.68
         },
         {
           "time": 1795552200,
-          "value": 3608.29
+          "value": 3607.09
         },
         {
           "time": 1795553100,
-          "value": 3607.74
+          "value": 3606.55
         },
         {
           "time": 1795554000,
-          "value": 3607.18
+          "value": 3606.0
         },
         {
           "time": 1795554900,
-          "value": 3606.63
+          "value": 3605.47
         },
         {
           "time": 1795555800,
-          "value": 3606.1
+          "value": 3604.95
         },
         {
           "time": 1795556700,
-          "value": 3605.6
+          "value": 3604.46
         },
         {
           "time": 1795561200,
-          "value": 3605.18
+          "value": 3604.04
         },
         {
           "time": 1795562100,
-          "value": 3604.79
+          "value": 3603.67
         },
         {
           "time": 1795563000,
-          "value": 3604.29
+          "value": 3603.18
         },
         {
           "time": 1795563900,
-          "value": 3603.76
+          "value": 3602.66
         },
         {
           "time": 1795564800,
-          "value": 3603.24
+          "value": 3602.15
         },
         {
           "time": 1795565700,
-          "value": 3602.64
+          "value": 3601.56
         },
         {
           "time": 1795566600,
-          "value": 3602.05
+          "value": 3600.99
         },
         {
           "time": 1795567500,
-          "value": 3601.52
+          "value": 3600.47
         },
         {
           "time": 1795568400,
-          "value": 3600.91
+          "value": 3599.87
         },
         {
           "time": 1795569300,
-          "value": 3600.32
+          "value": 3599.29
         },
         {
           "time": 1795570200,
-          "value": 3599.84
+          "value": 3598.82
         },
         {
           "time": 1795571100,
-          "value": 3599.31
+          "value": 3598.3
         },
         {
           "time": 1795572000,
-          "value": 3598.92
+          "value": 3597.91
         },
         {
           "time": 1795572900,
-          "value": 3598.58
+          "value": 3597.59
         },
         {
           "time": 1795573800,
-          "value": 3598.17
+          "value": 3597.18
         },
         {
           "time": 1795574700,
-          "value": 3597.7
+          "value": 3596.72
         },
         {
           "time": 1795575600,
-          "value": 3597.3
+          "value": 3596.33
         },
         {
           "time": 1795576500,
-          "value": 3596.84
+          "value": 3595.88
         },
         {
           "time": 1795577400,
-          "value": 3596.37
-        },
-        {
-          "time": 1795578300,
-          "value": 3595.89
-        },
-        {
-          "time": 1795579200,
           "value": 3595.43
         },
         {
+          "time": 1795578300,
+          "value": 3594.95
+        },
+        {
+          "time": 1795579200,
+          "value": 3594.5
+        },
+        {
           "time": 1795580100,
-          "value": 3594.99
-        },
-        {
-          "time": 1795581000,
-          "value": 3594.52
-        },
-        {
-          "time": 1795581900,
           "value": 3594.07
         },
         {
+          "time": 1795581000,
+          "value": 3593.61
+        },
+        {
+          "time": 1795581900,
+          "value": 3593.17
+        },
+        {
           "time": 1795582800,
-          "value": 3593.6
+          "value": 3592.71
         },
         {
           "time": 1795583700,
-          "value": 3593.06
+          "value": 3592.18
         },
         {
           "time": 1795584600,
-          "value": 3592.44
+          "value": 3591.56
         },
         {
           "time": 1795585500,
-          "value": 3591.75
+          "value": 3590.88
         },
         {
           "time": 1795586400,
-          "value": 3591.09
+          "value": 3590.23
+        },
+        {
+          "time": 1795587300,
+          "value": 3589.59
         }
       ],
-      "state_age_sec": 1,
+      "state_age_sec": 3,
       "engine_health": {
         "account": "exness",
-        "heartbeat_utc": "2026-11-25T06:14:56.161634+00:00",
-        "heartbeat_epoch": 1795587296.161635,
+        "heartbeat_utc": "2026-11-25T06:15:36.266734+00:00",
+        "heartbeat_epoch": 1795587336.2667344,
         "terminal_path": "C:\\MT5\\exness\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -4817,19 +4817,16 @@
         "account_trade_allowed": true,
         "login": 473002209,
         "server": "Exness-MT5Trial16",
-        "equity": 89.18,
+        "equity": 89.6,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open",
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23",
         "last_order": "2026-11-25T05:45:12.940265+00:00 SELL 0.01L XAUUSDm @ 3530.576 SL 3543.6 TP 3504.53 ticket 2299447551 risk $13.03 (15.37%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-25 05:56:54 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 05:59:07 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-25 06:00:03 UTC] [COMPETITION] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:03 UTC] [COMPETITION] SIGNAL SELL BLOCKED: 1 position(s) already open",
         "[2026-11-25 06:00:14 UTC] [EXNESS] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:14 UTC] [EXNESS] SIGNAL SELL BLOCKED: 1 position(s) already open",
@@ -4846,18 +4843,21 @@
         "[2026-11-25 06:10:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-25 06:15:05 UTC] [COMPETITION] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
+        "[2026-11-25 06:15:16 UTC] [EXNESS] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23",
+        "[2026-11-25 06:15:21 UTC] [PHASE1] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09"
       ]
     },
     "fundednext": {
-      "timestamp": "06:14:41 UTC",
-      "generated_epoch": 1795587281.024934,
+      "timestamp": "06:15:21 UTC",
+      "generated_epoch": 1795587321.0747633,
       "account_type": "phase1",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "LOCKED: -5435s / 180s elapsed",
+          "detail": "LOCKED: -5395s / 180s elapsed",
           "can_close": false
         },
         "news_filter": {
@@ -4868,17 +4868,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+14.28 (Limit: -$100.00)"
+          "detail": "Floating PnL: $+26.72 (Limit: -$100.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+14.08 of -$200.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+26.52 of -$200.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($4,500.00)",
-          "detail": "Equity: $5,038.59 (Safety Cushion: $538.59)"
+          "detail": "Equity: $5,051.03 (Safety Cushion: $551.03)"
         },
         "anti_martingale": {
           "passed": true,
@@ -4907,44 +4907,44 @@
         "login": 212145883,
         "name": "Badr_Hammani-Phase_1",
         "balance": 5024.31,
-        "equity": 5038.59,
+        "equity": 5051.03,
         "currency": "USD",
         "phase": "Phase 1 Evaluation",
         "initial_balance": 5000.0,
         "target_amount": 5150.0,
-        "distance_to_target": 111.41,
-        "progress_pct": 25.7,
+        "distance_to_target": 98.97,
+        "progress_pct": 34.0,
         "max_loss_floor": 4500.0,
-        "safety_buffer": 538.59,
+        "safety_buffer": 551.03,
         "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "1.05% per trade"
+        "daily_drawdown_risk": "0.99% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3526.64,
-        "ask": 3527.11,
-        "spread": 0.47,
-        "atr14": 8.8,
+        "bid": 3523.52,
+        "ask": 3524.0,
+        "spread": 0.48,
+        "atr14": 8.3,
         "vah": 3651.77,
         "val": 3572.8,
         "poc": 3612.28,
-        "dist_to_vah": 125.13,
-        "dist_to_val": -46.16,
-        "ema50": 3557.73,
-        "ema200": 3590.96,
+        "dist_to_vah": 128.25,
+        "dist_to_val": -49.28,
+        "ema50": 3556.32,
+        "ema200": 3589.42,
         "regime": "STRONG BEARISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 06:14",
+        "status_label": "UTC 06:15",
         "current_hour_utc": 6,
-        "current_min_utc": 14
+        "current_min_utc": 15
       },
       "execution": {
         "armed_lot_size": "0.04 Lots",
-        "armed_risk_dollars": "$52.82 (1.05% Equity)",
+        "armed_risk_dollars": "$49.77 (0.99% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -4953,15 +4953,15 @@
             "type": "SELL",
             "volume": 0.04,
             "open_price": 3530.68,
-            "current_price": 3527.11,
+            "current_price": 3524.0,
             "sl": 3543.28,
             "tp": 3505.45,
-            "profit": 14.28,
+            "profit": 26.72,
             "time": 1795592717
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 14.28,
+        "floating_pnl": 26.72,
         "live_logs": [
           "[2026-10-22 09:49 UTC] [PHASE1] CLOSED #18735585 BUY 0.03L 1.12 -> 1.12 P/L $-1.83 held 6m (backfilled from broker history)",
           "[2026-10-22 12:24 UTC] [PHASE1] CLOSED #18747067 SELL 0.03L 4058.67 -> 4061.53 P/L $-8.73 held 0m (backfilled from broker history)",
@@ -5247,13 +5247,6 @@
         "[2026-11-25 06:00:19 UTC] [PHASE1] SIGNAL SELL BLOCKED: 1 position(s) already open"
       ],
       "candles": [
-        {
-          "time": 1795511700,
-          "open": 3621.55,
-          "high": 3622.86,
-          "low": 3615.62,
-          "close": 3617.18
-        },
         {
           "time": 1795512600,
           "open": 3617.19,
@@ -5805,14 +5798,17 @@
           "open": 3523.17,
           "high": 3530.06,
           "low": 3515.73,
-          "close": 3526.64
+          "close": 3524.84
+        },
+        {
+          "time": 1795587300,
+          "open": 3524.65,
+          "high": 3524.79,
+          "low": 3522.87,
+          "close": 3523.52
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795511700,
-          "value": 3631.55
-        },
         {
           "time": 1795512600,
           "value": 3631.25
@@ -5843,11 +5839,11 @@
         },
         {
           "time": 1795518900,
-          "value": 3629.71
+          "value": 3629.7
         },
         {
           "time": 1795519800,
-          "value": 3629.88
+          "value": 3629.87
         },
         {
           "time": 1795520700,
@@ -5855,15 +5851,15 @@
         },
         {
           "time": 1795521600,
-          "value": 3629.8
+          "value": 3629.79
         },
         {
           "time": 1795522500,
-          "value": 3629.65
+          "value": 3629.64
         },
         {
           "time": 1795523400,
-          "value": 3630.2
+          "value": 3630.19
         },
         {
           "time": 1795524300,
@@ -5899,7 +5895,7 @@
         },
         {
           "time": 1795531500,
-          "value": 3628.24
+          "value": 3628.23
         },
         {
           "time": 1795532400,
@@ -5923,7 +5919,7 @@
         },
         {
           "time": 1795536900,
-          "value": 3617.74
+          "value": 3617.73
         },
         {
           "time": 1795537800,
@@ -5987,7 +5983,7 @@
         },
         {
           "time": 1795551300,
-          "value": 3590.69
+          "value": 3590.68
         },
         {
           "time": 1795552200,
@@ -6031,7 +6027,7 @@
         },
         {
           "time": 1795564800,
-          "value": 3577.86
+          "value": 3577.85
         },
         {
           "time": 1795565700,
@@ -6127,336 +6123,340 @@
         },
         {
           "time": 1795586400,
-          "value": 3557.73
+          "value": 3557.66
+        },
+        {
+          "time": 1795587300,
+          "value": 3556.32
         }
       ],
       "ema200_series": [
         {
-          "time": 1795511700,
-          "value": 3617.58
-        },
-        {
           "time": 1795512600,
-          "value": 3617.64
+          "value": 3615.77
         },
         {
           "time": 1795513500,
-          "value": 3617.69
+          "value": 3615.83
         },
         {
           "time": 1795514400,
-          "value": 3617.74
+          "value": 3615.91
         },
         {
           "time": 1795515300,
-          "value": 3617.79
+          "value": 3615.97
         },
         {
           "time": 1795516200,
-          "value": 3617.85
+          "value": 3616.05
         },
         {
           "time": 1795517100,
-          "value": 3617.96
+          "value": 3616.18
         },
         {
           "time": 1795518000,
-          "value": 3618.02
+          "value": 3616.26
         },
         {
           "time": 1795518900,
-          "value": 3618.13
+          "value": 3616.38
         },
         {
           "time": 1795519800,
-          "value": 3618.29
+          "value": 3616.56
         },
         {
           "time": 1795520700,
-          "value": 3618.46
+          "value": 3616.75
         },
         {
           "time": 1795521600,
-          "value": 3618.5
+          "value": 3616.8
         },
         {
           "time": 1795522500,
-          "value": 3618.57
+          "value": 3616.89
         },
         {
           "time": 1795523400,
-          "value": 3618.82
+          "value": 3617.16
         },
         {
           "time": 1795524300,
-          "value": 3619.05
+          "value": 3617.41
         },
         {
           "time": 1795525200,
-          "value": 3619.17
+          "value": 3617.54
         },
         {
           "time": 1795526100,
-          "value": 3619.25
+          "value": 3617.64
         },
         {
           "time": 1795527000,
-          "value": 3619.22
+          "value": 3617.63
         },
         {
           "time": 1795527900,
-          "value": 3619.18
+          "value": 3617.6
         },
         {
           "time": 1795528800,
-          "value": 3619.15
+          "value": 3617.58
         },
         {
           "time": 1795529700,
-          "value": 3619.14
+          "value": 3617.6
         },
         {
           "time": 1795530600,
-          "value": 3619.23
+          "value": 3617.7
         },
         {
           "time": 1795531500,
-          "value": 3619.27
+          "value": 3617.75
         },
         {
           "time": 1795532400,
-          "value": 3619.1
+          "value": 3617.6
         },
         {
           "time": 1795533300,
-          "value": 3618.83
+          "value": 3617.35
         },
         {
           "time": 1795534200,
-          "value": 3618.47
+          "value": 3617.0
         },
         {
           "time": 1795535100,
-          "value": 3617.98
+          "value": 3616.52
         },
         {
           "time": 1795536000,
-          "value": 3617.47
+          "value": 3616.03
         },
         {
           "time": 1795536900,
-          "value": 3616.96
+          "value": 3615.54
         },
         {
           "time": 1795537800,
-          "value": 3616.54
+          "value": 3615.13
         },
         {
           "time": 1795538700,
-          "value": 3616.02
+          "value": 3614.62
         },
         {
           "time": 1795539600,
-          "value": 3615.57
+          "value": 3614.18
         },
         {
           "time": 1795540500,
-          "value": 3615.06
+          "value": 3613.69
         },
         {
           "time": 1795541400,
-          "value": 3614.59
+          "value": 3613.23
         },
         {
           "time": 1795542300,
-          "value": 3614.1
+          "value": 3612.76
         },
         {
           "time": 1795543200,
-          "value": 3613.58
+          "value": 3612.25
         },
         {
           "time": 1795544100,
-          "value": 3613.08
+          "value": 3611.76
         },
         {
           "time": 1795545000,
-          "value": 3612.51
+          "value": 3611.21
         },
         {
           "time": 1795545900,
-          "value": 3611.94
+          "value": 3610.65
         },
         {
           "time": 1795546800,
-          "value": 3611.42
+          "value": 3610.14
         },
         {
           "time": 1795547700,
-          "value": 3610.88
+          "value": 3609.61
         },
         {
           "time": 1795548600,
-          "value": 3610.36
+          "value": 3609.1
         },
         {
           "time": 1795549500,
-          "value": 3609.82
+          "value": 3608.58
         },
         {
           "time": 1795550400,
-          "value": 3609.3
+          "value": 3608.07
         },
         {
           "time": 1795551300,
-          "value": 3608.72
+          "value": 3607.51
         },
         {
           "time": 1795552200,
-          "value": 3608.12
+          "value": 3606.92
         },
         {
           "time": 1795553100,
-          "value": 3607.57
+          "value": 3606.38
         },
         {
           "time": 1795554000,
-          "value": 3607.01
+          "value": 3605.82
         },
         {
           "time": 1795554900,
-          "value": 3606.46
+          "value": 3605.29
         },
         {
           "time": 1795555800,
-          "value": 3605.93
+          "value": 3604.77
         },
         {
           "time": 1795556700,
-          "value": 3605.43
+          "value": 3604.29
         },
         {
           "time": 1795561200,
-          "value": 3605.01
+          "value": 3603.87
         },
         {
           "time": 1795562100,
-          "value": 3604.62
+          "value": 3603.5
         },
         {
           "time": 1795563000,
-          "value": 3604.12
+          "value": 3603.01
         },
         {
           "time": 1795563900,
-          "value": 3603.6
-        },
-        {
-          "time": 1795564800,
-          "value": 3603.08
-        },
-        {
-          "time": 1795565700,
           "value": 3602.49
         },
         {
+          "time": 1795564800,
+          "value": 3601.99
+        },
+        {
+          "time": 1795565700,
+          "value": 3601.41
+        },
+        {
           "time": 1795566600,
-          "value": 3601.9
+          "value": 3600.83
         },
         {
           "time": 1795567500,
-          "value": 3601.37
+          "value": 3600.31
         },
         {
           "time": 1795568400,
-          "value": 3600.76
+          "value": 3599.71
         },
         {
           "time": 1795569300,
-          "value": 3600.17
+          "value": 3599.13
         },
         {
           "time": 1795570200,
-          "value": 3599.69
+          "value": 3598.66
         },
         {
           "time": 1795571100,
-          "value": 3599.16
+          "value": 3598.14
         },
         {
           "time": 1795572000,
-          "value": 3598.77
+          "value": 3597.76
         },
         {
           "time": 1795572900,
-          "value": 3598.44
+          "value": 3597.45
         },
         {
           "time": 1795573800,
-          "value": 3598.03
+          "value": 3597.04
         },
         {
           "time": 1795574700,
-          "value": 3597.56
+          "value": 3596.58
         },
         {
           "time": 1795575600,
-          "value": 3597.15
+          "value": 3596.19
         },
         {
           "time": 1795576500,
-          "value": 3596.69
+          "value": 3595.73
         },
         {
           "time": 1795577400,
-          "value": 3596.22
-        },
-        {
-          "time": 1795578300,
-          "value": 3595.74
-        },
-        {
-          "time": 1795579200,
           "value": 3595.28
         },
         {
+          "time": 1795578300,
+          "value": 3594.8
+        },
+        {
+          "time": 1795579200,
+          "value": 3594.35
+        },
+        {
           "time": 1795580100,
-          "value": 3594.84
-        },
-        {
-          "time": 1795581000,
-          "value": 3594.37
-        },
-        {
-          "time": 1795581900,
           "value": 3593.92
         },
         {
+          "time": 1795581000,
+          "value": 3593.46
+        },
+        {
+          "time": 1795581900,
+          "value": 3593.01
+        },
+        {
           "time": 1795582800,
-          "value": 3593.45
+          "value": 3592.55
         },
         {
           "time": 1795583700,
-          "value": 3592.91
+          "value": 3592.03
         },
         {
           "time": 1795584600,
-          "value": 3592.3
+          "value": 3591.42
         },
         {
           "time": 1795585500,
-          "value": 3591.61
+          "value": 3590.74
         },
         {
           "time": 1795586400,
-          "value": 3590.96
+          "value": 3590.09
+        },
+        {
+          "time": 1795587300,
+          "value": 3589.42
         }
       ],
-      "state_age_sec": 17,
+      "state_age_sec": 19,
       "engine_health": {
         "account": "phase1",
-        "heartbeat_utc": "2026-11-25T06:14:41.040676+00:00",
-        "heartbeat_epoch": 1795587281.0406768,
+        "heartbeat_utc": "2026-11-25T06:15:21.147954+00:00",
+        "heartbeat_epoch": 1795587321.147955,
         "terminal_path": "C:\\MT5\\phase1\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -6464,19 +6464,16 @@
         "account_trade_allowed": true,
         "login": 212145883,
         "server": "AtlasFunded-Server",
-        "equity": 5038.59,
+        "equity": 5051.03,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-25 05:45: SELL | BLOCKED: 1 position(s) already open",
+        "last_signal_eval": "bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
         "last_order": "2026-11-25T05:45:18.168043+00:00 SELL 0.04L XAUUSD @ 3530.68 SL 3543.28 TP 3505.45 ticket 20915545 risk $50.43 (1.00%)",
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
+        "stage": "evaluated",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-25 05:56:54 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 05:59:07 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
-        "[2026-11-25 06:00:03 UTC] [COMPETITION] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:03 UTC] [COMPETITION] SIGNAL SELL BLOCKED: 1 position(s) already open",
         "[2026-11-25 06:00:14 UTC] [EXNESS] EVAL bar 11-25 05:45: SELL",
         "[2026-11-25 06:00:14 UTC] [EXNESS] SIGNAL SELL BLOCKED: 1 position(s) already open",
@@ -6493,7 +6490,10 @@
         "[2026-11-25 06:10:44 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 2)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 3)",
         "[2026-11-25 06:12:10 UTC] [FUNDEDNEXT] RECOVERY: restarting own terminal C:\\MT5\\fundednext\\terminal64.exe",
-        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)"
+        "[2026-11-25 06:14:23 UTC] [FUNDEDNEXT] initialize failed: (-10005, 'IPC timeout') (failure 1)",
+        "[2026-11-25 06:15:05 UTC] [COMPETITION] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09",
+        "[2026-11-25 06:15:16 UTC] [EXNESS] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3525.08 VAH=3652.06 VAL=3572.94 hh20=3575.33 ll20=3522.44 ema50=3557.75 ema200=3590.23",
+        "[2026-11-25 06:15:21 UTC] [PHASE1] EVAL bar 11-25 06:00: no signal: no 20-bar low break, lower wick too big | close=3524.84 VAH=3651.77 VAL=3572.80 hh20=3574.76 ll20=3522.36 ema50=3557.66 ema200=3590.09"
       ]
     }
   }
