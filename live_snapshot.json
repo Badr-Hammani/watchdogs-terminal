@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26 22:02:21 UTC",
+  "updated_at": "2026-11-26 22:03:03 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
@@ -1312,30 +1312,28 @@
           "value": 3567.06
         }
       ],
-      "state_age_sec": 20,
+      "state_age_sec": 62,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-26T22:02:00.825664+00:00",
-        "heartbeat_epoch": 1795730520.8256643,
+        "heartbeat_utc": "2026-11-26T22:02:48.182184+00:00",
+        "heartbeat_epoch": 1795730568.182184,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
-        "connected": true,
-        "terminal_autotrading": true,
-        "api_trading_enabled": true,
-        "account_trade_allowed": true,
-        "login": 540338873,
-        "server": "FTMO-Server4",
-        "equity": 10000.0,
-        "consecutive_failures": 0,
-        "last_error": null,
+        "connected": false,
+        "terminal_autotrading": false,
+        "api_trading_enabled": false,
+        "account_trade_allowed": false,
+        "login": null,
+        "server": null,
+        "equity": null,
+        "consecutive_failures": 2,
+        "last_error": "initialize failed: (-6, 'Terminal: Authorization failed')",
         "last_signal_eval": "bar 11-26 19:00: off-session (bar hour 19:00 UTC)",
         "last_order": null,
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
-        "can_trade": true
+        "stage": "connect",
+        "can_trade": false
       },
       "bot_logs": [
-        "[2026-11-26 16:45:10 UTC] [PHASE1] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.97 VAH=3557.32 VAL=3459.24 hh20=3586.30 ll20=3562.68 ema50=3569.94 ema200=3567.14",
-        "[2026-11-26 16:45:46 UTC] [FTMO] ENGINE v2 START account=ftmo terminal=C:\\MT5\\ftmo\\terminal64.exe max_risk=2.0% auto_execute=True",
         "[2026-11-26 16:45:46 UTC] [FTMO] credentials file found; connecting",
         "[2026-11-26 16:45:47 UTC] [FTMO] CONNECTED #540338873 FTMO-Server4 equity=$10,000.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
         "[2026-11-26 16:45:47 UTC] [FTMO] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.77 VAH=3556.65 VAL=3459.03 hh20=3586.27 ll20=3562.56 ema50=3569.90 ema200=3567.11",
@@ -1353,7 +1351,9 @@
         "[2026-11-26 18:45:07 UTC] [FTMO] EVAL bar 11-26 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:00:08 UTC] [FTMO] EVAL bar 11-26 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:15:09 UTC] [FTMO] EVAL bar 11-26 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting"
+        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-26 22:02:27 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-26 22:02:48 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
       ]
     },
     "exness": {
@@ -2891,7 +2891,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 18556,
+      "state_age_sec": 18597,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -2914,8 +2914,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-26 16:45:10 UTC] [PHASE1] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.97 VAH=3557.32 VAL=3459.24 hh20=3586.30 ll20=3562.68 ema50=3569.94 ema200=3567.14",
-        "[2026-11-26 16:45:46 UTC] [FTMO] ENGINE v2 START account=ftmo terminal=C:\\MT5\\ftmo\\terminal64.exe max_risk=2.0% auto_execute=True",
         "[2026-11-26 16:45:46 UTC] [FTMO] credentials file found; connecting",
         "[2026-11-26 16:45:47 UTC] [FTMO] CONNECTED #540338873 FTMO-Server4 equity=$10,000.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
         "[2026-11-26 16:45:47 UTC] [FTMO] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.77 VAH=3556.65 VAL=3459.03 hh20=3586.27 ll20=3562.56 ema50=3569.90 ema200=3567.11",
@@ -2933,7 +2931,9 @@
         "[2026-11-26 18:45:07 UTC] [FTMO] EVAL bar 11-26 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:00:08 UTC] [FTMO] EVAL bar 11-26 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:15:09 UTC] [FTMO] EVAL bar 11-26 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting"
+        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-26 22:02:27 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-26 22:02:48 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
       ]
     },
     "phase1": {
@@ -4555,7 +4555,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 18550,
+      "state_age_sec": 18591,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -4578,8 +4578,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-26 16:45:10 UTC] [PHASE1] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.97 VAH=3557.32 VAL=3459.24 hh20=3586.30 ll20=3562.68 ema50=3569.94 ema200=3567.14",
-        "[2026-11-26 16:45:46 UTC] [FTMO] ENGINE v2 START account=ftmo terminal=C:\\MT5\\ftmo\\terminal64.exe max_risk=2.0% auto_execute=True",
         "[2026-11-26 16:45:46 UTC] [FTMO] credentials file found; connecting",
         "[2026-11-26 16:45:47 UTC] [FTMO] CONNECTED #540338873 FTMO-Server4 equity=$10,000.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
         "[2026-11-26 16:45:47 UTC] [FTMO] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.77 VAH=3556.65 VAL=3459.03 hh20=3586.27 ll20=3562.56 ema50=3569.90 ema200=3567.11",
@@ -4597,7 +4595,9 @@
         "[2026-11-26 18:45:07 UTC] [FTMO] EVAL bar 11-26 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:00:08 UTC] [FTMO] EVAL bar 11-26 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:15:09 UTC] [FTMO] EVAL bar 11-26 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting"
+        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-26 22:02:27 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-26 22:02:48 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
       ]
     },
     "competition": {
@@ -6209,7 +6209,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 18557,
+      "state_age_sec": 18598,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
@@ -6232,8 +6232,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-26 16:45:10 UTC] [PHASE1] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.97 VAH=3557.32 VAL=3459.24 hh20=3586.30 ll20=3562.68 ema50=3569.94 ema200=3567.14",
-        "[2026-11-26 16:45:46 UTC] [FTMO] ENGINE v2 START account=ftmo terminal=C:\\MT5\\ftmo\\terminal64.exe max_risk=2.0% auto_execute=True",
         "[2026-11-26 16:45:46 UTC] [FTMO] credentials file found; connecting",
         "[2026-11-26 16:45:47 UTC] [FTMO] CONNECTED #540338873 FTMO-Server4 equity=$10,000.00 | terminal AutoTrading=True api_disabled=False account trade_allowed=True expert=True",
         "[2026-11-26 16:45:47 UTC] [FTMO] EVAL bar 11-26 16:30: no signal: no 20-bar high break | close=3573.77 VAH=3556.65 VAL=3459.03 hh20=3586.27 ll20=3562.56 ema50=3569.90 ema200=3567.11",
@@ -6251,7 +6249,9 @@
         "[2026-11-26 18:45:07 UTC] [FTMO] EVAL bar 11-26 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:00:08 UTC] [FTMO] EVAL bar 11-26 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-26 19:15:09 UTC] [FTMO] EVAL bar 11-26 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting"
+        "[2026-11-26 22:02:20 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-26 22:02:27 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)",
+        "[2026-11-26 22:02:48 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 2)"
       ]
     }
   }
