@@ -258,6 +258,15 @@
     .day.win { background: rgba(52, 211, 153, 0.10); border-color: rgba(52, 211, 153, 0.30); }
     .day.loss { background: rgba(251, 113, 133, 0.09); border-color: rgba(251, 113, 133, 0.28); }
     .day.today { box-shadow: 0 0 0 1.5px var(--cyan); }
+    .day .e { font-size: 11px; color: var(--muted); line-height: 1.25; }
+    .day .e b { font-weight: 600; color: var(--text-2); }
+    .day:not(.has) .flag, .day:not(.has) .flag + .e, .day:not(.has) .d + .e { margin-top: auto; }
+    .day.pwin { border-style: dashed; border-color: rgba(34, 211, 238, 0.35); }
+    .day.pmed { background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.6); }
+    .day .flag { font-size: 11px; font-weight: 700; color: var(--cyan); letter-spacing: 0.02em; }
+    .day .flag + .e { margin-top: 0 !important; }
+    .cal-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+    .cal-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 4px; vertical-align: -2px; margin-right: 5px; }
     .day.sel { box-shadow: 0 0 0 2px var(--text); }
     .day-detail { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--hairline); font-size: 14px; }
     .note { font-size: 12.5px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
@@ -335,6 +344,8 @@
       .day { min-height: 62px; padding: 6px; }
       .day .p { font-size: 12px; }
       .day .c { display: none; }
+      .day .e .lbl { display: none; }
+      .day .flag { font-size: 10px; }
       .topbar .seg { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); overflow: hidden; }
       .seg button { padding: 7px 4px; font-size: 12.5px; white-space: normal; line-height: 1.25; text-align: center; }
       .day .tl { display: none; }
@@ -543,9 +554,10 @@
               <div class="mini-kpi" style="border-left-color:var(--green)"><div class="label">Buffer</div><div class="v num pos" id="cq-buf">—</div><div class="s num" id="cq-buf-s">&nbsp;</div></div>
               <div class="mini-kpi" style="border-left-color:var(--violet)"><div class="label">This Month</div><div class="v num" id="cq-month">—</div><div class="s num" id="cq-month-s">&nbsp;</div></div>
             </div>
+            <div class="cal-legend" id="cal-legend" style="display:none"></div>
             <div class="cal" id="cal"></div>
             <div class="day-detail" id="day-detail" style="display:none"></div>
-            <div class="note">Each day shows realized P/L from trades closed that day (UTC), taken from the broker's own deal history. The broker history the engine sends covers the last 30 days.</div>
+            <div class="note" id="cal-note">Each day shows realized P/L from trades closed that day (UTC), taken from the broker's own deal history. The broker history the engine sends covers the last 30 days.</div>
           </div>
 
           <div class="glass card">
@@ -614,6 +626,12 @@
     // engines stopped on purpose 26 Nov 2026 16:53 UTC (only FTMO trades): show as STOPPED, not as an error
     const STOPPED = { exness: true, phase1: true, competition: true };
     const FTMO = { initial: 10000, target: 11000, dailyLoss: 500, floor: 9000, minDays: 4, tz: 'Europe/Prague' };
+    // FTMO expectation, from the deployed 1:2 rules on the broker clock (replica_bt, phase1 EET), run through the FTMO
+    // rules ($100 risk, max 2 trades/day, 3.5% daily guard, $500 daily / $9,000 floor, $11,000 target), 26 Nov 2026.
+    // in-sample 2024-09..2026-11: +$12.38 per weekday, pass 98% / fail 2%, pass after 20 / 40 / 64 trading days (p25/median/p75)
+    // out-of-sample 2004-2024:   +$1.88 per weekday,  pass 53% / fail 47%
+    const FTMO_EXP = { start: '2026-11-26', perDay: 12.38, passP25: 20, passMed: 40, passP75: 64, passPct: 98, oosPerDay: 1.88, oosPassPct: 53,
+      noTrade: ['2026-12-24', '2026-12-25', '2026-12-31', '2027-01-01'] };
     const TABS = ['overview', 'chart', 'calendar', 'trades'];
     const POLL_MS = 2000;            // active account
     const OTHERS_MS = 20000;         // other accounts (switcher labels + merged logs)
@@ -1244,6 +1262,37 @@
       cm.textContent = real ? fmtUSD(mPL, true) : '—';
       setText('cq-month-s', real ? `${mN} closed trade${mN === 1 ? '' : 's'}` : ' ');
 
+      // FTMO: expected P/L per trading day and the projected pass window
+      const X = store.acc === 'ftmo' ? FTMO_EXP : null;
+      const expIdx = {};           // ymd -> trading-day number since start (1-based)
+      if (X) {
+        let n = 0;
+        for (let t = Date.parse(X.start + 'T00:00:00Z'); n < X.passP75 + 5; t += 86400000) {
+          const dd = new Date(t), k = ymd(dd), wd = dd.getUTCDay();
+          if (wd === 0 || wd === 6 || X.noTrade.includes(k)) continue;
+          expIdx[k] = ++n;
+        }
+      }
+      const dateOf = (n) => Object.keys(expIdx).find(k => expIdx[k] === n);
+      const shortD = (k) => k ? new Date(k + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }) : '—';
+      $('cal-legend').style.display = X ? '' : 'none';
+      if (X) {
+        const todayN = Object.keys(expIdx).filter(k => k <= ymd(now)).length;
+        const expToDate = todayN * X.perDay;
+        const realToDate = real ? a.balance - FTMO.initial : null;
+        setText('cq-pass-s', `Exp. pass ${shortD(dateOf(X.passMed))} · range ${shortD(dateOf(X.passP25))}–${shortD(dateOf(X.passP75))}`);
+        let expMonth = 0; Object.keys(expIdx).forEach(k => { if (k.slice(0, 7) === ymd(mo).slice(0, 7) && expIdx[k] <= X.passMed) expMonth += X.perDay; });
+        setText('cq-month-s', real ? `${mN} trade${mN === 1 ? '' : 's'} · exp ${fmtUSD(Math.round(expMonth), true).replace('.00', '')}` : ' ');
+        setHTML('cal-legend', `<span><i style="background:rgba(34,211,238,.25);border:1px solid rgba(34,211,238,.7)"></i>Expected pass day (median)</span>` +
+          `<span><i style="border:1px dashed rgba(34,211,238,.5)"></i>Likely pass window</span>` +
+          `<span>Real vs expected to date: <b class="num ${cls(realToDate)}">${isNum(realToDate) ? fmtUSD(realToDate, true) : '—'}</b> / <b class="num">${fmtUSD(expToDate, true)}</b></span>`);
+        $('cal-note').innerHTML = `“exp” = average result per trading day ($100 risk, max 2 trades) of the deployed rules on Nov 2024 – Nov 2026 gold data: <b>${fmtUSD(X.perDay, true)}/day</b>. ` +
+          `Simulated challenges on that data passed ${X.passPct}% of the time, after ${X.passP25}–${X.passP75} trading days (median ${X.passMed}); single days swing far more than the average, which is why a pass usually comes before the average alone would reach $1,000. ` +
+          `On 2004–2024 data the same rules made only ${fmtUSD(X.oosPerDay, true)}/day and passed ${X.oosPassPct}% of the time, so read these dates as a best case. Real P/L = closed trades (UTC) from the broker's deal history.`;
+      } else {
+        $('cal-note').textContent = "Each day shows realized P/L from trades closed that day (UTC), taken from the broker's own deal history. The broker history the engine sends covers the last 30 days.";
+      }
+
       const todayK = ymd(now);
       const first = new Date(mo);
       const lead = (first.getUTCDay() + 6) % 7; // Monday-first
@@ -1256,9 +1305,13 @@
         const info = byDay[k];
         const out = day.getUTCMonth() !== mo.getUTCMonth();
         const wk = day.getUTCDay() === 0 || day.getUTCDay() === 6;
-        const c = ['day', out ? 'out' : '', wk ? 'wknd' : '', info ? 'has' : '', info ? (info.pl > 0 ? 'win' : info.pl < 0 ? 'loss' : '') : '', k === todayK ? 'today' : '', store.selDay === k ? 'sel' : ''].filter(Boolean).join(' ');
+        const en = X ? expIdx[k] : null;
+        const pmed = en && en === X.passMed, pwin = en && en >= X.passP25 && en <= X.passP75 && !pmed;
+        const c = ['day', out ? 'out' : '', wk ? 'wknd' : '', info ? 'has' : '', info ? (info.pl > 0 ? 'win' : info.pl < 0 ? 'loss' : '') : '', k === todayK ? 'today' : '', store.selDay === k ? 'sel' : '', pmed ? 'pmed' : '', pwin ? 'pwin' : ''].filter(Boolean).join(' ');
+        const expH = en && en <= X.passP75 ? (pmed ? `<span class="flag">Exp. pass</span>` : '') +
+          `<span class="e num"><span class="lbl">exp </span><b>${fmtUSD(X.perDay, true).replace(/\.\d\d$/, '')}</b></span>` : '';
         h += `<div class="${c}" data-date="${k}"><span class="d">${day.getUTCDate()}${k === todayK ? '<span class="tl"> · Today</span>' : ''}</span>` +
-          (info ? `<span class="p num ${cls(info.pl)}"><span class="full">${fmtUSD(info.pl, true)}</span><span class="short">${info.pl > 0 ? '+' : info.pl < 0 ? '−' : ''}$${Math.round(Math.abs(info.pl))}</span></span><span class="c">${info.n} trade${info.n === 1 ? '' : 's'}</span>` : '') + '</div>';
+          (info ? `<span class="p num ${cls(info.pl)}"><span class="full">${fmtUSD(info.pl, true)}</span><span class="short">${info.pl > 0 ? '+' : info.pl < 0 ? '−' : ''}$${Math.round(Math.abs(info.pl))}</span></span><span class="c">${info.n} trade${info.n === 1 ? '' : 's'}</span>` : '') + expH + '</div>';
       }
       setHTML('cal', h);
 
