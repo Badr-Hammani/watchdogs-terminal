@@ -303,7 +303,7 @@
     .log:last-child { margin-bottom: 0; }
     .log .ts { color: var(--muted); }
     .log .tg { font-weight: 600; }
-    .log .tg.PHASE1 { color: var(--cyan); } .log .tg.COMPETITION { color: #60A5FA; } .log .tg.EXNESS { color: var(--amber); } .log .tg.FUNDEDNEXT { color: var(--violet); }
+    .log .tg.PHASE1 { color: var(--cyan); } .log .tg.COMPETITION { color: #60A5FA; } .log .tg.EXNESS { color: var(--amber); } .log .tg.FUNDEDNEXT { color: var(--violet); } .log .tg.FTMO { color: var(--green); }
     .log.trade { background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); }
     .log.blocked { background: rgba(251, 191, 36, 0.06); border: 1px solid rgba(251, 191, 36, 0.18); }
     .log.err { background: rgba(251, 113, 133, 0.06); border: 1px solid rgba(251, 113, 133, 0.2); }
@@ -370,10 +370,10 @@
       </div>
       <div class="seg no-anim" id="acct-seg" role="tablist" aria-label="Account">
         <span class="seg-pill"></span>
-        <button data-acc="phase1" class="active">Phase 1</button>
-        <button data-acc="competition">Nov Comp</button>
+        <button data-acc="ftmo" class="active">FTMO</button>
         <button data-acc="exness">Exness</button>
-        <button data-acc="fundednext">FundedNext</button>
+        <button data-acc="phase1">Atlas P1</button>
+        <button data-acc="competition">Nov Comp</button>
       </div>
       <nav class="seg no-anim" id="tab-seg" role="tablist" aria-label="View">
         <span class="seg-pill"></span>
@@ -442,6 +442,16 @@
               <div class="kv"><span>Live win rate · PF</span><b class="num" id="ov-q-wr">—</b></div>
               <div class="kv" style="margin-bottom:14px"><span id="ov-q-n-l">Closed trades (30d)</span><b class="num" id="ov-q-n">—</b></div>
               <button class="btn" data-go="calendar">Open Calendar &amp; Stats →</button>
+            </div>
+
+            <div class="glass card" id="ftmo-card" style="display:none">
+              <div class="card-head"><h3 class="card-title">FTMO 2-Step · Challenge</h3><span class="chip info num" id="ftmo-days-chip">—</span></div>
+              <div class="kv"><span>Profit target +$1,000</span><b class="num" id="ftmo-target">—</b></div>
+              <div class="bar" style="margin:6px 0 8px"><i id="ftmo-target-bar"></i></div>
+              <div class="kv"><span>Daily loss left (−$500)</span><b class="num" id="ftmo-daily">—</b></div>
+              <div class="kv"><span>Max loss left (−$1,000)</span><b class="num" id="ftmo-max">—</b></div>
+              <div class="kv"><span>Trading days</span><b class="num" id="ftmo-tdays">—</b></div>
+              <div class="note" style="margin-top:8px">Daily limit = balance at 00:00 Prague time minus $500, floating P/L included. Account fails below $9,000 equity. Pass needs $11,000 and at least 4 trading days.</div>
             </div>
 
             <div class="glass card" id="comp-card" style="display:none">
@@ -578,10 +588,10 @@
             </div>
             <div class="filters" id="log-filters">
               <button data-lf="ALL" class="active">All</button>
-              <button data-lf="PHASE1">Phase 1</button>
-              <button data-lf="COMPETITION">Competition</button>
+              <button data-lf="FTMO">FTMO</button>
               <button data-lf="EXNESS">Exness</button>
-              <button data-lf="FUNDEDNEXT">FundedNext</button>
+              <button data-lf="PHASE1">Atlas P1</button>
+              <button data-lf="COMPETITION">Competition</button>
             </div>
             <div class="term" id="term"><div class="empty">Waiting for data</div></div>
           </div>
@@ -597,8 +607,13 @@
     'use strict';
 
     // ------------------------------------------------------------------ config
-    const ACCOUNTS = ['phase1', 'competition', 'exness', 'fundednext'];
-    const ACC_LABEL = { phase1: 'Phase 1', competition: 'Nov Comp', exness: 'Exness', fundednext: 'FundedNext' };
+    // FTMO is the live account; Atlas Phase 1 / Competition are stopped and kept at the end for history. FundedNext was removed 26 Nov.
+    const ACCOUNTS = ['ftmo', 'exness', 'phase1', 'competition'];
+    const ACC_LABEL = { ftmo: 'FTMO', exness: 'Exness', phase1: 'Atlas P1', competition: 'Nov Comp' };
+    // FTMO 2-Step 10K Challenge rules (ftmo.com, read 26 Nov 2026)
+    // engines stopped on purpose 26 Nov 2026 16:53 UTC (only FTMO trades): show as STOPPED, not as an error
+    const STOPPED = { exness: true, phase1: true, competition: true };
+    const FTMO = { initial: 10000, target: 11000, dailyLoss: 500, floor: 9000, minDays: 4, tz: 'Europe/Prague' };
     const TABS = ['overview', 'chart', 'calendar', 'trades'];
     const POLL_MS = 2000;            // active account
     const OTHERS_MS = 20000;         // other accounts (switcher labels + merged logs)
@@ -607,7 +622,7 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const store = {
-      acc: 'phase1',
+      acc: 'ftmo',
       tab: 'overview',
       data: {},          // account -> payload
       fetchedAt: {},     // account -> client epoch ms
@@ -616,9 +631,10 @@
       scope: 'bot',      // 'bot' = only trades placed by this account's engine (magic number), 'all' = every broker trade
       calMonth: null,    // Date (UTC first of month)
       selDay: null,
+      missing: {},       // account -> true when the feed loads but has no entry for it
     };
     try {
-      const a = localStorage.getItem('wd_acc'); if (ACCOUNTS.includes(a)) store.acc = a;
+      const a = localStorage.getItem('wd_acc2'); if (ACCOUNTS.includes(a)) store.acc = a;  // new key: everyone opens on FTMO once
       const sc = localStorage.getItem('wd_scope'); if (sc === 'all' || sc === 'bot') store.scope = sc;
     } catch (e) {}
     const hashTab = (location.hash || '').replace('#', '');
@@ -656,7 +672,7 @@
     // A payload is "real" only when it comes from the engine's MT5 state. The server's OFFLINE
     // fallback contains placeholder balances and must never be shown as account data.
     // MT5 login each tab must show; data from any other login (e.g. FundedNext engine not signed in, mirroring Phase 1) is not this account's
-    const EXPECTED_LOGIN = { phase1: 212145883, competition: 212176749, fundednext: 35407401 };
+    const EXPECTED_LOGIN = { ftmo: 540338873, phase1: 212145883, competition: 212176749 };
     const isReal = (d) => !!(d && d.account && !d.__wrongAcct && d.status !== 'OFFLINE' && d.status !== 'ERROR' && d.generated_epoch);
     // Age of the engine state. A GitHub snapshot carries the age it had when it was synced, so for that source the
     // time since the snapshot was written is added from generated_epoch (an old snapshot must never read as LIVE).
@@ -707,7 +723,8 @@
       if (sameOriginOK) tries.push(['server', () => fetchJSON(q)]);
       const tunnelTry = ['tunnel', async () => { const o = await resolveTunnel(); if (!o) throw new Error('no tunnel'); return fetchJSON(o + q, 3000); }];
       const snapTry = ['snapshot', async () => {
-        const s = await getSnapshot(); const d = s && s.accounts && s.accounts[acc]; if (!d) throw new Error('not in snapshot');
+        const s = await getSnapshot(); const d = s && s.accounts && s.accounts[acc]; if (!d) { if (s && s.accounts) store.missing[acc] = true; throw new Error('not in snapshot'); }
+        store.missing[acc] = false;
         // a stale snapshot only counts if nothing fresher answers
         if (onPages && isNum(d.generated_epoch) && Date.now() / 1000 - d.generated_epoch > 180) throw Object.assign(new Error('stale'), { stale: d });
         return d;
@@ -837,7 +854,7 @@
     function switchAccount(acc) {
       if (!ACCOUNTS.includes(acc) || acc === store.acc) return;
       store.acc = acc; store.selDay = null;
-      try { localStorage.setItem('wd_acc', acc); } catch (e) {}
+      try { localStorage.setItem('wd_acc2', acc); } catch (e) {}
       activate($('acct-seg'), 'acc', acc);
       placePill($('acct-seg'), true);
       chartFitted = false;
@@ -937,7 +954,7 @@
 
     // ------------------------------------------------------------------ trade stats
     // Engine magic numbers per account (tri_engine_daemon.py ACCOUNTS). Trades without the bot's magic are manual/older.
-    const BOT_MAGIC = { phase1: 100200, competition: 200300, exness: 777100, fundednext: 300400 };
+    const BOT_MAGIC = { ftmo: 400500, phase1: 100200, competition: 200300, exness: 777100 };
     const isBotTrade = (t, acc) => Number(t.magic) === BOT_MAGIC[acc];
     function scopedTrades(d) {
       const all = (d && d.closed_trades) || [];
@@ -985,11 +1002,13 @@
       let txt = 'CONNECTING', mode = '';
       if (d && isReal(d)) {
         const wd = d.watchdog || {};
-        if (isStale(d)) { mode = 'is-stale'; txt = `STALE · ${Math.round(ageSec(d) / 60)}m old`; }
+        if (STOPPED[store.acc] && (isStale(d) || d.status === 'STALE')) { mode = ''; txt = 'STOPPED'; }
+        else if (isStale(d)) { mode = 'is-stale'; txt = `STALE · ${Math.round(ageSec(d) / 60)}m old`; }
         else if (wd.connected === false) { mode = 'is-off'; txt = 'MT5 DISCONNECTED'; }
         else { mode = 'is-live'; const p = (wd.ping || '').replace(/\s+/g, ''); txt = 'LIVE' + (p && p !== 'n/a' ? ' · ' + p : ''); }
       } else if (d && d.__wrongAcct) { mode = 'is-off'; txt = 'NOT CONNECTED'; }
       else if (d) { mode = 'is-off'; txt = 'ENGINE OFFLINE'; }
+      else if (store.missing[store.acc]) { mode = 'is-off'; txt = 'NOT IN FEED YET'; }
       else if (store.fetchedAt[store.acc] === undefined && pollFails > 1) { mode = 'is-off'; txt = 'NO CONNECTION'; }
       pill.className = 'live-pill ' + mode;
       setText('live-text', txt);
@@ -1000,8 +1019,10 @@
       let msg = '', bad = false;
       if (d && d.__wrongAcct) { msg = `${ACC_LABEL[store.acc]} is not signed in to MT5 on the server (it is reporting account #${d.account.login}, expected #${EXPECTED_LOGIN[store.acc]}), so no figures are shown.`; bad = true; }
       else if (d && !isReal(d)) { msg = 'The trading engine has no live MT5 state for this account, so no account figures are shown. Check the server.'; bad = true; }
+      else if (d && STOPPED[store.acc] && (isStale(d) || d.status === 'STALE')) { msg = `${ACC_LABEL[store.acc]} engine was stopped on 26 Nov. Figures below are its last known values.`; }
       else if (d && isStale(d)) { msg = `Engine data is ${Math.round(ageSec(d) / 60)} minutes old. Figures below are the last known values, not live.`; }
       else if (d && d.watchdog && d.watchdog.status && /DISABLED/.test(d.watchdog.status)) { msg = `Engine connected but trading is disabled: ${d.watchdog.status}.`; }
+      else if (!d && store.missing[store.acc]) { msg = `The live feed doesn't include ${ACC_LABEL[store.acc]} yet. The server has to add it to the dashboard feed; figures appear here as soon as it does.`; }
       else if (!d && pollFails > 2) { msg = 'Cannot reach the dashboard server, tunnel or GitHub snapshot. Retrying…'; bad = true; }
       b.className = 'banner' + (msg ? ' show' : '') + (bad ? ' bad' : '');
       if (b.textContent !== msg) b.textContent = msg;
@@ -1021,6 +1042,35 @@
     // Atlas November competition. The rank is only published on the logged-in Atlas dashboard, so it is shown with the
     // time it was read; the gain is computed live from the competition account's own balance (Atlas ranks on closed balance).
     const COMP = { start: 100000, end: Date.UTC(2026, 10, 30, 23, 59, 59), goalPct: 70, floor: 90000 };
+    // Prague calendar date (YYYY-MM-DD) for a UTC instant; FTMO days run 00:00-24:00 CE(S)T
+    const pragueDay = (ms) => new Intl.DateTimeFormat('en-CA', { timeZone: FTMO.tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(ms));
+    const utcMs = (s) => { const t = Date.parse(String(s || '').replace(' UTC', '').replace(' ', 'T') + 'Z'); return isNaN(t) ? null : t; };
+    function renderFtmo() {
+      const card = $('ftmo-card');
+      card.style.display = store.acc === 'ftmo' ? '' : 'none';
+      if (store.acc !== 'ftmo') return;
+      const d = store.data.ftmo, real = isReal(d);
+      const a = real ? d.account : {};
+      const trades = real && Array.isArray(d.closed_trades) ? d.closed_trades : [];
+      const today = pragueDay(Date.now());
+      // realized today (all trades count for FTMO) -> balance at Prague midnight
+      const realizedToday = trades.filter(t => t.status === 'CLOSED' && utcMs(t.close_utc) && pragueDay(utcMs(t.close_utc)) === today).reduce((s, t) => s + (Number(t.profit) || 0), 0);
+      const dayStart = real ? a.balance - realizedToday : null;
+      const prog = real ? a.balance - FTMO.initial : null;
+      const tg = $('ftmo-target');
+      tg.textContent = real ? `${fmtUSD(prog, true)} · ${fmtUSD(Math.max(0, FTMO.target - a.balance))} to go` : '—';
+      tg.className = 'num ' + (real ? cls(prog) : '');
+      $('ftmo-target-bar').style.width = (real ? Math.max(0, Math.min(100, prog / (FTMO.target - FTMO.initial) * 100)) : 0) + '%';
+      const dl = real ? a.equity - (dayStart - FTMO.dailyLoss) : null;
+      const db = $('ftmo-daily'); db.textContent = real ? `${fmtUSD(dl)} of $500` : '—'; db.className = 'num ' + (real ? (dl < 150 ? 'neg' : dl < 300 ? 'warn' : 'pos') : '');
+      const ml = real ? a.equity - FTMO.floor : null;
+      const mb = $('ftmo-max'); mb.textContent = real ? `${fmtUSD(ml)} of $1,000` : '—'; mb.className = 'num ' + (real ? (ml < 300 ? 'neg' : ml < 600 ? 'warn' : 'pos') : '');
+      const days = new Set(trades.map(t => utcMs(t.open_utc)).filter(Boolean).map(pragueDay));
+      if (real && d.execution && Array.isArray(d.execution.open_positions) && d.execution.open_positions.length) days.add(today);
+      setText('ftmo-tdays', real ? `${days.size} of ${FTMO.minDays}` : '—');
+      setText('ftmo-days-chip', real ? (a.balance >= FTMO.target && days.size >= FTMO.minDays ? 'Target hit' : `${Math.min(days.size, FTMO.minDays)}/${FTMO.minDays} days`) : 'Waiting for data');
+    }
+
     function renderCompetition() {
       const card = $('comp-card');
       card.style.display = store.acc === 'competition' ? '' : 'none';
@@ -1333,7 +1383,7 @@
 
     function renderAll() {
       renderStatus();
-      if (store.tab === 'overview') { renderOverview(); renderCompetition(); }
+      if (store.tab === 'overview') { renderOverview(); renderFtmo(); renderCompetition(); }
       if (store.tab === 'chart') { renderOverview(); renderChartTab(); }
       if (store.tab === 'calendar') { renderCalendar(); renderScorecard(); }
       if (store.tab === 'trades') { renderTrades(); renderLogs(); }
