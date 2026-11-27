@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-27 13:17:51 UTC",
+  "updated_at": "2026-11-27 13:18:33 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
-      "timestamp": "13:17:32 UTC",
-      "generated_epoch": 1795785452.1111941,
+      "timestamp": "13:18:32 UTC",
+      "generated_epoch": 1795785512.1878805,
       "account_type": "ftmo",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 10941s / 180s elapsed",
+          "detail": "Armed: Minimum 185s hold strictly enforced on any entry",
           "can_close": true
         },
         "news_filter": {
@@ -21,22 +21,22 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $-92.10 (Limit: -$200.00)"
+          "detail": "Floating PnL: $+0.00 (Limit: -$200.00)"
         },
         "daily_circuit_breaker": {
           "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-95.59 | Since reset: $-188.02 of -$350.00"
+          "detail": "2/2 Trades | 2/2 Losses | Daily PnL: $-192.46 | Since reset: $-192.79 of -$350.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($9,000.00)",
-          "detail": "Equity: $9,811.98 (Safety Cushion: $811.98)"
+          "detail": "Equity: $9,807.21 (Safety Cushion: $807.21)"
         },
         "anti_martingale": {
           "passed": true,
           "name": "Anti-Martingale & Single Position Rule",
-          "detail": "1/1 Open Positions (Grid/Martingale Strictly Disabled)"
+          "detail": "0/1 Open Positions (Grid/Martingale Strictly Disabled)"
         },
         "weekend_filter": {
           "passed": true,
@@ -59,66 +59,54 @@
       "account": {
         "login": 540338873,
         "name": "$10k FTMO Challenge 2-Step",
-        "balance": 9904.08,
-        "equity": 9811.98,
+        "balance": 9807.21,
+        "equity": 9807.21,
         "currency": "USD",
         "phase": "FTMO 2-Step 10K",
         "initial_balance": 10000.0,
         "target_amount": 11000.0,
-        "distance_to_target": 1188.02,
+        "distance_to_target": 1192.79,
         "progress_pct": 0,
         "max_loss_floor": 9000.0,
-        "safety_buffer": 811.98,
+        "safety_buffer": 807.21,
         "daily_trades_used": 2,
         "max_daily_trades": 2,
-        "daily_losses_used": 1,
-        "daily_drawdown_risk": "1.01% per trade"
+        "daily_losses_used": 2,
+        "daily_drawdown_risk": "0.97% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3655.07,
-        "ask": 3655.54,
-        "spread": 0.47,
-        "atr14": 6.62,
+        "bid": 3649.78,
+        "ask": 3650.26,
+        "spread": 0.48,
+        "atr14": 7.05,
         "vah": 3595.84,
         "val": 3562.25,
         "poc": 3579.04,
-        "dist_to_vah": -59.23,
-        "dist_to_val": 92.82,
-        "ema50": 3647.95,
-        "ema200": 3600.87,
+        "dist_to_vah": -53.94,
+        "dist_to_val": 87.53,
+        "ema50": 3647.74,
+        "ema200": 3600.81,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 13:17",
+        "status_label": "UTC 13:18",
         "current_hour_utc": 13,
-        "current_min_utc": 17
+        "current_min_utc": 18
       },
       "execution": {
-        "armed_lot_size": "0.1 Lots",
-        "armed_risk_dollars": "$99.28 (1.01% Equity)",
+        "armed_lot_size": "0.09 Lots",
+        "armed_risk_dollars": "$95.17 (0.97% Equity)",
         "armed_target_profit": "1:2.0 R:R",
-        "open_positions": [
-          {
-            "ticket": 187263397,
-            "symbol": "XAUUSD",
-            "type": "BUY",
-            "volume": 0.06,
-            "open_price": 3670.42,
-            "current_price": 3655.07,
-            "sl": 3654.55,
-            "tp": 3702.27,
-            "profit": -92.1,
-            "time": 1795774511
-          }
-        ],
-        "active_trade_count": 1,
-        "floating_pnl": -92.1,
+        "open_positions": [],
+        "active_trade_count": 0,
+        "floating_pnl": 0,
         "live_logs": [
           "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
           "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m",
-          "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)"
+          "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)",
+          "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
         ]
       },
       "closed_trades": [
@@ -129,9 +117,13 @@
           "volume": 0.06,
           "open_price": 3670.42,
           "open_utc": "2026-11-27 08:15",
-          "status": "OPEN",
+          "status": "CLOSED",
           "magic": 400500,
-          "comment": "FTMOAlpha"
+          "comment": "FTMOAlpha",
+          "close_price": 3654.3,
+          "close_utc": "2026-11-27 13:17",
+          "profit": -97.02,
+          "hold_min": 302
         },
         {
           "ticket": 187219997,
@@ -152,7 +144,8 @@
       "trade_events": [
         "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
         "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m",
-        "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)"
+        "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)",
+        "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
       ],
       "candles": [
         {
@@ -712,8 +705,8 @@
           "time": 1795785300,
           "open": 3657.2,
           "high": 3658.97,
-          "low": 3655.04,
-          "close": 3655.07
+          "low": 3649.01,
+          "close": 3649.78
         }
       ],
       "ema50_series": [
@@ -1035,7 +1028,7 @@
         },
         {
           "time": 1795785300,
-          "value": 3647.95
+          "value": 3647.74
         }
       ],
       "ema200_series": [
@@ -1357,14 +1350,14 @@
         },
         {
           "time": 1795785300,
-          "value": 3600.87
+          "value": 3600.81
         }
       ],
-      "state_age_sec": 19,
+      "state_age_sec": 0,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-27T13:17:32.124250+00:00",
-        "heartbeat_epoch": 1795785452.1242502,
+        "heartbeat_utc": "2026-11-27T13:18:32.203627+00:00",
+        "heartbeat_epoch": 1795785512.2036273,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1372,7 +1365,7 @@
         "account_trade_allowed": true,
         "login": 540338873,
         "server": "FTMO-Server4",
-        "equity": 9812.16,
+        "equity": 9807.21,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32",
@@ -1382,7 +1375,6 @@
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-27 08:30:12 UTC] [FTMO] EVAL bar 11-27 08:15: no signal: upper wick too big | close=3674.48 VAH=3595.84 VAL=3562.25 hh20=3670.11 ll20=3624.18 ema50=3619.38 ema200=3585.59",
         "[2026-11-27 08:45:13 UTC] [FTMO] EVAL bar 11-27 08:30: no signal: no 20-bar high break | close=3674.80 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3624.41 ema50=3621.55 ema200=3587.08",
         "[2026-11-27 09:00:14 UTC] [FTMO] EVAL bar 11-27 08:45: no signal: no 20-bar high break, upper wick too big | close=3677.36 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3626.85 ema50=3623.74 ema200=3588.57",
         "[2026-11-27 09:15:15 UTC] [FTMO] EVAL bar 11-27 09:00: no signal: upper wick too big | close=3681.48 VAH=3595.84 VAL=3562.25 hh20=3680.85 ll20=3626.85 ema50=3626.00 ema200=3589.07",
@@ -1401,7 +1393,8 @@
         "[2026-11-27 12:30:08 UTC] [FTMO] EVAL bar 11-27 12:15: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 12:45:09 UTC] [FTMO] EVAL bar 11-27 12:30: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 13:00:10 UTC] [FTMO] EVAL bar 11-27 12:45: off-session (bar hour 12:00 UTC)",
-        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32"
+        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32",
+        "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
       ]
     },
     "exness": {
@@ -1449,7 +1442,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1224 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1225 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -2939,7 +2932,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 73486,
+      "state_age_sec": 73527,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -2962,7 +2955,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 08:30:12 UTC] [FTMO] EVAL bar 11-27 08:15: no signal: upper wick too big | close=3674.48 VAH=3595.84 VAL=3562.25 hh20=3670.11 ll20=3624.18 ema50=3619.38 ema200=3585.59",
         "[2026-11-27 08:45:13 UTC] [FTMO] EVAL bar 11-27 08:30: no signal: no 20-bar high break | close=3674.80 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3624.41 ema50=3621.55 ema200=3587.08",
         "[2026-11-27 09:00:14 UTC] [FTMO] EVAL bar 11-27 08:45: no signal: no 20-bar high break, upper wick too big | close=3677.36 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3626.85 ema50=3623.74 ema200=3588.57",
         "[2026-11-27 09:15:15 UTC] [FTMO] EVAL bar 11-27 09:00: no signal: upper wick too big | close=3681.48 VAH=3595.84 VAL=3562.25 hh20=3680.85 ll20=3626.85 ema50=3626.00 ema200=3589.07",
@@ -2981,7 +2973,8 @@
         "[2026-11-27 12:30:08 UTC] [FTMO] EVAL bar 11-27 12:15: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 12:45:09 UTC] [FTMO] EVAL bar 11-27 12:30: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 13:00:10 UTC] [FTMO] EVAL bar 11-27 12:45: off-session (bar hour 12:00 UTC)",
-        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32"
+        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32",
+        "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
       ]
     },
     "phase1": {
@@ -3029,7 +3022,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1224 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1225 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -4603,7 +4596,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 73480,
+      "state_age_sec": 73521,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -4626,7 +4619,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 08:30:12 UTC] [FTMO] EVAL bar 11-27 08:15: no signal: upper wick too big | close=3674.48 VAH=3595.84 VAL=3562.25 hh20=3670.11 ll20=3624.18 ema50=3619.38 ema200=3585.59",
         "[2026-11-27 08:45:13 UTC] [FTMO] EVAL bar 11-27 08:30: no signal: no 20-bar high break | close=3674.80 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3624.41 ema50=3621.55 ema200=3587.08",
         "[2026-11-27 09:00:14 UTC] [FTMO] EVAL bar 11-27 08:45: no signal: no 20-bar high break, upper wick too big | close=3677.36 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3626.85 ema50=3623.74 ema200=3588.57",
         "[2026-11-27 09:15:15 UTC] [FTMO] EVAL bar 11-27 09:00: no signal: upper wick too big | close=3681.48 VAH=3595.84 VAL=3562.25 hh20=3680.85 ll20=3626.85 ema50=3626.00 ema200=3589.07",
@@ -4645,7 +4637,8 @@
         "[2026-11-27 12:30:08 UTC] [FTMO] EVAL bar 11-27 12:15: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 12:45:09 UTC] [FTMO] EVAL bar 11-27 12:30: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 13:00:10 UTC] [FTMO] EVAL bar 11-27 12:45: off-session (bar hour 12:00 UTC)",
-        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32"
+        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32",
+        "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
       ]
     },
     "competition": {
@@ -4693,7 +4686,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1224 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1225 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -6257,7 +6250,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 73487,
+      "state_age_sec": 73528,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
@@ -6280,7 +6273,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 08:30:12 UTC] [FTMO] EVAL bar 11-27 08:15: no signal: upper wick too big | close=3674.48 VAH=3595.84 VAL=3562.25 hh20=3670.11 ll20=3624.18 ema50=3619.38 ema200=3585.59",
         "[2026-11-27 08:45:13 UTC] [FTMO] EVAL bar 11-27 08:30: no signal: no 20-bar high break | close=3674.80 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3624.41 ema50=3621.55 ema200=3587.08",
         "[2026-11-27 09:00:14 UTC] [FTMO] EVAL bar 11-27 08:45: no signal: no 20-bar high break, upper wick too big | close=3677.36 VAH=3595.84 VAL=3562.25 hh20=3679.78 ll20=3626.85 ema50=3623.74 ema200=3588.57",
         "[2026-11-27 09:15:15 UTC] [FTMO] EVAL bar 11-27 09:00: no signal: upper wick too big | close=3681.48 VAH=3595.84 VAL=3562.25 hh20=3680.85 ll20=3626.85 ema50=3626.00 ema200=3589.07",
@@ -6299,7 +6291,8 @@
         "[2026-11-27 12:30:08 UTC] [FTMO] EVAL bar 11-27 12:15: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 12:45:09 UTC] [FTMO] EVAL bar 11-27 12:30: off-session (bar hour 12:00 UTC)",
         "[2026-11-27 13:00:10 UTC] [FTMO] EVAL bar 11-27 12:45: off-session (bar hour 12:00 UTC)",
-        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32"
+        "[2026-11-27 13:15:11 UTC] [FTMO] EVAL bar 11-27 13:00: no signal: no 20-bar high break | close=3657.10 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3658.15 ema50=3647.65 ema200=3600.32",
+        "[2026-11-27 13:17:52 UTC] [FTMO] CLOSED #187263397 BUY 0.06L 3670.42 -> 3654.3 P/L $-97.02 held 302m"
       ]
     }
   }
