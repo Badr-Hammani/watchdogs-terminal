@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-11-27 05:30:16 UTC",
+  "updated_at": "2026-11-27 05:30:58 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
-      "timestamp": "05:29:59 UTC",
-      "generated_epoch": 1795757399.8416407,
+      "timestamp": "05:30:40 UTC",
+      "generated_epoch": 1795757440.0826714,
       "account_type": "ftmo",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "Armed: Minimum 185s hold strictly enforced on any entry",
-          "can_close": true
+          "detail": "LOCKED: -7179s / 180s elapsed",
+          "can_close": false
         },
         "news_filter": {
           "passed": true,
@@ -21,22 +21,22 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+0.00 (Limit: -$200.00)"
+          "detail": "Floating PnL: $+8.89 (Limit: -$200.00)"
         },
         "daily_circuit_breaker": {
           "passed": true,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "0/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $-0.00 of -$350.00"
+          "detail": "1/2 Trades | 0/2 Losses | Daily PnL: $+0.00 | Since reset: $+8.71 of -$350.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($9,000.00)",
-          "detail": "Equity: $10,000.00 (Safety Cushion: $1,000.00)"
+          "detail": "Equity: $10,008.71 (Safety Cushion: $1,008.71)"
         },
         "anti_martingale": {
           "passed": true,
           "name": "Anti-Martingale & Single Position Rule",
-          "detail": "0/1 Open Positions (Grid/Martingale Strictly Disabled)"
+          "detail": "1/1 Open Positions (Grid/Martingale Strictly Disabled)"
         },
         "weekend_filter": {
           "passed": true,
@@ -54,66 +54,88 @@
         "server": "FTMO-Server4",
         "ping": "31 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49"
+        "last_signal_eval": "bar 11-27 05:15: BUY"
       },
       "account": {
         "login": 540338873,
         "name": "$10k FTMO Challenge 2-Step",
-        "balance": 10000.0,
-        "equity": 10000.0,
+        "balance": 9999.82,
+        "equity": 10008.71,
         "currency": "USD",
         "phase": "FTMO 2-Step 10K",
         "initial_balance": 10000.0,
         "target_amount": 11000.0,
-        "distance_to_target": 1000.0,
-        "progress_pct": 0,
+        "distance_to_target": 991.29,
+        "progress_pct": 0.9,
         "max_loss_floor": 9000.0,
-        "safety_buffer": 1000.0,
-        "daily_trades_used": 0,
+        "safety_buffer": 1008.71,
+        "daily_trades_used": 1,
         "max_daily_trades": 2,
         "daily_losses_used": 0,
-        "daily_drawdown_risk": "0.98% per trade"
+        "daily_drawdown_risk": "0.97% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3653.2,
-        "ask": 3653.72,
+        "bid": 3663.97,
+        "ask": 3664.49,
         "spread": 0.52,
-        "atr14": 10.88,
+        "atr14": 9.28,
         "vah": 3595.84,
         "val": 3562.25,
         "poc": 3579.04,
-        "dist_to_vah": -57.36,
-        "dist_to_val": 90.95,
-        "ema50": 3596.13,
-        "ema200": 3576.26,
+        "dist_to_vah": -68.13,
+        "dist_to_val": 101.72,
+        "ema50": 3598.79,
+        "ema200": 3577.35,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 05:29",
+        "status_label": "UTC 05:30",
         "current_hour_utc": 5,
-        "current_min_utc": 29
+        "current_min_utc": 30
       },
       "execution": {
-        "armed_lot_size": "0.06 Lots",
-        "armed_risk_dollars": "$97.95 (0.98% Equity)",
+        "armed_lot_size": "0.07 Lots",
+        "armed_risk_dollars": "$97.44 (0.97% Equity)",
         "armed_target_profit": "1:2.0 R:R",
-        "open_positions": [],
-        "active_trade_count": 0,
-        "floating_pnl": 0,
-        "live_logs": []
+        "open_positions": [
+          {
+            "ticket": 187219997,
+            "symbol": "XAUUSD",
+            "type": "BUY",
+            "volume": 0.07,
+            "open_price": 3662.7,
+            "current_price": 3663.97,
+            "sl": 3649.22,
+            "tp": 3689.62,
+            "profit": 8.89,
+            "time": 1795764620
+          }
+        ],
+        "active_trade_count": 1,
+        "floating_pnl": 8.89,
+        "live_logs": [
+          "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
+        ]
       },
-      "closed_trades": [],
-      "trade_events": [],
-      "candles": [
+      "closed_trades": [
         {
-          "time": 1795672800,
-          "open": 3580.22,
-          "high": 3583.56,
-          "low": 3568.84,
-          "close": 3569.81
-        },
+          "ticket": 187219997,
+          "symbol": "XAUUSD",
+          "side": "BUY",
+          "volume": 0.07,
+          "open_price": 3662.7,
+          "open_utc": "2026-11-27 05:30",
+          "status": "OPEN",
+          "magic": 400500,
+          "comment": "FTMOAlpha"
+        }
+      ],
+      "trade_events": [
+        "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
+      ],
+      "candles": [
         {
           "time": 1795673700,
           "open": 3569.77,
@@ -665,14 +687,17 @@
           "open": 3638.49,
           "high": 3653.33,
           "low": 3637.76,
-          "close": 3653.2
+          "close": 3653.19
+        },
+        {
+          "time": 1795757400,
+          "open": 3653.15,
+          "high": 3666.41,
+          "low": 3653.15,
+          "close": 3663.97
         }
       ],
       "ema50_series": [
-        {
-          "time": 1795672800,
-          "value": 3565.84
-        },
         {
           "time": 1795673700,
           "value": 3566.06
@@ -815,7 +840,7 @@
         },
         {
           "time": 1795705200,
-          "value": 3568.93
+          "value": 3568.94
         },
         {
           "time": 1795706100,
@@ -988,335 +1013,339 @@
         {
           "time": 1795756500,
           "value": 3596.13
+        },
+        {
+          "time": 1795757400,
+          "value": 3598.79
         }
       ],
       "ema200_series": [
         {
-          "time": 1795672800,
-          "value": 3566.83
-        },
-        {
           "time": 1795673700,
-          "value": 3566.87
+          "value": 3567.35
         },
         {
           "time": 1795674600,
-          "value": 3566.87
+          "value": 3567.34
         },
         {
           "time": 1795675500,
-          "value": 3566.89
+          "value": 3567.36
         },
         {
           "time": 1795676400,
-          "value": 3566.92
+          "value": 3567.38
         },
         {
           "time": 1795677300,
-          "value": 3566.95
+          "value": 3567.41
         },
         {
           "time": 1795678200,
-          "value": 3566.99
+          "value": 3567.45
         },
         {
           "time": 1795679100,
-          "value": 3566.97
+          "value": 3567.42
         },
         {
           "time": 1795680000,
-          "value": 3566.95
+          "value": 3567.39
         },
         {
           "time": 1795680900,
-          "value": 3566.94
+          "value": 3567.38
         },
         {
           "time": 1795681800,
-          "value": 3566.96
+          "value": 3567.39
         },
         {
           "time": 1795682700,
-          "value": 3567.01
+          "value": 3567.44
         },
         {
           "time": 1795683600,
-          "value": 3567.06
+          "value": 3567.48
         },
         {
           "time": 1795684500,
-          "value": 3567.1
+          "value": 3567.52
         },
         {
           "time": 1795685400,
-          "value": 3567.19
+          "value": 3567.61
         },
         {
           "time": 1795686300,
-          "value": 3567.27
+          "value": 3567.68
         },
         {
           "time": 1795687200,
-          "value": 3567.25
-        },
-        {
-          "time": 1795688100,
-          "value": 3567.2
-        },
-        {
-          "time": 1795689000,
-          "value": 3567.08
-        },
-        {
-          "time": 1795689900,
-          "value": 3566.96
-        },
-        {
-          "time": 1795690800,
-          "value": 3566.96
-        },
-        {
-          "time": 1795691700,
-          "value": 3566.96
-        },
-        {
-          "time": 1795692600,
-          "value": 3566.94
-        },
-        {
-          "time": 1795693500,
-          "value": 3566.94
-        },
-        {
-          "time": 1795694400,
-          "value": 3566.95
-        },
-        {
-          "time": 1795695300,
-          "value": 3566.96
-        },
-        {
-          "time": 1795696200,
-          "value": 3566.99
-        },
-        {
-          "time": 1795697100,
-          "value": 3567.01
-        },
-        {
-          "time": 1795698000,
-          "value": 3566.98
-        },
-        {
-          "time": 1795698900,
-          "value": 3567.01
-        },
-        {
-          "time": 1795699800,
-          "value": 3567.03
-        },
-        {
-          "time": 1795700700,
-          "value": 3567.07
-        },
-        {
-          "time": 1795701600,
-          "value": 3567.14
-        },
-        {
-          "time": 1795702500,
-          "value": 3567.22
-        },
-        {
-          "time": 1795703400,
-          "value": 3567.33
-        },
-        {
-          "time": 1795704300,
-          "value": 3567.47
-        },
-        {
-          "time": 1795705200,
-          "value": 3567.56
-        },
-        {
-          "time": 1795706100,
-          "value": 3567.62
-        },
-        {
-          "time": 1795707000,
           "value": 3567.66
         },
         {
-          "time": 1795707900,
-          "value": 3567.71
+          "time": 1795688100,
+          "value": 3567.61
         },
         {
-          "time": 1795708800,
-          "value": 3567.8
+          "time": 1795689000,
+          "value": 3567.48
         },
         {
-          "time": 1795709700,
-          "value": 3567.84
+          "time": 1795689900,
+          "value": 3567.36
         },
         {
-          "time": 1795710600,
-          "value": 3567.9
+          "time": 1795690800,
+          "value": 3567.36
         },
         {
-          "time": 1795711500,
-          "value": 3567.94
+          "time": 1795691700,
+          "value": 3567.35
         },
         {
-          "time": 1795712400,
-          "value": 3567.96
+          "time": 1795692600,
+          "value": 3567.33
         },
         {
-          "time": 1795713300,
-          "value": 3567.96
+          "time": 1795693500,
+          "value": 3567.32
         },
         {
-          "time": 1795714200,
-          "value": 3567.94
+          "time": 1795694400,
+          "value": 3567.33
         },
         {
-          "time": 1795715100,
-          "value": 3567.93
+          "time": 1795695300,
+          "value": 3567.34
         },
         {
-          "time": 1795716000,
-          "value": 3567.92
+          "time": 1795696200,
+          "value": 3567.36
         },
         {
-          "time": 1795716900,
-          "value": 3567.92
+          "time": 1795697100,
+          "value": 3567.37
         },
         {
-          "time": 1795717800,
-          "value": 3567.93
+          "time": 1795698000,
+          "value": 3567.35
         },
         {
-          "time": 1795718700,
-          "value": 3567.93
+          "time": 1795698900,
+          "value": 3567.37
         },
         {
-          "time": 1795719600,
-          "value": 3567.92
+          "time": 1795699800,
+          "value": 3567.39
         },
         {
-          "time": 1795720500,
-          "value": 3567.89
+          "time": 1795700700,
+          "value": 3567.43
         },
         {
-          "time": 1795734000,
-          "value": 3567.87
+          "time": 1795701600,
+          "value": 3567.49
         },
         {
-          "time": 1795734900,
-          "value": 3567.86
+          "time": 1795702500,
+          "value": 3567.56
         },
         {
-          "time": 1795735800,
-          "value": 3567.85
+          "time": 1795703400,
+          "value": 3567.67
         },
         {
-          "time": 1795736700,
-          "value": 3567.85
-        },
-        {
-          "time": 1795737600,
-          "value": 3567.84
-        },
-        {
-          "time": 1795738500,
-          "value": 3567.83
-        },
-        {
-          "time": 1795739400,
+          "time": 1795704300,
           "value": 3567.81
         },
         {
-          "time": 1795740300,
-          "value": 3567.74
+          "time": 1795705200,
+          "value": 3567.89
         },
         {
-          "time": 1795741200,
-          "value": 3567.76
+          "time": 1795706100,
+          "value": 3567.95
         },
         {
-          "time": 1795742100,
-          "value": 3567.84
+          "time": 1795707000,
+          "value": 3567.99
         },
         {
-          "time": 1795743000,
-          "value": 3567.88
+          "time": 1795707900,
+          "value": 3568.04
         },
         {
-          "time": 1795743900,
+          "time": 1795708800,
+          "value": 3568.12
+        },
+        {
+          "time": 1795709700,
+          "value": 3568.16
+        },
+        {
+          "time": 1795710600,
+          "value": 3568.22
+        },
+        {
+          "time": 1795711500,
+          "value": 3568.25
+        },
+        {
+          "time": 1795712400,
+          "value": 3568.27
+        },
+        {
+          "time": 1795713300,
+          "value": 3568.27
+        },
+        {
+          "time": 1795714200,
+          "value": 3568.24
+        },
+        {
+          "time": 1795715100,
+          "value": 3568.23
+        },
+        {
+          "time": 1795716000,
+          "value": 3568.22
+        },
+        {
+          "time": 1795716900,
+          "value": 3568.22
+        },
+        {
+          "time": 1795717800,
+          "value": 3568.22
+        },
+        {
+          "time": 1795718700,
+          "value": 3568.22
+        },
+        {
+          "time": 1795719600,
+          "value": 3568.21
+        },
+        {
+          "time": 1795720500,
+          "value": 3568.17
+        },
+        {
+          "time": 1795734000,
           "value": 3568.15
         },
         {
+          "time": 1795734900,
+          "value": 3568.13
+        },
+        {
+          "time": 1795735800,
+          "value": 3568.12
+        },
+        {
+          "time": 1795736700,
+          "value": 3568.12
+        },
+        {
+          "time": 1795737600,
+          "value": 3568.11
+        },
+        {
+          "time": 1795738500,
+          "value": 3568.1
+        },
+        {
+          "time": 1795739400,
+          "value": 3568.07
+        },
+        {
+          "time": 1795740300,
+          "value": 3568.0
+        },
+        {
+          "time": 1795741200,
+          "value": 3568.02
+        },
+        {
+          "time": 1795742100,
+          "value": 3568.1
+        },
+        {
+          "time": 1795743000,
+          "value": 3568.14
+        },
+        {
+          "time": 1795743900,
+          "value": 3568.4
+        },
+        {
           "time": 1795744800,
-          "value": 3568.61
+          "value": 3568.86
         },
         {
           "time": 1795745700,
-          "value": 3569.08
+          "value": 3569.33
         },
         {
           "time": 1795746600,
-          "value": 3569.66
+          "value": 3569.9
         },
         {
           "time": 1795747500,
-          "value": 3570.18
+          "value": 3570.42
         },
         {
           "time": 1795748400,
-          "value": 3570.76
+          "value": 3571.0
         },
         {
           "time": 1795749300,
-          "value": 3571.31
+          "value": 3571.54
         },
         {
           "time": 1795750200,
-          "value": 3571.89
+          "value": 3572.12
         },
         {
           "time": 1795751100,
-          "value": 3572.46
+          "value": 3572.69
         },
         {
           "time": 1795752000,
-          "value": 3573.05
+          "value": 3573.28
         },
         {
           "time": 1795752900,
-          "value": 3573.65
+          "value": 3573.88
         },
         {
           "time": 1795753800,
-          "value": 3574.27
+          "value": 3574.5
         },
         {
           "time": 1795754700,
-          "value": 3574.86
+          "value": 3575.08
         },
         {
           "time": 1795755600,
-          "value": 3575.49
+          "value": 3575.71
         },
         {
           "time": 1795756500,
-          "value": 3576.26
+          "value": 3576.48
+        },
+        {
+          "time": 1795757400,
+          "value": 3577.35
         }
       ],
-      "state_age_sec": 17,
+      "state_age_sec": 18,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-27T05:29:59.854211+00:00",
-        "heartbeat_epoch": 1795757399.8542118,
+        "heartbeat_utc": "2026-11-27T05:30:40.114041+00:00",
+        "heartbeat_epoch": 1795757440.114041,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1324,18 +1353,16 @@
         "account_trade_allowed": true,
         "login": 540338873,
         "server": "FTMO-Server4",
-        "equity": 10000.0,
+        "equity": 10008.71,
         "consecutive_failures": 0,
         "last_error": null,
-        "last_signal_eval": "bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49",
-        "last_order": null,
+        "last_signal_eval": "bar 11-27 05:15: BUY",
+        "last_order": "2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
         "market_data_ok": true,
         "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
-        "[2026-11-27 00:30:19 UTC] [FTMO] EVAL bar 11-27 00:15: no signal: above VAL, no 20-bar low break | close=3566.80 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.63 ema200=3569.91",
-        "[2026-11-27 00:45:00 UTC] [FTMO] EVAL bar 11-27 00:30: no signal: above VAL, no 20-bar low break | close=3565.64 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.52 ema200=3569.49",
         "[2026-11-27 01:00:02 UTC] [FTMO] EVAL bar 11-27 00:45: no signal: lower wick too big | close=3560.88 VAH=3595.84 VAL=3562.25 hh20=3577.98 ll20=3563.70 ema50=3568.22 ema200=3569.32",
         "[2026-11-27 01:15:03 UTC] [FTMO] EVAL bar 11-27 01:00: no signal: no trend regime | close=3569.82 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3558.09 ema50=3568.28 ema200=3569.38",
         "[2026-11-27 01:30:04 UTC] [FTMO] EVAL bar 11-27 01:15: no signal: no trend regime | close=3576.16 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3557.47 ema50=3568.59 ema200=3569.68",
@@ -1353,7 +1380,9 @@
         "[2026-11-27 04:30:16 UTC] [FTMO] EVAL bar 11-27 04:15: no signal: no 20-bar high break, upper wick too big | close=3633.40 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3588.42 ema200=3574.19",
         "[2026-11-27 04:45:17 UTC] [FTMO] EVAL bar 11-27 04:30: no signal: no 20-bar high break | close=3636.30 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3590.30 ema200=3574.27",
         "[2026-11-27 05:00:17 UTC] [FTMO] EVAL bar 11-27 04:45: no signal: no 20-bar high break, upper wick too big | close=3633.01 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3591.97 ema200=3574.98",
-        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49"
+        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49",
+        "[2026-11-27 05:30:19 UTC] [FTMO] EVAL bar 11-27 05:15: BUY",
+        "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
       ]
     },
     "exness": {
@@ -2891,7 +2920,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 45431,
+      "state_age_sec": 45473,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -2914,8 +2943,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 00:30:19 UTC] [FTMO] EVAL bar 11-27 00:15: no signal: above VAL, no 20-bar low break | close=3566.80 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.63 ema200=3569.91",
-        "[2026-11-27 00:45:00 UTC] [FTMO] EVAL bar 11-27 00:30: no signal: above VAL, no 20-bar low break | close=3565.64 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.52 ema200=3569.49",
         "[2026-11-27 01:00:02 UTC] [FTMO] EVAL bar 11-27 00:45: no signal: lower wick too big | close=3560.88 VAH=3595.84 VAL=3562.25 hh20=3577.98 ll20=3563.70 ema50=3568.22 ema200=3569.32",
         "[2026-11-27 01:15:03 UTC] [FTMO] EVAL bar 11-27 01:00: no signal: no trend regime | close=3569.82 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3558.09 ema50=3568.28 ema200=3569.38",
         "[2026-11-27 01:30:04 UTC] [FTMO] EVAL bar 11-27 01:15: no signal: no trend regime | close=3576.16 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3557.47 ema50=3568.59 ema200=3569.68",
@@ -2933,7 +2960,9 @@
         "[2026-11-27 04:30:16 UTC] [FTMO] EVAL bar 11-27 04:15: no signal: no 20-bar high break, upper wick too big | close=3633.40 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3588.42 ema200=3574.19",
         "[2026-11-27 04:45:17 UTC] [FTMO] EVAL bar 11-27 04:30: no signal: no 20-bar high break | close=3636.30 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3590.30 ema200=3574.27",
         "[2026-11-27 05:00:17 UTC] [FTMO] EVAL bar 11-27 04:45: no signal: no 20-bar high break, upper wick too big | close=3633.01 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3591.97 ema200=3574.98",
-        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49"
+        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49",
+        "[2026-11-27 05:30:19 UTC] [FTMO] EVAL bar 11-27 05:15: BUY",
+        "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
       ]
     },
     "phase1": {
@@ -4555,7 +4584,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 45425,
+      "state_age_sec": 45467,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -4578,8 +4607,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 00:30:19 UTC] [FTMO] EVAL bar 11-27 00:15: no signal: above VAL, no 20-bar low break | close=3566.80 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.63 ema200=3569.91",
-        "[2026-11-27 00:45:00 UTC] [FTMO] EVAL bar 11-27 00:30: no signal: above VAL, no 20-bar low break | close=3565.64 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.52 ema200=3569.49",
         "[2026-11-27 01:00:02 UTC] [FTMO] EVAL bar 11-27 00:45: no signal: lower wick too big | close=3560.88 VAH=3595.84 VAL=3562.25 hh20=3577.98 ll20=3563.70 ema50=3568.22 ema200=3569.32",
         "[2026-11-27 01:15:03 UTC] [FTMO] EVAL bar 11-27 01:00: no signal: no trend regime | close=3569.82 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3558.09 ema50=3568.28 ema200=3569.38",
         "[2026-11-27 01:30:04 UTC] [FTMO] EVAL bar 11-27 01:15: no signal: no trend regime | close=3576.16 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3557.47 ema50=3568.59 ema200=3569.68",
@@ -4597,7 +4624,9 @@
         "[2026-11-27 04:30:16 UTC] [FTMO] EVAL bar 11-27 04:15: no signal: no 20-bar high break, upper wick too big | close=3633.40 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3588.42 ema200=3574.19",
         "[2026-11-27 04:45:17 UTC] [FTMO] EVAL bar 11-27 04:30: no signal: no 20-bar high break | close=3636.30 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3590.30 ema200=3574.27",
         "[2026-11-27 05:00:17 UTC] [FTMO] EVAL bar 11-27 04:45: no signal: no 20-bar high break, upper wick too big | close=3633.01 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3591.97 ema200=3574.98",
-        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49"
+        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49",
+        "[2026-11-27 05:30:19 UTC] [FTMO] EVAL bar 11-27 05:15: BUY",
+        "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
       ]
     },
     "competition": {
@@ -6209,7 +6238,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 45432,
+      "state_age_sec": 45474,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
@@ -6232,8 +6261,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 00:30:19 UTC] [FTMO] EVAL bar 11-27 00:15: no signal: above VAL, no 20-bar low break | close=3566.80 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.63 ema200=3569.91",
-        "[2026-11-27 00:45:00 UTC] [FTMO] EVAL bar 11-27 00:30: no signal: above VAL, no 20-bar low break | close=3565.64 VAH=3595.84 VAL=3562.25 hh20=3578.15 ll20=3563.70 ema50=3568.52 ema200=3569.49",
         "[2026-11-27 01:00:02 UTC] [FTMO] EVAL bar 11-27 00:45: no signal: lower wick too big | close=3560.88 VAH=3595.84 VAL=3562.25 hh20=3577.98 ll20=3563.70 ema50=3568.22 ema200=3569.32",
         "[2026-11-27 01:15:03 UTC] [FTMO] EVAL bar 11-27 01:00: no signal: no trend regime | close=3569.82 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3558.09 ema50=3568.28 ema200=3569.38",
         "[2026-11-27 01:30:04 UTC] [FTMO] EVAL bar 11-27 01:15: no signal: no trend regime | close=3576.16 VAH=3595.84 VAL=3562.25 hh20=3574.19 ll20=3557.47 ema50=3568.59 ema200=3569.68",
@@ -6251,7 +6278,9 @@
         "[2026-11-27 04:30:16 UTC] [FTMO] EVAL bar 11-27 04:15: no signal: no 20-bar high break, upper wick too big | close=3633.40 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3588.42 ema200=3574.19",
         "[2026-11-27 04:45:17 UTC] [FTMO] EVAL bar 11-27 04:30: no signal: no 20-bar high break | close=3636.30 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3590.30 ema200=3574.27",
         "[2026-11-27 05:00:17 UTC] [FTMO] EVAL bar 11-27 04:45: no signal: no 20-bar high break, upper wick too big | close=3633.01 VAH=3595.84 VAL=3562.25 hh20=3636.84 ll20=3557.47 ema50=3591.97 ema200=3574.98",
-        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49"
+        "[2026-11-27 05:15:18 UTC] [FTMO] EVAL bar 11-27 05:00: no signal: upper wick too big | close=3638.51 VAH=3595.84 VAL=3562.25 hh20=3637.72 ll20=3557.47 ema50=3593.80 ema200=3575.49",
+        "[2026-11-27 05:30:19 UTC] [FTMO] EVAL bar 11-27 05:15: BUY",
+        "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)"
       ]
     }
   }
