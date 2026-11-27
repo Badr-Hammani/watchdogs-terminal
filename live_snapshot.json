@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-27 22:01:46 UTC",
+  "updated_at": "2026-11-27 22:02:28 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
-      "timestamp": "22:01:35 UTC",
-      "generated_epoch": 1795816895.7713566,
+      "timestamp": "22:01:55 UTC",
+      "generated_epoch": 1795816915.7896554,
       "account_type": "ftmo",
       "rules_audit": {
         "3m_hold": {
@@ -1353,30 +1353,28 @@
           "value": 3608.63
         }
       ],
-      "state_age_sec": 10,
+      "state_age_sec": 32,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-27T22:01:35.787093+00:00",
-        "heartbeat_epoch": 1795816895.787093,
+        "heartbeat_utc": "2026-11-27T22:02:20.000341+00:00",
+        "heartbeat_epoch": 1795816940.0003417,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
-        "connected": true,
-        "terminal_autotrading": true,
-        "api_trading_enabled": true,
-        "account_trade_allowed": true,
-        "login": 540338873,
-        "server": "FTMO-Server4",
-        "equity": 9807.21,
-        "consecutive_failures": 0,
-        "last_error": null,
+        "connected": false,
+        "terminal_autotrading": false,
+        "api_trading_enabled": false,
+        "account_trade_allowed": false,
+        "login": null,
+        "server": null,
+        "equity": null,
+        "consecutive_failures": 1,
+        "last_error": "initialize failed: (-6, 'Terminal: Authorization failed')",
         "last_signal_eval": "bar 11-27 19:15: off-session (bar hour 19:00 UTC)",
         "last_order": "2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)",
         "market_data_ok": true,
-        "stage": "waiting_next_bar",
-        "can_trade": true
+        "stage": "connect",
+        "can_trade": false
       },
       "bot_logs": [
-        "[2026-11-27 14:45:17 UTC] [FTMO] EVAL bar 11-27 14:30: no signal: no trend regime | close=3636.19 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3632.32 ema50=3646.01 ema200=3602.01",
-        "[2026-11-27 15:00:18 UTC] [FTMO] EVAL bar 11-27 14:45: no signal: no trend regime | close=3636.85 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3625.07 ema50=3645.65 ema200=3602.31",
         "[2026-11-27 15:15:19 UTC] [FTMO] EVAL bar 11-27 15:00: no signal: no trend regime | close=3631.12 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3645.08 ema200=3602.53",
         "[2026-11-27 15:30:00 UTC] [FTMO] EVAL bar 11-27 15:15: no signal: no trend regime | close=3628.68 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3644.44 ema200=3602.52",
         "[2026-11-27 15:45:01 UTC] [FTMO] EVAL bar 11-27 15:30: no signal: no trend regime | close=3631.34 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3623.98 ema50=3643.93 ema200=3603.19",
@@ -1394,7 +1392,9 @@
         "[2026-11-27 18:45:13 UTC] [FTMO] EVAL bar 11-27 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:00:14 UTC] [FTMO] EVAL bar 11-27 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:15:15 UTC] [FTMO] EVAL bar 11-27 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)"
+        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)",
+        "[2026-11-27 22:02:15 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-27 22:02:20 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
       ]
     },
     "exness": {
@@ -1442,7 +1442,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1748 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1749 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -2932,7 +2932,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 104921,
+      "state_age_sec": 104962,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -2955,8 +2955,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 14:45:17 UTC] [FTMO] EVAL bar 11-27 14:30: no signal: no trend regime | close=3636.19 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3632.32 ema50=3646.01 ema200=3602.01",
-        "[2026-11-27 15:00:18 UTC] [FTMO] EVAL bar 11-27 14:45: no signal: no trend regime | close=3636.85 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3625.07 ema50=3645.65 ema200=3602.31",
         "[2026-11-27 15:15:19 UTC] [FTMO] EVAL bar 11-27 15:00: no signal: no trend regime | close=3631.12 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3645.08 ema200=3602.53",
         "[2026-11-27 15:30:00 UTC] [FTMO] EVAL bar 11-27 15:15: no signal: no trend regime | close=3628.68 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3644.44 ema200=3602.52",
         "[2026-11-27 15:45:01 UTC] [FTMO] EVAL bar 11-27 15:30: no signal: no trend regime | close=3631.34 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3623.98 ema50=3643.93 ema200=3603.19",
@@ -2974,7 +2972,9 @@
         "[2026-11-27 18:45:13 UTC] [FTMO] EVAL bar 11-27 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:00:14 UTC] [FTMO] EVAL bar 11-27 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:15:15 UTC] [FTMO] EVAL bar 11-27 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)"
+        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)",
+        "[2026-11-27 22:02:15 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-27 22:02:20 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
       ]
     },
     "phase1": {
@@ -3022,7 +3022,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1748 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1749 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -4596,7 +4596,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 104915,
+      "state_age_sec": 104956,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -4619,8 +4619,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 14:45:17 UTC] [FTMO] EVAL bar 11-27 14:30: no signal: no trend regime | close=3636.19 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3632.32 ema50=3646.01 ema200=3602.01",
-        "[2026-11-27 15:00:18 UTC] [FTMO] EVAL bar 11-27 14:45: no signal: no trend regime | close=3636.85 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3625.07 ema50=3645.65 ema200=3602.31",
         "[2026-11-27 15:15:19 UTC] [FTMO] EVAL bar 11-27 15:00: no signal: no trend regime | close=3631.12 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3645.08 ema200=3602.53",
         "[2026-11-27 15:30:00 UTC] [FTMO] EVAL bar 11-27 15:15: no signal: no trend regime | close=3628.68 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3644.44 ema200=3602.52",
         "[2026-11-27 15:45:01 UTC] [FTMO] EVAL bar 11-27 15:30: no signal: no trend regime | close=3631.34 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3623.98 ema50=3643.93 ema200=3603.19",
@@ -4638,7 +4636,9 @@
         "[2026-11-27 18:45:13 UTC] [FTMO] EVAL bar 11-27 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:00:14 UTC] [FTMO] EVAL bar 11-27 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:15:15 UTC] [FTMO] EVAL bar 11-27 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)"
+        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)",
+        "[2026-11-27 22:02:15 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-27 22:02:20 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
       ]
     },
     "competition": {
@@ -4686,7 +4686,7 @@
       "all_rules_passed": true,
       "rules_block_reason": null,
       "watchdog": {
-        "status": "OFFLINE - ENGINE DATA STALE (1748 min old)",
+        "status": "OFFLINE - ENGINE DATA STALE (1749 min old)",
         "connected": false,
         "trade_allowed": false,
         "expert_allowed": true,
@@ -6250,7 +6250,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 104922,
+      "state_age_sec": 104964,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
@@ -6273,8 +6273,6 @@
       },
       "status": "STALE",
       "bot_logs": [
-        "[2026-11-27 14:45:17 UTC] [FTMO] EVAL bar 11-27 14:30: no signal: no trend regime | close=3636.19 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3632.32 ema50=3646.01 ema200=3602.01",
-        "[2026-11-27 15:00:18 UTC] [FTMO] EVAL bar 11-27 14:45: no signal: no trend regime | close=3636.85 VAH=3595.84 VAL=3562.25 hh20=3681.12 ll20=3625.07 ema50=3645.65 ema200=3602.31",
         "[2026-11-27 15:15:19 UTC] [FTMO] EVAL bar 11-27 15:00: no signal: no trend regime | close=3631.12 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3645.08 ema200=3602.53",
         "[2026-11-27 15:30:00 UTC] [FTMO] EVAL bar 11-27 15:15: no signal: no trend regime | close=3628.68 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3625.07 ema50=3644.44 ema200=3602.52",
         "[2026-11-27 15:45:01 UTC] [FTMO] EVAL bar 11-27 15:30: no signal: no trend regime | close=3631.34 VAH=3595.84 VAL=3562.25 hh20=3680.28 ll20=3623.98 ema50=3643.93 ema200=3603.19",
@@ -6292,7 +6290,9 @@
         "[2026-11-27 18:45:13 UTC] [FTMO] EVAL bar 11-27 18:30: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:00:14 UTC] [FTMO] EVAL bar 11-27 18:45: off-session (bar hour 18:00 UTC)",
         "[2026-11-27 19:15:15 UTC] [FTMO] EVAL bar 11-27 19:00: off-session (bar hour 19:00 UTC)",
-        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)"
+        "[2026-11-27 19:30:16 UTC] [FTMO] EVAL bar 11-27 19:15: off-session (bar hour 19:00 UTC)",
+        "[2026-11-27 22:02:15 UTC] [FTMO] Connection lost ((1, 'Success')); reconnecting",
+        "[2026-11-27 22:02:20 UTC] [FTMO] initialize failed: (-6, 'Terminal: Authorization failed') (failure 1)"
       ]
     }
   }
