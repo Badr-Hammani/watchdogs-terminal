@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-11-27 08:15:19 UTC",
+  "updated_at": "2026-11-27 08:16:01 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
-      "timestamp": "08:15:11 UTC",
-      "generated_epoch": 1795767311.3383844,
+      "timestamp": "08:15:51 UTC",
+      "generated_epoch": 1795767351.574024,
       "account_type": "ftmo",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "Armed: Minimum 185s hold strictly enforced on any entry",
-          "can_close": true
+          "detail": "LOCKED: -7159s / 180s elapsed",
+          "can_close": false
         },
         "news_filter": {
           "passed": true,
@@ -21,22 +21,22 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+0.00 (Limit: -$200.00)"
+          "detail": "Floating PnL: $+9.24 (Limit: -$200.00)"
         },
         "daily_circuit_breaker": {
-          "passed": true,
+          "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "1/2 Trades | 1/2 Losses | Daily PnL: $-95.59 | Since reset: $-95.77 of -$350.00"
+          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-95.59 | Since reset: $-86.68 of -$350.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($9,000.00)",
-          "detail": "Equity: $9,904.23 (Safety Cushion: $904.23)"
+          "detail": "Equity: $9,913.32 (Safety Cushion: $913.32)"
         },
         "anti_martingale": {
           "passed": true,
           "name": "Anti-Martingale & Single Position Rule",
-          "detail": "0/1 Open Positions (Grid/Martingale Strictly Disabled)"
+          "detail": "1/1 Open Positions (Grid/Martingale Strictly Disabled)"
         },
         "weekend_filter": {
           "passed": true,
@@ -44,8 +44,8 @@
           "detail": "Market Open"
         }
       },
-      "all_rules_passed": true,
-      "rules_block_reason": null,
+      "all_rules_passed": false,
+      "rules_block_reason": "Daily Circuit Breaker Triggered (2/2 trades used)",
       "watchdog": {
         "status": "ONLINE & ARMED",
         "connected": true,
@@ -54,39 +54,39 @@
         "server": "FTMO-Server4",
         "ping": "31 ms",
         "refresh_interval_sec": 20,
-        "last_signal_eval": "bar 11-27 07:45: no signal: no 20-bar high break, upper wick too big | close=3658.19 VAH=3595.84 VAL=3562.25 hh20=3666.41 ll20=3621.07 ema50=3614.98 ema200=3583.14"
+        "last_signal_eval": "bar 11-27 08:00: BUY"
       },
       "account": {
         "login": 540338873,
         "name": "$10k FTMO Challenge 2-Step",
-        "balance": 9904.23,
-        "equity": 9904.23,
+        "balance": 9904.08,
+        "equity": 9913.32,
         "currency": "USD",
         "phase": "FTMO 2-Step 10K",
         "initial_balance": 10000.0,
         "target_amount": 11000.0,
-        "distance_to_target": 1095.77,
+        "distance_to_target": 1086.68,
         "progress_pct": 0,
         "max_loss_floor": 9000.0,
-        "safety_buffer": 904.23,
-        "daily_trades_used": 1,
+        "safety_buffer": 913.32,
+        "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
-        "daily_drawdown_risk": "0.96% per trade"
+        "daily_drawdown_risk": "0.98% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3669.99,
-        "ask": 3670.46,
+        "bid": 3671.96,
+        "ask": 3672.43,
         "spread": 0.47,
-        "atr14": 10.6,
+        "atr14": 10.78,
         "vah": 3595.84,
         "val": 3562.25,
         "poc": 3579.04,
-        "dist_to_vah": -74.15,
-        "dist_to_val": 107.74,
-        "ema50": 3619.2,
-        "ema200": 3585.05,
+        "dist_to_vah": -76.12,
+        "dist_to_val": 109.71,
+        "ema50": 3619.28,
+        "ema200": 3585.07,
         "regime": "STRONG BULLISH"
       },
       "session": {
@@ -97,17 +97,42 @@
       },
       "execution": {
         "armed_lot_size": "0.06 Lots",
-        "armed_risk_dollars": "$95.43 (0.96% Equity)",
+        "armed_risk_dollars": "$97.01 (0.98% Equity)",
         "armed_target_profit": "1:2.0 R:R",
-        "open_positions": [],
-        "active_trade_count": 0,
-        "floating_pnl": 0,
+        "open_positions": [
+          {
+            "ticket": 187263397,
+            "symbol": "XAUUSD",
+            "type": "BUY",
+            "volume": 0.06,
+            "open_price": 3670.42,
+            "current_price": 3671.96,
+            "sl": 3654.55,
+            "tp": 3702.27,
+            "profit": 9.24,
+            "time": 1795774511
+          }
+        ],
+        "active_trade_count": 1,
+        "floating_pnl": 9.24,
         "live_logs": [
           "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
-          "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m"
+          "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m",
+          "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)"
         ]
       },
       "closed_trades": [
+        {
+          "ticket": 187263397,
+          "symbol": "XAUUSD",
+          "side": "BUY",
+          "volume": 0.06,
+          "open_price": 3670.42,
+          "open_utc": "2026-11-27 08:15",
+          "status": "OPEN",
+          "magic": 400500,
+          "comment": "FTMOAlpha"
+        },
         {
           "ticket": 187219997,
           "symbol": "XAUUSD",
@@ -126,7 +151,8 @@
       ],
       "trade_events": [
         "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
-        "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m"
+        "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m",
+        "[2026-11-27 08:15:11 UTC] [FTMO] ORDER EXECUTED 2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)"
       ],
       "candles": [
         {
@@ -685,9 +711,9 @@
         {
           "time": 1795767300,
           "open": 3669.59,
-          "high": 3670.13,
+          "high": 3672.58,
           "low": 3668.95,
-          "close": 3669.99
+          "close": 3671.96
         }
       ],
       "ema50_series": [
@@ -1009,7 +1035,7 @@
         },
         {
           "time": 1795767300,
-          "value": 3619.2
+          "value": 3619.28
         }
       ],
       "ema200_series": [
@@ -1331,14 +1357,14 @@
         },
         {
           "time": 1795767300,
-          "value": 3585.05
+          "value": 3585.07
         }
       ],
-      "state_age_sec": 8,
+      "state_age_sec": 9,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-27T08:15:11.519951+00:00",
-        "heartbeat_epoch": 1795767311.5199513,
+        "heartbeat_utc": "2026-11-27T08:15:51.574024+00:00",
+        "heartbeat_epoch": 1795767351.574024,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1346,13 +1372,13 @@
         "account_trade_allowed": true,
         "login": 540338873,
         "server": "FTMO-Server4",
-        "equity": 9901.26,
+        "equity": 9913.32,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-27 08:00: BUY",
         "last_order": "2026-11-27T08:15:11.338384+00:00 BUY 0.06L XAUUSD @ 0.0 SL 3654.55 TP 3702.27 ticket 187263397 risk $95.43 (0.96%)",
         "market_data_ok": true,
-        "stage": "order",
+        "stage": "waiting_next_bar",
         "can_trade": true
       },
       "bot_logs": [
@@ -2913,7 +2939,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 55334,
+      "state_age_sec": 55375,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -4577,7 +4603,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 55328,
+      "state_age_sec": 55370,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -6231,7 +6257,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 55335,
+      "state_age_sec": 55377,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
