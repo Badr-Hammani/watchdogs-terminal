@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-27 10:31:22 UTC",
+  "updated_at": "2026-11-27 10:32:03 UTC",
   "primary_url": "https://bloomberg-preston-equipped-golf.trycloudflare.com",
   "accounts": {
     "ftmo": {
-      "timestamp": "10:31:20 UTC",
-      "generated_epoch": 1795775480.6037006,
+      "timestamp": "10:32:00 UTC",
+      "generated_epoch": 1795775520.654823,
       "account_type": "ftmo",
       "rules_audit": {
         "3m_hold": {
           "passed": true,
           "name": "3-Minute Hold Guard",
-          "detail": "COMPLIANT: 969s / 180s elapsed",
+          "detail": "COMPLIANT: 1009s / 180s elapsed",
           "can_close": true
         },
         "news_filter": {
@@ -21,17 +21,17 @@
         "atlas_protector": {
           "passed": true,
           "name": "Atlas Protector (Floating DD < 2%)",
-          "detail": "Floating PnL: $+9.60 (Limit: -$200.00)"
+          "detail": "Floating PnL: $+17.58 (Limit: -$200.00)"
         },
         "daily_circuit_breaker": {
           "passed": false,
           "name": "Daily Circuit Breaker (Max 2 Trades)",
-          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-95.59 | Since reset: $-86.32 of -$350.00"
+          "detail": "2/2 Trades | 1/2 Losses | Daily PnL: $-95.59 | Since reset: $-78.34 of -$350.00"
         },
         "loss_floor": {
           "passed": true,
           "name": "Max Drawdown Floor ($9,000.00)",
-          "detail": "Equity: $9,913.68 (Safety Cushion: $913.68)"
+          "detail": "Equity: $9,921.66 (Safety Cushion: $921.66)"
         },
         "anti_martingale": {
           "passed": true,
@@ -60,44 +60,44 @@
         "login": 540338873,
         "name": "$10k FTMO Challenge 2-Step",
         "balance": 9904.08,
-        "equity": 9913.68,
+        "equity": 9921.66,
         "currency": "USD",
         "phase": "FTMO 2-Step 10K",
         "initial_balance": 10000.0,
         "target_amount": 11000.0,
-        "distance_to_target": 1086.32,
+        "distance_to_target": 1078.34,
         "progress_pct": 0,
         "max_loss_floor": 9000.0,
-        "safety_buffer": 913.68,
+        "safety_buffer": 921.66,
         "daily_trades_used": 2,
         "max_daily_trades": 2,
         "daily_losses_used": 1,
-        "daily_drawdown_risk": "0.98% per trade"
+        "daily_drawdown_risk": "0.99% per trade"
       },
       "market": {
         "symbol": "XAUUSD",
-        "bid": 3672.02,
-        "ask": 3672.49,
+        "bid": 3673.35,
+        "ask": 3673.82,
         "spread": 0.47,
-        "atr14": 7.18,
+        "atr14": 7.27,
         "vah": 3595.84,
         "val": 3562.25,
         "poc": 3579.04,
-        "dist_to_vah": -76.18,
-        "dist_to_val": 109.77,
-        "ema50": 3636.27,
-        "ema200": 3593.53,
+        "dist_to_vah": -77.51,
+        "dist_to_val": 111.1,
+        "ema50": 3636.32,
+        "ema200": 3593.55,
         "regime": "STRONG BULLISH"
       },
       "session": {
         "active": true,
-        "status_label": "UTC 10:31",
+        "status_label": "UTC 10:32",
         "current_hour_utc": 10,
-        "current_min_utc": 31
+        "current_min_utc": 32
       },
       "execution": {
         "armed_lot_size": "0.09 Lots",
-        "armed_risk_dollars": "$96.89 (0.98% Equity)",
+        "armed_risk_dollars": "$98.12 (0.99% Equity)",
         "armed_target_profit": "1:2.0 R:R",
         "open_positions": [
           {
@@ -106,15 +106,15 @@
             "type": "BUY",
             "volume": 0.06,
             "open_price": 3670.42,
-            "current_price": 3672.02,
+            "current_price": 3673.35,
             "sl": 3654.55,
             "tp": 3702.27,
-            "profit": 9.6,
+            "profit": 17.58,
             "time": 1795774511
           }
         ],
         "active_trade_count": 1,
-        "floating_pnl": 9.6,
+        "floating_pnl": 17.58,
         "live_logs": [
           "[2026-11-27 05:30:20 UTC] [FTMO] ORDER EXECUTED 2026-11-27T05:30:19.862001+00:00 BUY 0.07L XAUUSD @ 0.0 SL 3649.22 TP 3689.62 ticket 187219997 risk $94.26 (0.94%)",
           "[2026-11-27 05:37:20 UTC] [FTMO] CLOSED #187219997 BUY 0.07L 3662.7 -> 3649.07 P/L $-95.77 held 7m",
@@ -711,9 +711,9 @@
         {
           "time": 1795775400,
           "open": 3671.97,
-          "high": 3672.08,
+          "high": 3673.35,
           "low": 3670.7,
-          "close": 3672.02
+          "close": 3673.35
         }
       ],
       "ema50_series": [
@@ -1035,7 +1035,7 @@
         },
         {
           "time": 1795775400,
-          "value": 3636.27
+          "value": 3636.32
         }
       ],
       "ema200_series": [
@@ -1357,14 +1357,14 @@
         },
         {
           "time": 1795775400,
-          "value": 3593.53
+          "value": 3593.55
         }
       ],
-      "state_age_sec": 1,
+      "state_age_sec": 3,
       "engine_health": {
         "account": "ftmo",
-        "heartbeat_utc": "2026-11-27T10:31:20.616779+00:00",
-        "heartbeat_epoch": 1795775480.6167796,
+        "heartbeat_utc": "2026-11-27T10:32:00.670568+00:00",
+        "heartbeat_epoch": 1795775520.6705687,
         "terminal_path": "C:\\MT5\\ftmo\\terminal64.exe",
         "connected": true,
         "terminal_autotrading": true,
@@ -1372,7 +1372,7 @@
         "account_trade_allowed": true,
         "login": 540338873,
         "server": "FTMO-Server4",
-        "equity": 9913.68,
+        "equity": 9921.66,
         "consecutive_failures": 0,
         "last_error": null,
         "last_signal_eval": "bar 11-27 10:15: no signal: no 20-bar high break, upper wick too big | close=3671.79 VAH=3595.84 VAL=3562.25 hh20=3685.15 ll20=3637.76 ema50=3634.81 ema200=3592.75",
@@ -2939,7 +2939,7 @@
           "value": 3567.29
         }
       ],
-      "state_age_sec": 63496,
+      "state_age_sec": 63538,
       "engine_health": {
         "account": "exness",
         "heartbeat_utc": "2026-11-26T16:53:05.450836+00:00",
@@ -4603,7 +4603,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 63490,
+      "state_age_sec": 63532,
       "engine_health": {
         "account": "phase1",
         "heartbeat_utc": "2026-11-26T16:53:11.377674+00:00",
@@ -6257,7 +6257,7 @@
           "value": 3567.17
         }
       ],
-      "state_age_sec": 63497,
+      "state_age_sec": 63539,
       "engine_health": {
         "account": "competition",
         "heartbeat_utc": "2026-11-26T16:53:04.308876+00:00",
