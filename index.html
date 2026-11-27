@@ -431,6 +431,7 @@
               <div class="stat px num" data-f="bid-strong">—</div>
               <div class="stat">Spread <b class="num" data-f="spread">—</b></div>
               <div class="stat">M15 Timer <b class="num" data-f="timer">—</b></div>
+              <div class="scope" data-cm-group><button data-cm="live" class="active">Live trade</button><button data-cm="history">Trade history</button></div>
               <button class="btn small" data-go="chart">Expand ↗</button>
             </div>
             <div class="chart-slot" id="ov-chart-slot"></div>
@@ -494,6 +495,7 @@
               <div class="stat px num" data-f="bid-strong">—</div>
               <div class="stat">Spread <b class="num" data-f="spread">—</b></div>
               <div class="stat">M15 Timer <b class="num" data-f="timer">—</b></div>
+              <div class="scope" data-cm-group><button data-cm="live" class="active">Live trade</button><button data-cm="history">Trade history</button></div>
               <button class="btn small" data-go="overview">Back ↙</button>
             </div>
             <div class="chart-slot" id="big-chart-slot"></div>
@@ -503,7 +505,11 @@
               <span><i style="background:var(--red)"></i>VAL</span>
               <span><i style="background:rgba(34,211,238,.55)"></i>EMA 50</span>
               <span><i style="background:rgba(167,139,250,.7)"></i>EMA 200</span>
+              <span><i style="background:#E2E8F0"></i>Entry</span>
+              <span><i style="background:#FB7185"></i>SL</span>
+              <span><i style="background:#34D399"></i>TP</span>
               <span id="tz-note">Times in UTC</span>
+              <span id="cm-note" class="muted"></span>
             </div>
           </div>
 
@@ -649,11 +655,13 @@
       scope: 'bot',      // 'bot' = only trades placed by this account's engine (magic number), 'all' = every broker trade
       calMonth: null,    // Date (UTC first of month)
       selDay: null,
-      missing: {},       // account -> true when the feed loads but has no entry for it
+      missing: {},
+      chartMode: 'live', // 'live' = open trade with entry/SL/TP lines, 'history' = closed bot trades drawn on the candles       // account -> true when the feed loads but has no entry for it
     };
     try {
       const a = localStorage.getItem('wd_acc2'); if (ACCOUNTS.includes(a)) store.acc = a;  // new key: everyone opens on FTMO once
       const sc = localStorage.getItem('wd_scope'); if (sc === 'all' || sc === 'bot') store.scope = sc;
+      const cmv = localStorage.getItem('wd_chartmode'); if (cmv === 'live' || cmv === 'history') store.chartMode = cmv;
     } catch (e) {}
     const hashTab = (location.hash || '').replace('#', '');
     if (TABS.includes(hashTab)) store.tab = hashTab;
@@ -845,6 +853,8 @@
       if (t) { go(t.dataset.tab); return; }
       const a = e.target.closest('#acct-seg button');
       if (a) { switchAccount(a.dataset.acc); return; }
+      const cmb = e.target.closest('[data-cm]');
+      if (cmb) { setChartMode(cmb.dataset.cm); return; }
       const sc = e.target.closest('[data-scope]');
       if (sc) {
         store.scope = sc.dataset.scope; store.selDay = null;
@@ -883,6 +893,7 @@
     // ------------------------------------------------------------------ chart
     let chart = null, candleS = null, ema50S = null, ema200S = null;
     let zoneLines = {}, posLines = [], scaleLevels = [];
+    let tradeSeries = [], tradeSig = '';
     let chartFitted = false;
     const chartHost = document.createElement('div');
     chartHost.id = 'chart-host';
@@ -932,6 +943,73 @@
       const last = c[c.length - 1].time;
       return Math.round((last + 450 - d.generated_epoch) / 3600) * 3600;
     }
+    function setChartMode(m) {
+      store.chartMode = m === 'history' ? 'history' : 'live';
+      document.querySelectorAll('[data-cm-group] button').forEach(b => b.classList.toggle('active', b.dataset.cm === store.chartMode));
+      try { localStorage.setItem('wd_chartmode', store.chartMode); } catch (e) {}
+      tradeSig = ''; renderChart(store.data[store.acc]);
+    }
+    function clearTradeDrawings() {
+      tradeSeries.forEach(x => { try { chart.removeSeries(x); } catch (e) {} }); tradeSeries = []; tradeSig = '';
+      if (candleS) candleS.setMarkers([]);
+    }
+    // SL/TP per ticket come from the engine's own "ORDER EXECUTED ... SL x TP y ticket n" log lines
+    function slTpByTicket(d) {
+      const out = {};
+      for (const line of (d.trade_events || [])) {
+        const m = /ORDER EXECUTED .*?\b(BUY|SELL)\b.*?\bSL ([\d.]+) TP ([\d.]+) ticket (\d+)/.exec(line);
+        if (m) out[m[4]] = { sl: Number(m[2]), tp: Number(m[3]) };
+      }
+      return out;
+    }
+    function drawTrades(d, off, pos) {
+      const bar = (sec) => Math.floor(sec / 900) * 900;
+      const c = d.candles, first = c[0].time - off, last = c[c.length - 1].time - off;
+      const markers = [];
+      let segs = [], note = '';
+      if (store.chartMode === 'live') {
+        for (const p of pos) {
+          const t = isNum(p.time) && p.time > 0 ? bar(p.time - off) : null;
+          if (t && t >= first && t <= last) markers.push({ time: t, position: p.type === 'SELL' ? 'aboveBar' : 'belowBar', color: '#E2E8F0', shape: p.type === 'SELL' ? 'arrowDown' : 'arrowUp', text: `${p.type} ${p.volume}` });
+        }
+        note = pos.length ? `${pos.length} open trade${pos.length > 1 ? 's' : ''}` : 'No open trade right now';
+      } else {
+        const lv = slTpByTicket(d);
+        const trades = scopedTrades(d).filter(t => t.status === 'CLOSED');
+        let shown = 0;
+        for (const t of trades) {
+          const o = utcMs(t.open_utc), x = utcMs(t.close_utc); if (!o || !x) continue;
+          const t0 = bar(o / 1000), t1 = Math.max(bar(x / 1000), t0 + 900);
+          if (t1 < first || t0 > last) continue;
+          shown++;
+          const buy = t.side === 'BUY', win = Number(t.profit) >= 0;
+          markers.push({ time: t0, position: buy ? 'belowBar' : 'aboveBar', color: '#E2E8F0', shape: buy ? 'arrowUp' : 'arrowDown', text: `${t.side} ${t.volume}` });
+          markers.push({ time: Math.min(t1, last), position: buy ? 'aboveBar' : 'belowBar', color: win ? '#34D399' : '#FB7185', shape: 'circle', text: fmtUSD(Number(t.profit), true) });
+          const lvl = lv[String(t.ticket)] || {};
+          const tz = Math.max(Math.min(Math.max(t1, t0 + 4 * 900), last), t0 + 900); // short trades: draw at least 4 bars so the levels stay visible
+          segs.push([t0, tz, Number(t.open_price), '#E2E8F0', 0]);
+          if (isNum(lvl.sl) && lvl.sl > 0) segs.push([t0, tz, lvl.sl, '#FB7185', 2]);
+          if (isNum(lvl.tp) && lvl.tp > 0) segs.push([t0, tz, lvl.tp, '#34D399', 2]);
+          if (isNum(t.close_price)) segs.push([t1, t1, Number(t.close_price), null, 0]); // exit price only as marker anchor
+        }
+        segs = segs.filter(z => z[3]);
+        note = shown ? `${shown} closed bot trade${shown > 1 ? 's' : ''} in view` : `No closed bot trades in the last ${Math.round((last - first) / 3600)} h of candles`;
+      }
+      setText('cm-note', '· ' + note);
+      const sig = store.acc + '|' + store.chartMode + '|' + JSON.stringify(segs);
+      if (sig !== tradeSig) {
+        tradeSeries.forEach(x => { try { chart.removeSeries(x); } catch (e) {} }); tradeSeries = [];
+        for (const [a, b, price, color, style] of segs) {
+          if (!isNum(price)) continue;
+          const ls = chart.addLineSeries({ color, lineWidth: 2, lineStyle: style, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false });
+          ls.setData([{ time: a, value: price }, { time: b, value: price }]);
+          tradeSeries.push(ls);
+        }
+        tradeSig = sig;
+      }
+      markers.sort((m1, m2) => m1.time - m2.time);
+      candleS.setMarkers(markers);
+    }
     function renderChart(d) {
       if (!chart) return;
       const real = isReal(d) && Array.isArray(d.candles) && d.candles.length > 0;
@@ -941,6 +1019,7 @@
         candleS.setData([]); ema50S.setData([]); ema200S.setData([]);
         scaleLevels = [];
         Object.keys(zoneLines).forEach(k => setZoneLine(k, null)); posLines.forEach(l => candleS.removePriceLine(l)); posLines = [];
+        clearTradeDrawings(); setText('cm-note', '');
         return;
       }
       const off = brokerOffsetSec(d);
@@ -955,13 +1034,14 @@
       setZoneLine('poc', m.poc, '#FBBF24', 'POC', 2);
       setZoneLine('val', m.val, '#FB7185', 'VAL', 0);
       posLines.forEach(l => candleS.removePriceLine(l)); posLines = [];
-      const pos = (d.execution && d.execution.open_positions) || d.open_positions || [];
+      const pos = store.chartMode === 'live' ? ((d.execution && d.execution.open_positions) || d.open_positions || []) : [];
       for (const p of pos) {
         [p.open_price, p.sl, p.tp].forEach(v => { if (isNum(v) && v > 0) scaleLevels.push(v); });
         if (isNum(p.open_price)) posLines.push(candleS.createPriceLine({ price: p.open_price, color: '#E2E8F0', lineWidth: 1, lineStyle: 1, title: `${p.type} ${p.volume}` }));
         if (isNum(p.sl) && p.sl > 0) posLines.push(candleS.createPriceLine({ price: p.sl, color: '#FB7185', lineWidth: 1, lineStyle: 3, title: 'SL' }));
         if (isNum(p.tp) && p.tp > 0) posLines.push(candleS.createPriceLine({ price: p.tp, color: '#34D399', lineWidth: 1, lineStyle: 3, title: 'TP' }));
       }
+      drawTrades(d, off, pos);
       // Fit only once the chart has a real width: fitting while it is 0px wide collapses the bar spacing.
       if (!chartFitted && chartHost.clientWidth > 50 && chart.timeScale().width() > 50) {
         const n = d.candles.length;
@@ -1464,6 +1544,7 @@
     activate($('acct-seg'), 'acc', store.acc);
     activate($('tab-seg'), 'tab', store.tab);
     document.querySelectorAll('[data-scope-group]').forEach(g => g.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.scope === store.scope)));
+    document.querySelectorAll('[data-cm-group] button').forEach(b => b.classList.toggle('active', b.dataset.cm === store.chartMode));
     Object.values(views).forEach(v => v.classList.toggle('active', v.dataset.view === store.tab));
     mountChart();   // attach the host first so the chart is created at its real size
     window.__lwc.then(ok => {
